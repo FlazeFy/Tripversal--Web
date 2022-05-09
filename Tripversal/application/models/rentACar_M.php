@@ -9,5 +9,11 @@
 			$this->db->order_by('price','DESC');
 			return $data = $this->db->get()->result_array();
 		}
+		public function get_all_car_rating()
+		{
+			$this->db->select('*');
+			$this->db->from('car_rating');
+			return $data = $this->db->get()->result_array();
+		}
 	}
 ?>

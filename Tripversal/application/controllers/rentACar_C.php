@@ -9,6 +9,7 @@
 		public function index(){
 			$data = [];
 			$data['carData']= $this->rentACar_M->get_all_car();
+			$data['carRating']= $this->rentACar_M->get_all_car_rating();
 			$this->load->view('RentACarPage', $data);
 		}
 	}
