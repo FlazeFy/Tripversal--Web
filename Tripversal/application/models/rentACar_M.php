@@ -15,5 +15,12 @@
 			$this->db->from('car_rating');
 			return $data = $this->db->get()->result_array();
 		}
+		public function get_all_notification()
+		{
+			$this->db->select('*');
+			$this->db->from('notification');
+			$this->db->order_by('datetime','DESC');
+			return $data = $this->db->get()->result_array();
+		}
 	}
 ?>

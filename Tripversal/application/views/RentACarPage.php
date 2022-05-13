@@ -39,7 +39,7 @@
 			a{text-decoration: none;}
 			.header{box-shadow: rgba(0, 0, 0, 0.35) 0px 4px 12px; width: 100%;height: var(--header-height);position: fixed;top: 0;left: 0;display: flex;align-items: center;justify-content: space-between;padding: 0 1rem;background-color: var(--white-color);z-index: var(--z-fixed);transition: .5s}
 			.header_toggle{color: var(--first-color);font-size: 1.5rem;cursor: pointer}
-			.header_img{width: 60px;height: 40px;display: flex;justify-content: center;overflow: hidden; margin-top:15px;}
+			.header_img{width: 60px;height: 60px;display: flex;justify-content: center;overflow: hidden; margin-top:35px;}
 			.l-navbar{position: fixed;top: 0;left: -30%;width: var(--nav-width);height: 100vh;background-color: var(--first-color);padding: .5rem 1rem 0 0;transition: .5s;z-index: var(--z-fixed)}
 			.nav{height: 100%;display: flex;flex-direction: column;justify-content: space-between;overflow: hidden}
 			.nav_logo, .nav_link{display: grid;grid-template-columns: max-content max-content;align-items: center;column-gap: 1rem;padding: .5rem 0 .5rem 1.5rem}
@@ -51,9 +51,9 @@
 			.nav_icon{font-size: 1.25rem}
 			.show{left: 0}
 			.body-pd{padding-left: calc(var(--nav-width) + 1rem)}
-			.active{color: var(--white-color); background:#454555; border-top-right-radius:10px; border-bottom-right-radius:10px;}
+			.active{color: var(--white-color); background:#414141; border-top-right-radius:10px; border-bottom-right-radius:10px;}
 			.height-100{height:100vh}@media screen and (min-width: 768px){body{margin: calc(var(--header-height) + 1rem) 0 0 0;padding-left: calc(var(--nav-width) + 2rem)}.header{height: calc(var(--header-height) + 1rem);padding: 0 2rem 0 calc(var(--nav-width) + 2rem)}
-			.header_img{width: 40px;height: 40px}.header_img img{width: 45px}.l-navbar{left: 0;padding: 1rem 1rem 0 0}.show{width: calc(var(--nav-width) + 156px)}.body-pd{padding-left: calc(var(--nav-width) + 188px)}}
+			.l-navbar{left: 0;padding: 1rem 1rem 0 0}.show{width: calc(var(--nav-width) + 156px)}.body-pd{padding-left: calc(var(--nav-width) + 188px)}}
 
 			/*Card item*/
 			.glassBox {
@@ -111,7 +111,12 @@
 				transform: translateY(-14px);
 			}
 			.glassBox:hover .glassBox__imgBox img {
-				transform: translate(-7px, -14px) scale(1.25);
+				transform: translate(-7px, -14px) scale(1.15);
+			}
+			#notification{
+				padding-top:3px; padding-bottom:3px; padding-right:6px; padding-left:10px;
+				margin-left:-20px; margin-bottom:20px;
+				border-radius:0px; border:none; 
 			}			
 		</style>
                              
@@ -122,19 +127,20 @@
 			<div class="header_toggle"> <i class='bx bx-menu' id="header-toggle"></i> </div>
 			<input class='form-control' type='search' style='width:20%; border-radius:8px; border: 2.5px solid #4169E1; margin-left:50px; position:fixed;' placeholder='search by car name...'></input>
 			<h5 style='color:#4169E1; font-weight:bold;'>Rent A Car</h5>
-			<div class="header_img"> <i class="fa-solid fa-bell" style='margin-right:10px;'></i> <i class="fa-solid fa-gear"></i> </div>
+			<div class="header_img"> <i class="fa-solid fa-circle-info" style='margin-right:10px;'></i> <i class="fa-solid fa-gear"></i> </div>
 		</header>
 		<div class="l-navbar" id="nav-bar">
 			<nav class="nav">
 				<div> <a href="#" class="nav_logo"> <img src='http://localhost/Tripversal/assets/uploads/user/user_flazefy.jpg' alt='Card image cap' class='rounded-circle img-fluid' 
 					style='width:50px; height:40px; margin-left:-11px;'>  <span class="nav_logo-name">flazefy</span> </a>
-					<div class="nav_list"> <a href="#" class="nav_link active"> <i class="fa-solid fa-car"></i> <span class="nav_name">Rent A Car</span> </a> 
+					<div class="nav_list"> 
+						<a href="#" class="nav_link active"> <i class="fa-solid fa-car"></i> <span class="nav_name">Rent A Car</span> </a> 
 						<a href="#" class="nav_link"> <i class="fa-solid fa-people-group"></i> <span class="nav_name">Tour Guide</span> </a> 
 						<a href="#" class="nav_link"> <i class="fa-solid fa-folder-open"></i> <span class="nav_name">My Reservation</span> </a>
 						<a href="#" class="nav_link"> <i class="fa-solid fa-map-location"></i> <span class="nav_name">Travel Destination</span> </a>  
 						<a href="#" class="nav_link"> <i class="fa-solid fa-message"></i> <span class="nav_name">Messages</span> </a> 
-						<a href="#" class="nav_link"> <i class="fa-solid fa-circle-info"></i> <span class="nav_name">About us</span> </a> </div>
-				</div> 
+					</div> 
+				</div>
 				<a href="#" class="nav_link" style='background:#D62C49; margin-left:10px; border-radius:5px; color:whitesmoke;'> <i class='bx bx-log-out nav_icon' style='margin-left:-15px;'></i> <span class="nav_name">Sign Out</span> </a>
 			</nav>
 		</div>
@@ -175,7 +181,7 @@
 						</div>
 					</div>
 					<div class="row" style='margin-top:5px;'>
-						<div class="col-sm-6">
+						<div class="col-md-8">
 							<h5 class='font-weight-100' style='font-size: 16px;'>City</h5>
 							<select class="form-control" name="city" style="background:#f4f4f4; border-width: 0 0 3px; 
 								border-bottom: 3.5px solid #4183D7; color:#212121;">
@@ -190,378 +196,493 @@
 						<div class="col-sm-4">
 							<button class='btn btn-success' style='margin-top:25px;'><i class="fa-solid fa-magnifying-glass"></i> Search</button>
 						</div>
-						<div class="col-sm">
-							<button class='btn btn-dark' style='margin-top:25px; color:white;'><i class="fa-solid fa-hand"></i></button>
-						</div>
 					</div>		
 				</div>
 			</div>
-			<div class=col-md-6>
-			
-			
+			<div class='col-md-5'>
+				<div class='container-fluid' style='width:100%; height:100%; padding:10px; background:#414141; border-radius:10px;'>
+					<div class='row'>
+						<div class='col-md-3'>
+							<h4 style='margin-top:50px; color:whitesmoke;'>Top Used Car</h4>
+							<button class='btn btn-link' style='margin-top:-15px; margin-left:-10px; color:#068ac2; text-decoration:none; font-size:15px;'><i class="fa-solid fa-arrow-right"></i> See More</button>
+						</div>
+						<div class='col-md-9'>
+						
+							<div class='container' style='width:100%;'>
+								<div class='row'>
+									<div class='col-md'>
+										<img src='http://localhost/Tripversal/assets/image/D 1670 VZB.png' style='height:130px; margin-left:-10px;' alt=''>
+										<h6 style='font-size:14px; margin-top:5px; color:whitesmoke;'>Honda Brio RS / 2020</h6>
+									</div>
+									<div class='col-md'>
+										<br>
+										<p style='font-size:14px; color:whitesmoke;'><i class='fa-solid fa-location-dot'></i> Bojongsoang</p>
+										<div class='container-fluid' style='margin-top:-15px; margin-left:-25px; color:whitesmoke;'>
+											<a style='font-size:14px; color:whitesmoke;'><i class='fa-solid fa-person'></i> 5 Seats</a>
+											<a style='font-size:14px; color:whitesmoke;'><i class='fa-solid fa-star'></i> 5</a>
+										</div>
+										<p style='font-size:16px; color:#068ac2; font-weight:bold; margin-top:5px;'> Rp. 350.000 / Day</p>
+										<button type='button' class='btn btn-success'>Book Now</button>
+									</div>
+								</div>
+							</div>				
+						
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 		<hr>
-		<div class="accordion" id="accordionExample">	
-			<div data-toggle="collapse" href="#collapseCityCar" role="button" aria-expanded="false" aria-controls="collapseExample" style='margin-bottom:10px;'>
-				<div class='container' style='background:#068ac2; color:whitesmoke; border-radius:100px; width:30px; height:30px; position:relative; float:left; padding:2px;
-					margin-right:10px; bottom:3px;'><a style='margin-left:9px; top:15px; font-size:13px; text-align:center;'>
-					<?php
-					$i = 0;
-					foreach ($carData as $car){
-						if(($car['status'] == 'available')&&($car['type'] == 'City Car')){
-							$i++;
-						}
-					}
-					echo $i; 
-					?>
-				</a></div>
-				<h5>City Car</h5>
-				<a style='font-style:italic; color:grey; font-size:13px;'><i class="fa-solid fa-circle-info"></i> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Venenatis tellus in metus vulputate. Aliquam purus sit amet luctus venenatis lectus magna fringilla urna.</a>
-				<i class="fa-solid fa-circle-chevron-down fa-lg" style='float:right; margin-top:-5px; margin-right:20px;'></i>
-			</div>
-			<div id="collapseCityCar" class='card-body collapse show' style='width:100%; margin-bottom:20px;'>
-				<div class='row' style='margin-top:40px;'>
-					<?php
-					$i = 0;
-					foreach ($carData as $car){
-						if(($car['status'] == 'available')&&($car['type'] == 'City Car')){
-							echo"
-							<div class='glassBox'>
-								<div class='glassBox__imgBox'>
-									<img src='http://localhost/Tripversal/assets/image/".$car['plate_number'].".png' alt=''>
-									<h3 class='glassBox__title'>".$car['car_name']." / ".$car['year']."</h3>
-									<hr>
-								</div>
-								<div class='card-body' style='width:120%; margin-top:-25px; display: block; margin-left: auto; margin-right: auto;'>
-									<div class='row'>
-										<div class='col-md-5 border-right'>
-											<a style='color:#068ac2; font-size:14px;'><i class='fa-solid fa-location-dot'></i> ".$car['location']."</a>
-										</div>
-										<div class='col-md-4'>
-											<a style='color:#068ac2; font-size:14px;'><i class='fa-solid fa-person'></i> ".$car['seat']." seats</a>
-										</div>
-										<div class='col-md-3' style='margin-left:-30px;'>
-											<a style='color:#068ac2; font-size:14px;'><i class='fa-solid fa-star'></i> "; 
-											$total = 0; $i = 0;
-											foreach($carRating as $rating){
-												if($car['id_car'] == $rating['id_car']){
-													$total += $rating['rating'];
-													$i++;
-												}
-											}
-											if($i >= 1){
-												$total = $total / $i;
-											}
-											echo $total;
-											echo"</a>
-										</div>
-									</div>
-									<div class='row' style='margin-top:5px;'>";
-										if($car['driver'] == 'none'){
-											echo"<a style='margin-left:-10px; float:left; font-size:14px;'>Driver <span style='color:#808080;'> none</span></a>";
-										} else {
-											echo"<a style='margin-left:-10px; float:left; font-size:14px;'>Driver <img src='http://localhost/Tripversal/assets/uploads/user/user_flazefy.jpg' alt='Driver' class='rounded-circle img-fluid' 
-												style='width:35px; height:35px; type:button; cursor:pointer;'>  <span style='color:#068ac2; text-decoration: underline; type:button; cursor:pointer;'> flazefy</span> </a>";
-										}
-									echo"</div>
-									<div class='row' style='margin-top:5px;'>
-										<div class='col-md-6' style='margin-top:10px;'>
-											<h6 style='color:grey;'>Rp. <a style='color:#212121; font-weight:bold;'>"; $price = $car['price'];
-											$newPrice = wordwrap($price , 3 , '.' , true ); echo $newPrice; echo"</a> / Day</h6>
-										</div>
-										<div class='col-md-6'>
-											<button type='button' class='btn btn-success'>Book Now</button>
-										</div>
-									</div>
-								</div>
-							</div>";
-							$i++;
-						}
-					}
-					if($i == 0){
-					echo "<div class='container' style='box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; padding:10px; width:500px;'>
-							<p style='font-style:italic; text-align:center; font-size:14px;'>Sorry, there's no type of this vehicle found in this city or all vehicles are busy. Try another type.</p>
-							<img src='http://localhost/Tripversal/assets/icon/Car driving.gif' alt='Empty.png' style='display: block;
-								margin-left: auto; margin-right: auto; width: 200px; height: 200px; margin-top:-20px;'>
-						</div>";
-					}
-					?>
-				</div>
-			</div>
-			<!--End of category--> 
 
-			<div data-toggle="collapse" href="#collapseMinibus" role="button" aria-expanded="false" aria-controls="collapseExample" style='margin-bottom:10px;'>
-				<div class='container' style='background:#068ac2; color:whitesmoke; border-radius:100px; width:30px; height:30px; position:relative; float:left; padding:2px;
-					margin-right:10px; bottom:3px;'><a style='margin-left:9px; top:15px; font-size:13px; text-align:center;'>
-					<?php
-					$i = 0;
-					foreach ($carData as $car){
-						if(($car['status'] == 'available')&&($car['type'] == 'Minibus')){
-							$i++;
-						}
-					}
-					echo $i; 
-					?>
-				</a></div>
-				<h5>Minibus</h5>
-				<a style='font-style:italic; color:grey; font-size:13px;'><i class="fa-solid fa-circle-info"></i> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Venenatis tellus in metus vulputate. Aliquam purus sit amet luctus venenatis lectus magna fringilla urna.</a>
-				<i class="fa-solid fa-circle-chevron-down fa-lg" style='float:right; margin-top:-5px; margin-right:20px;'></i>
-			</div>
-			<div id="collapseMinibus" class='card-body collapse show' style='width:100%; margin-bottom:20px;'>
-				<div class='row' style='margin-top:60px;'>
-					<?php
-					$i = 0;
-					foreach ($carData as $car){
-						if(($car['status'] == 'available')&&($car['type'] == 'Minibus')){
-							echo"
-							<div class='glassBox'>
-								<div class='glassBox__imgBox'>
-									<img src='http://localhost/Tripversal/assets/image/".$car['plate_number'].".png' alt=''>
-									<h3 class='glassBox__title'>".$car['car_name']." / ".$car['year']."</h3>
-									<hr>
-								</div>
-								<div class='card-body' style='width:120%; margin-top:-25px; display: block; margin-left: auto; margin-right: auto;'>
-									<div class='row'>
-										<div class='col-md-5 border-right'>
-											<a style='color:#068ac2; font-size:14px;'><i class='fa-solid fa-location-dot'></i> ".$car['location']."</a>
+		<div class='row'>
+			<div class=col-md-9>
+				<h5><i class="fa-solid fa-car"></i> Available Vehicle</h5>
+				<div class="accordion" id="accordionExample">	
+					<div data-toggle="collapse" href="#collapseCityCar" role="button" aria-expanded="false" aria-controls="collapseExample" style='margin-bottom:10px;'>
+						<div class='container' style='background:#068ac2; color:whitesmoke; border-radius:100px; width:30px; height:30px; position:relative; float:left; padding:2px;
+							margin-right:10px; bottom:3px;'><a style='margin-left:9px; top:15px; font-size:13px; text-align:center;'>
+							<?php
+							$i = 0;
+							foreach ($carData as $car){
+								if(($car['status'] == 'available')&&($car['type'] == 'City Car')&&($car['city'] == 'Bandung')){
+									$i++;
+								}
+							}
+							echo $i; 
+							?>
+						</a></div>
+						<h5>City Car</h5>
+						<div class='container' style='width:80%; margin-left:-20px;'>
+							<a style='font-style:italic; color:grey; font-size:13px;'><i class="fa-solid fa-circle-info"></i> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Venenatis tellus in metus vulputate. Aliquam purus sit amet luctus venenatis lectus magna fringilla urna.</a>
+						</div>						
+						<i class="fa-solid fa-circle-chevron-down fa-lg" style='float:right; margin-top:-40px; margin-right:20px;'></i>
+					</div>
+					<div id="collapseCityCar" class='card-body collapse show' style='width:100%; margin-bottom:20px;'>
+						<div class='row' style='margin-top:40px;'>
+							<?php
+							$i = 0;
+							foreach ($carData as $car){
+								if(($car['status'] == 'available')&&($car['type'] == 'City Car')&&($car['city'] == 'Bandung')){
+									echo"
+									<div class='glassBox'>
+										<div class='glassBox__imgBox'>
+											<img src='http://localhost/Tripversal/assets/image/".$car['plate_number'].".png' alt=''>
+											<h3 class='glassBox__title'>".$car['car_name']." / ".$car['year']."</h3>
+											<hr>
 										</div>
-										<div class='col-md-4'>
-											<a style='color:#068ac2; font-size:14px;'><i class='fa-solid fa-person'></i> ".$car['seat']." seats</a>
-										</div>
-										<div class='col-md-3' style='margin-left:-30px;'>
-											<a style='color:#068ac2; font-size:14px;'><i class='fa-solid fa-star'></i> "; 
-											$total = 0; $i = 0;
-											foreach($carRating as $rating){
-												if($car['id_car'] == $rating['id_car']){
-													$total += $rating['rating'];
-													$i++;
+										<div class='card-body' style='width:120%; margin-top:-25px; display: block; margin-left: auto; margin-right: auto;'>
+											<div class='row'>
+												<div class='col-md-5 border-right'>
+													<a style='color:#068ac2; font-size:14px;'><i class='fa-solid fa-location-dot'></i> ".$car['location']."</a>
+												</div>
+												<div class='col-md-4'>
+													<a style='color:#068ac2; font-size:14px;'><i class='fa-solid fa-person'></i> ".$car['seat']." seats</a>
+												</div>
+												<div class='col-md-3' style='margin-left:-30px;'>
+													<a style='color:#068ac2; font-size:14px;'><i class='fa-solid fa-star'></i> "; 
+													$total = 0; $i = 0;
+													foreach($carRating as $rating){
+														if($car['id_car'] == $rating['id_car']){
+															$total += $rating['rating'];
+															$i++;
+														}
+													}
+													if($i >= 1){
+														$total = $total / $i;
+													}
+													echo $total;
+													echo"</a>
+												</div>
+											</div>
+											<div class='row' style='margin-top:5px;'>";
+												if($car['driver'] == 'none'){
+													echo"<a style='margin-left:-10px; float:left; font-size:14px;'>Driver <span style='color:#808080;'> none</span></a>";
+												} else {
+													echo"<a style='margin-left:-10px; float:left; font-size:14px;'>Driver <img src='http://localhost/Tripversal/assets/uploads/user/user_flazefy.jpg' alt='Driver' class='rounded-circle img-fluid' 
+														style='width:35px; height:35px; type:button; cursor:pointer;'>  <span style='color:#068ac2; text-decoration: underline; type:button; cursor:pointer;'> flazefy</span> </a>";
 												}
-											}
-											if($i >= 1){
-												$total = $total / $i;
-											}
-											echo $total;
-											echo"</a>
+											echo"</div>
+											<div class='row' style='margin-top:5px;'>
+												<div class='col-md-6' style='margin-top:10px;'>
+													<h6 style='color:grey;'>Rp. <a style='color:#212121; font-weight:bold;'>"; $price = $car['price'];
+													$newPrice = wordwrap($price , 3 , '.' , true ); echo $newPrice; echo"</a> / Day</h6>
+												</div>
+												<div class='col-md-6'>
+													<button type='button' class='btn btn-success'>Book Now</button>
+												</div>
+											</div>
 										</div>
-									</div>
-									<div class='row' style='margin-top:5px;'>";
-										if($car['driver'] == 'none'){
-											echo"<a style='margin-left:-10px; float:left; font-size:14px;'>Driver <span style='color:#808080;'> none</span></a>";
-										} else {
-											echo"<a style='margin-left:-10px; float:left; font-size:14px;'>Driver <img src='http://localhost/Tripversal/assets/uploads/user/user_flazefy.jpg' alt='Driver' class='rounded-circle img-fluid' 
-												style='width:35px; height:35px; type:button; cursor:pointer;'>  <span style='color:#068ac2; text-decoration: underline; type:button; cursor:pointer;'> flazefy</span> </a>";
-										}
-									echo"</div>
-									<div class='row' style='margin-top:5px;'>
-										<div class='col-md-6' style='margin-top:10px;'>
-											<h6 style='color:grey;'>Rp. <a style='color:#212121; font-weight:bold;'>"; $price = $car['price'];
-											$newPrice = wordwrap($price , 3 , '.' , true ); echo $newPrice; echo"</a> / Day</h6>
-										</div>
-										<div class='col-md-6'>
-											<button type='button' class='btn btn-success'>Book Now</button>
-										</div>
-									</div>
-								</div>
-							</div>";
-							$i++;
-						}
-					}
-					if($i == 0){
-					echo "<div class='container' style='box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; padding:10px; width:500px;'>
-							<p style='font-style:italic; text-align:center; font-size:14px;'>Sorry, there's no type of this vehicle found in this city or all vehicles are busy. Try another type.</p>
-							<img src='http://localhost/Tripversal/assets/icon/Car driving.gif' alt='Empty.png' style='display: block;
-								margin-left: auto; margin-right: auto; width: 200px; height: 200px; margin-top:-20px;'>
-						</div>";
-					}
-					?>
-				</div>
-			</div>
-			<!--End of category--> 
+									</div>";
+									$i++;
+								}
+							}
+							if($i == 0){
+							echo "<div class='container' style='box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; padding:10px; width:500px;'>
+									<p style='font-style:italic; text-align:center; font-size:14px;'>Sorry, there's no type of this vehicle found in this city or all vehicles are busy. Try another type.</p>
+									<img src='http://localhost/Tripversal/assets/icon/Car driving.gif' alt='Empty.png' style='display: block;
+										margin-left: auto; margin-right: auto; width: 200px; height: 200px; margin-top:-20px;'>
+								</div>";
+							}
+							?>
+						</div>
+					</div>
+					<!--End of category--> 
 
-			<div data-toggle="collapse" href="#collapseMotorcycle" role="button" aria-expanded="false" aria-controls="collapseExample" style='margin-bottom:10px;'>
-				<div class='container' style='background:#068ac2; color:whitesmoke; border-radius:100px; width:30px; height:30px; position:relative; float:left; padding:2px;
-					margin-right:10px; bottom:3px;'><a style='margin-left:9px; top:15px; font-size:13px; text-align:center;'>
-					<?php
-					$i = 0;
-					foreach ($carData as $car){
-						if(($car['status'] == 'available')&&($car['type'] == 'Motorcycle')){
-							$i++;
-						}
-					}
-					echo $i; 
-					?>
-				</a></div>
-				<h5>Motorcycle</h5>
-				<a style='font-style:italic; color:grey; font-size:13px;'><i class="fa-solid fa-circle-info"></i> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Venenatis tellus in metus vulputate. Aliquam purus sit amet luctus venenatis lectus magna fringilla urna.</a>
-				<i class="fa-solid fa-circle-chevron-down fa-lg" style='float:right; margin-top:-5px; margin-right:20px;'></i>
-			</div>
-			<div id="collapseMotorcycle" class='card-body collapse show' style='width:100%; margin-bottom:20px;'>
-				<div class='row' style='margin-top:60px;'>
-					<?php
-					$i = 0;
-					foreach ($carData as $car){
-						if(($car['status'] == 'available')&&($car['type'] == 'Motorcycle')){
-							echo"
-							<div class='glassBox'>
-								<div class='glassBox__imgBox'>
-									<img src='http://localhost/Tripversal/assets/image/".$car['plate_number'].".png' alt=''>
-									<h3 class='glassBox__title'>".$car['car_name']." / ".$car['year']."</h3>
-									<hr>
-								</div>
-								<div class='card-body' style='width:120%; margin-top:-25px; display: block; margin-left: auto; margin-right: auto;'>
-									<div class='row'>
-										<div class='col-md-5 border-right'>
-											<a style='color:#068ac2; font-size:14px;'><i class='fa-solid fa-location-dot'></i> ".$car['location']."</a>
+					<div data-toggle="collapse" href="#collapseMinibus" role="button" aria-expanded="false" aria-controls="collapseExample" style='margin-bottom:10px;'>
+						<div class='container' style='background:#068ac2; color:whitesmoke; border-radius:100px; width:30px; height:30px; position:relative; float:left; padding:2px;
+							margin-right:10px; bottom:3px;'><a style='margin-left:9px; top:15px; font-size:13px; text-align:center;'>
+							<?php
+							$i = 0;
+							foreach ($carData as $car){
+								if(($car['status'] == 'available')&&($car['type'] == 'Minibus')&&($car['city'] == 'Bandung')){
+									$i++;
+								}
+							}
+							echo $i; 
+							?>
+						</a></div>
+						<h5>Minibus</h5>
+						<div class='container' style='width:80%; margin-left:-20px;'>
+							<a style='font-style:italic; color:grey; font-size:13px;'><i class="fa-solid fa-circle-info"></i> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Venenatis tellus in metus vulputate. Aliquam purus sit amet luctus venenatis lectus magna fringilla urna.</a>
+						</div>						
+						<i class="fa-solid fa-circle-chevron-down fa-lg" style='float:right; margin-top:-40px; margin-right:20px;'></i>
+					</div>
+					<div id="collapseMinibus" class='card-body collapse show' style='width:100%; margin-bottom:20px;'>
+						<div class='row' style='margin-top:60px;'>
+							<?php
+							$i = 0;
+							foreach ($carData as $car){
+								if(($car['status'] == 'available')&&($car['type'] == 'Minibus')&&($car['city'] == 'Bandung')){
+									echo"
+									<div class='glassBox'>
+										<div class='glassBox__imgBox'>
+											<img src='http://localhost/Tripversal/assets/image/".$car['plate_number'].".png' alt=''>
+											<h3 class='glassBox__title'>".$car['car_name']." / ".$car['year']."</h3>
+											<hr>
 										</div>
-										<div class='col-md-4'>
-											<a style='color:#068ac2; font-size:14px;'><i class='fa-solid fa-person'></i> ".$car['seat']." seats</a>
-										</div>
-										<div class='col-md-3' style='margin-left:-30px;'>
-											<a style='color:#068ac2; font-size:14px;'><i class='fa-solid fa-star'></i> "; 
-											$total = 0; $i = 0;
-											foreach($carRating as $rating){
-												if($car['id_car'] == $rating['id_car']){
-													$total += $rating['rating'];
-													$i++;
+										<div class='card-body' style='width:120%; margin-top:-25px; display: block; margin-left: auto; margin-right: auto;'>
+											<div class='row'>
+												<div class='col-md-5 border-right'>
+													<a style='color:#068ac2; font-size:14px;'><i class='fa-solid fa-location-dot'></i> ".$car['location']."</a>
+												</div>
+												<div class='col-md-4'>
+													<a style='color:#068ac2; font-size:14px;'><i class='fa-solid fa-person'></i> ".$car['seat']." seats</a>
+												</div>
+												<div class='col-md-3' style='margin-left:-30px;'>
+													<a style='color:#068ac2; font-size:14px;'><i class='fa-solid fa-star'></i> "; 
+													$total = 0; $i = 0;
+													foreach($carRating as $rating){
+														if($car['id_car'] == $rating['id_car']){
+															$total += $rating['rating'];
+															$i++;
+														}
+													}
+													if($i >= 1){
+														$total = $total / $i;
+													}
+													echo $total;
+													echo"</a>
+												</div>
+											</div>
+											<div class='row' style='margin-top:5px;'>";
+												if($car['driver'] == 'none'){
+													echo"<a style='margin-left:-10px; float:left; font-size:14px;'>Driver <span style='color:#808080;'> none</span></a>";
+												} else {
+													echo"<a style='margin-left:-10px; float:left; font-size:14px;'>Driver <img src='http://localhost/Tripversal/assets/uploads/user/user_flazefy.jpg' alt='Driver' class='rounded-circle img-fluid' 
+														style='width:35px; height:35px; type:button; cursor:pointer;'>  <span style='color:#068ac2; text-decoration: underline; type:button; cursor:pointer;'> flazefy</span> </a>";
 												}
-											}
-											if($i >= 1){
-												$total = $total / $i;
-											}
-											echo $total;
-											echo"</a>
+											echo"</div>
+											<div class='row' style='margin-top:5px;'>
+												<div class='col-md-6' style='margin-top:10px;'>
+													<h6 style='color:grey;'>Rp. <a style='color:#212121; font-weight:bold;'>"; $price = $car['price'];
+													$newPrice = wordwrap($price , 3 , '.' , true ); echo $newPrice; echo"</a> / Day</h6>
+												</div>
+												<div class='col-md-6'>
+													<button type='button' class='btn btn-success'>Book Now</button>
+												</div>
+											</div>
 										</div>
-									</div>
-									<div class='row' style='margin-top:5px;'>";
-										if($car['driver'] == 'none'){
-											echo"<a style='margin-left:-10px; float:left; font-size:14px;'>Driver <span style='color:#808080;'> none</span></a>";
-										} else {
-											echo"<a style='margin-left:-10px; float:left; font-size:14px;'>Driver <img src='http://localhost/Tripversal/assets/uploads/user/user_flazefy.jpg' alt='Driver' class='rounded-circle img-fluid' 
-												style='width:35px; height:35px; type:button; cursor:pointer;'>  <span style='color:#068ac2; text-decoration: underline; type:button; cursor:pointer;'> flazefy</span> </a>";
-										}
-									echo"</div>
-									<div class='row' style='margin-top:5px;'>
-										<div class='col-md-6' style='margin-top:10px;'>
-											<h6 style='color:grey;'>Rp. <a style='color:#212121; font-weight:bold;'>"; $price = $car['price'];
-											$newPrice = wordwrap($price , 3 , '.' , true ); echo $newPrice; echo"</a> / Day</h6>
-										</div>
-										<div class='col-md-6'>
-											<button type='button' class='btn btn-success'>Book Now</button>
-										</div>
-									</div>
-								</div>
-							</div>";
-							$i++;
-						}
-					}
-					if($i == 0){
-					echo "<div class='container' style='box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; padding:10px; width:500px;'>
-							<p style='font-style:italic; text-align:center; font-size:14px;'>Sorry, there's no type of this vehicle found in this city or all vehicles are busy. Try another type.</p>
-							<img src='http://localhost/Tripversal/assets/icon/Car driving.gif' alt='Empty.png' style='display: block;
-								margin-left: auto; margin-right: auto; width: 200px; height: 200px; margin-top:-20px;'>
-						</div>";
-					}
-					?>
-				</div>
-			</div>
-			<!--End of category-->
+									</div>";
+									$i++;
+								}
+							}
+							if($i == 0){
+							echo "<div class='container' style='box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; padding:10px; width:500px;'>
+									<p style='font-style:italic; text-align:center; font-size:14px;'>Sorry, there's no type of this vehicle found in this city or all vehicles are busy. Try another type.</p>
+									<img src='http://localhost/Tripversal/assets/icon/Car driving.gif' alt='Empty.png' style='display: block;
+										margin-left: auto; margin-right: auto; width: 200px; height: 200px; margin-top:-20px;'>
+								</div>";
+							}
+							?>
+						</div>
+					</div>
+					<!--End of category--> 
 
-			<div data-toggle="collapse" href="#collapseOthers" role="button" aria-expanded="false" aria-controls="collapseExample" style='margin-bottom:10px;'>
-				<div class='container' style='background:#068ac2; color:whitesmoke; border-radius:100px; width:30px; height:30px; position:relative; float:left; padding:2px;
-					margin-right:10px; bottom:3px;'><a style='margin-left:9px; top:15px; font-size:13px; text-align:center;'>
-					<?php
-					$i = 0;
-					foreach ($carData as $car){
-						if(($car['status'] == 'available')&&($car['type'] == 'Others')){
-							$i++;
-						}
-					}
-					echo $i; 
-					?>
-				</a></div>
-				<h5>Others</h5>
-				<a style='font-style:italic; color:grey; font-size:13px;'><i class="fa-solid fa-circle-info"></i> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Venenatis tellus in metus vulputate. Aliquam purus sit amet luctus venenatis lectus magna fringilla urna.</a>
-				<i class="fa-solid fa-circle-chevron-down fa-lg" style='float:right; margin-top:-5px; margin-right:20px;'></i>
-			</div>
-			<div id="collapseOthers" class='card-body collapse show' style='width:100%; margin-bottom:20px;'>
-				<div class='row' style='margin-top:60px;'>
-					<?php
-					$i = 0;
-					foreach ($carData as $car){
-						if(($car['status'] == 'available')&&($car['type'] == 'Others')){
-							echo"
-							<div class='glassBox'>
-								<div class='glassBox__imgBox'>
-									<img src='http://localhost/Tripversal/assets/image/".$car['plate_number'].".png' alt=''>
-									<h3 class='glassBox__title'>".$car['car_name']." / ".$car['year']."</h3>
-									<hr>
-								</div>
-								<div class='card-body' style='width:120%; margin-top:-25px; display: block; margin-left: auto; margin-right: auto;'>
-									<div class='row'>
-										<div class='col-md-5 border-right'>
-											<a style='color:#068ac2; font-size:14px;'><i class='fa-solid fa-location-dot'></i> ".$car['location']."</a>
+					<div data-toggle="collapse" href="#collapseMotorcycle" role="button" aria-expanded="false" aria-controls="collapseExample" style='margin-bottom:10px;'>
+						<div class='container' style='background:#068ac2; color:whitesmoke; border-radius:100px; width:30px; height:30px; position:relative; float:left; padding:2px;
+							margin-right:10px; bottom:3px;'><a style='margin-left:9px; top:15px; font-size:13px; text-align:center;'>
+							<?php
+							$i = 0;
+							foreach ($carData as $car){
+								if(($car['status'] == 'available')&&($car['type'] == 'Motorcycle')&&($car['city'] == 'Bandung')){
+									$i++;
+								}
+							}
+							echo $i; 
+							?>
+						</a></div>
+						<h5>Motorcycle</h5>
+						<div class='container' style='width:80%; margin-left:-20px;'>
+							<a style='font-style:italic; color:grey; font-size:13px;'><i class="fa-solid fa-circle-info"></i> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Venenatis tellus in metus vulputate. Aliquam purus sit amet luctus venenatis lectus magna fringilla urna.</a>
+						</div>						
+						<i class="fa-solid fa-circle-chevron-down fa-lg" style='float:right; margin-top:-40px; margin-right:20px;'></i>
+					</div>
+					<div id="collapseMotorcycle" class='card-body collapse show' style='width:100%; margin-bottom:20px;'>
+						<div class='row' style='margin-top:60px;'>
+							<?php
+							$i = 0;
+							foreach ($carData as $car){
+								if(($car['status'] == 'available')&&($car['type'] == 'Motorcycle')&&($car['city'] == 'Bandung')){
+									echo"
+									<div class='glassBox'>
+										<div class='glassBox__imgBox'>
+											<img src='http://localhost/Tripversal/assets/image/".$car['plate_number'].".png' alt=''>
+											<h3 class='glassBox__title'>".$car['car_name']." / ".$car['year']."</h3>
+											<hr>
 										</div>
-										<div class='col-md-4'>
-											<a style='color:#068ac2; font-size:14px;'><i class='fa-solid fa-person'></i> ".$car['seat']." seats</a>
-										</div>
-										<div class='col-md-3' style='margin-left:-30px;'>
-											<a style='color:#068ac2; font-size:14px;'><i class='fa-solid fa-star'></i> "; 
-											$total = 0; $i = 0;
-											foreach($carRating as $rating){
-												if($car['id_car'] == $rating['id_car']){
-													$total += $rating['rating'];
-													$i++;
+										<div class='card-body' style='width:120%; margin-top:-25px; display: block; margin-left: auto; margin-right: auto;'>
+											<div class='row'>
+												<div class='col-md-5 border-right'>
+													<a style='color:#068ac2; font-size:14px;'><i class='fa-solid fa-location-dot'></i> ".$car['location']."</a>
+												</div>
+												<div class='col-md-4'>
+													<a style='color:#068ac2; font-size:14px;'><i class='fa-solid fa-person'></i> ".$car['seat']." seats</a>
+												</div>
+												<div class='col-md-3' style='margin-left:-30px;'>
+													<a style='color:#068ac2; font-size:14px;'><i class='fa-solid fa-star'></i> "; 
+													$total = 0; $i = 0;
+													foreach($carRating as $rating){
+														if($car['id_car'] == $rating['id_car']){
+															$total += $rating['rating'];
+															$i++;
+														}
+													}
+													if($i >= 1){
+														$total = $total / $i;
+													}
+													echo $total;
+													echo"</a>
+												</div>
+											</div>
+											<div class='row' style='margin-top:5px;'>";
+												if($car['driver'] == 'none'){
+													echo"<a style='margin-left:-10px; float:left; font-size:14px;'>Driver <span style='color:#808080;'> none</span></a>";
+												} else {
+													echo"<a style='margin-left:-10px; float:left; font-size:14px;'>Driver <img src='http://localhost/Tripversal/assets/uploads/user/user_flazefy.jpg' alt='Driver' class='rounded-circle img-fluid' 
+														style='width:35px; height:35px; type:button; cursor:pointer;'>  <span style='color:#068ac2; text-decoration: underline; type:button; cursor:pointer;'> flazefy</span> </a>";
 												}
-											}
-											if($i >= 1){
-												$total = $total / $i;
-											}
-											echo $total;
-											echo"</a>
+											echo"</div>
+											<div class='row' style='margin-top:5px;'>
+												<div class='col-md-6' style='margin-top:10px;'>
+													<h6 style='color:grey;'>Rp. <a style='color:#212121; font-weight:bold;'>"; $price = $car['price'];
+													$newPrice = wordwrap($price , 3 , '.' , true ); echo $newPrice; echo"</a> / Day</h6>
+												</div>
+												<div class='col-md-6'>
+													<button type='button' class='btn btn-success'>Book Now</button>
+												</div>
+											</div>
 										</div>
-									</div>
-									<div class='row' style='margin-top:5px;'>";
-										if($car['driver'] == 'none'){
-											echo"<a style='margin-left:-10px; float:left; font-size:14px;'>Driver <span style='color:#808080;'> none</span></a>";
-										} else {
-											echo"<a style='margin-left:-10px; float:left; font-size:14px;'>Driver <img src='http://localhost/Tripversal/assets/uploads/user/user_flazefy.jpg' alt='Driver' class='rounded-circle img-fluid' 
-												style='width:35px; height:35px; type:button; cursor:pointer;'>  <span style='color:#068ac2; text-decoration: underline; type:button; cursor:pointer;'> flazefy</span> </a>";
-										}
-									echo"</div>
-									<div class='row' style='margin-top:5px;'>
-										<div class='col-md-6' style='margin-top:10px;'>
-											<h6 style='color:grey;'>Rp. <a style='color:#212121; font-weight:bold;'>"; $price = $car['price'];
-											$newPrice = wordwrap($price , 3 , '.' , true ); echo $newPrice; echo"</a> / Day</h6>
+									</div>";
+									$i++;
+								}
+							}
+							if($i == 0){
+							echo "<div class='container' style='box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; padding:10px; width:500px;'>
+									<p style='font-style:italic; text-align:center; font-size:14px;'>Sorry, there's no type of this vehicle found in this city or all vehicles are busy. Try another type.</p>
+									<img src='http://localhost/Tripversal/assets/icon/Car driving.gif' alt='Empty.png' style='display: block;
+										margin-left: auto; margin-right: auto; width: 200px; height: 200px; margin-top:-20px;'>
+								</div>";
+							}
+							?>
+						</div>
+					</div>
+					<!--End of category-->
+
+					<div data-toggle="collapse" href="#collapseOthers" role="button" aria-expanded="false" aria-controls="collapseExample" style='margin-bottom:10px;'>
+						<div class='container' style='background:#068ac2; color:whitesmoke; border-radius:100px; width:30px; height:30px; position:relative; float:left; padding:2px;
+							margin-right:10px; bottom:3px;'><a style='margin-left:9px; top:15px; font-size:13px; text-align:center;'>
+							<?php
+							$i = 0;
+							foreach ($carData as $car){
+								if(($car['status'] == 'available')&&($car['type'] == 'Others')&&($car['city'] == 'Bandung')){
+									$i++;
+								}
+							}
+							echo $i; 
+							?>
+						</a></div>
+						<h5>Others</h5>
+						<div class='container' style='width:80%; margin-left:-20px;'>
+							<a style='font-style:italic; color:grey; font-size:13px;'><i class="fa-solid fa-circle-info"></i> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Venenatis tellus in metus vulputate. Aliquam purus sit amet luctus venenatis lectus magna fringilla urna.</a>
+						</div>
+						<i class="fa-solid fa-circle-chevron-down fa-lg" style='float:right; margin-top:-40px; margin-right:20px;'></i>
+					</div>
+					<div id="collapseOthers" class='card-body collapse show' style='width:100%; margin-bottom:20px;'>
+						<div class='row' style='margin-top:60px;'>
+							<?php
+							$i = 0;
+							foreach ($carData as $car){
+								if(($car['status'] == 'available')&&($car['type'] == 'Others')&&($car['city'] == 'Bandung')){
+									echo"
+									<div class='glassBox'>
+										<div class='glassBox__imgBox'>
+											<img src='http://localhost/Tripversal/assets/image/".$car['plate_number'].".png' alt=''>
+											<h3 class='glassBox__title'>".$car['car_name']." / ".$car['year']."</h3>
+											<hr>
 										</div>
-										<div class='col-md-6'>
-											<button type='button' class='btn btn-success'>Book Now</button>
+										<div class='card-body' style='width:120%; margin-top:-25px; display: block; margin-left: auto; margin-right: auto;'>
+											<div class='row'>
+												<div class='col-md-5 border-right'>
+													<a style='color:#068ac2; font-size:14px;'><i class='fa-solid fa-location-dot'></i> ".$car['location']."</a>
+												</div>
+												<div class='col-md-4'>
+													<a style='color:#068ac2; font-size:14px;'><i class='fa-solid fa-person'></i> ".$car['seat']." seats</a>
+												</div>
+												<div class='col-md-3' style='margin-left:-30px;'>
+													<a style='color:#068ac2; font-size:14px;'><i class='fa-solid fa-star'></i> "; 
+													$total = 0; $i = 0;
+													foreach($carRating as $rating){
+														if($car['id_car'] == $rating['id_car']){
+															$total += $rating['rating'];
+															$i++;
+														}
+													}
+													if($i >= 1){
+														$total = $total / $i;
+													}
+													echo $total;
+													echo"</a>
+												</div>
+											</div>
+											<div class='row' style='margin-top:5px;'>";
+												if($car['driver'] == 'none'){
+													echo"<a style='margin-left:-10px; float:left; font-size:14px;'>Driver <span style='color:#808080;'> none</span></a>";
+												} else {
+													echo"<a style='margin-left:-10px; float:left; font-size:14px;'>Driver <img src='http://localhost/Tripversal/assets/uploads/user/user_flazefy.jpg' alt='Driver' class='rounded-circle img-fluid' 
+														style='width:35px; height:35px; type:button; cursor:pointer;'>  <span style='color:#068ac2; text-decoration: underline; type:button; cursor:pointer;'> flazefy</span> </a>";
+												}
+											echo"</div>
+											<div class='row' style='margin-top:5px;'>
+												<div class='col-md-6' style='margin-top:10px;'>
+													<h6 style='color:grey;'>Rp. <a style='color:#212121; font-weight:bold;'>"; $price = $car['price'];
+													$newPrice = wordwrap($price , 3 , '.' , true ); echo $newPrice; echo"</a> / Day</h6>
+												</div>
+												<div class='col-md-6'>
+													<button type='button' class='btn btn-success'>Book Now</button>
+												</div>
+											</div>
 										</div>
-									</div>
-								</div>
-							</div>";
-							$i++;
-						}
-					}
-					if($i == 0){
-					echo "<div class='container' style='box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; padding:10px; width:500px;'>
-							<p style='font-style:italic; text-align:center; font-size:14px;'>Sorry, there's no type of this vehicle found in this city or all vehicles are busy. Try another type.</p>
-							<img src='http://localhost/Tripversal/assets/icon/Car driving.gif' alt='Empty.png' style='display: block;
-								margin-left: auto; margin-right: auto; width: 200px; height: 200px; margin-top:-20px;'>
-						</div>";
-					}
-					?>
+									</div>";
+									$i++;
+								}
+							}
+							if($i == 0){
+							echo "<div class='container' style='box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; padding:10px; width:500px;'>
+									<p style='font-style:italic; text-align:center; font-size:14px;'>Sorry, there's no type of this vehicle found in this city or all vehicles are busy. Try another type.</p>
+									<img src='http://localhost/Tripversal/assets/icon/Car driving.gif' alt='Empty.png' style='display: block;
+										margin-left: auto; margin-right: auto; width: 200px; height: 200px; margin-top:-20px;'>
+								</div>";
+							}
+							?>
+						</div>
+					</div>
+					<!--End of category-->
 				</div>
 			</div>
-			<!--End of category-->
-		</div>
+
+			<div class=col-md-3>
+				<h5><i class="fa-solid fa-bell"></i> Notifications</h5>
+				<button class='btn btn-link' style='float:right; margin-top:-35px; color:grey; text-decoration:none; font-size:13px;'><i class="fa-solid fa-trash-can"></i> Clear All</button>
+				<div class='container-fluid' style='width:100%; max-height: calc(100vh - 210px); overflow-x: auto;'>
+					<?php
+						$i = 0;
+						foreach($notification as $notif){
+							if(($notif['id_user'] == '1')||($notif['id_user'] == '0')){
+								if(($notif['type'] == 'message_car')){
+								echo"<div class='card' id='notification' style='border-left: 4px solid #CB5FCE;'>
+									<h6 style='font-weight:600;'>Message | "; 
+										foreach($carData as $car){if($car['id_car'] == $notif['id_car_guide']){ echo $car['owner'];}}
+									echo"</h6>
+									<a style='color:grey; font-size:12px;'><i class='fa-solid fa-car'></i> ";
+										foreach($carData as $car){if($car['id_car'] == $notif['id_car_guide']){ echo $car['car_name']." / ".$car['year'];}}
+									echo" | <i class='fa-solid fa-location-dot'></i> ";
+										foreach($carData as $car){if($car['id_car'] == $notif['id_car_guide']){ echo $car['location'];}}
+									echo"</a>
+									<div class='container-fluid' style='width:100%; border-radius:10px; background:#e3e3e3; padding:5px; margin:2px;'>
+										<p style='font-size:13px; color:#212121;'>".$notif['text']."</p>
+										<a style='color:grey; font-size:12px; font-style:italic;'>~";
+											$cek = strtotime($notif['datetime']);
+											if(date('Y-m-d', $cek) == date("Y-m-d")){
+												$date = strtotime($notif['datetime']);
+												echo " Today | " .date('h:i a', $date);
+											} else {
+												$date = strtotime($notif['datetime']);
+												echo date('l, d F y | h:i a', $date);
+											}
+										echo"</a>
+									</div>
+								</div>";
+								} else if(($notif['type'] == 'maintenance')){
+								echo"<div class='card' id='notification' style='border-left: 4px solid #FF8E77;'>
+									<h6 style='font-weight:600;'>Announcement | ".$notif['type']."</h6>
+									<a style='color:grey; font-size:13px; color:#212121;'>".$notif['text']."</a>"; 
+										$datefrom = strtotime($notif['date_from']); $dateuntil = strtotime($notif['date_until']);
+										echo"<a style='color:grey; font-size:12px; font-style:italic;'> From : ";  
+										echo date('l, d F y | h:i a', $datefrom)."</a>";
+										echo"<a style='color:grey; font-size:12px; font-style:italic;'> Until : ";  
+										echo date('l, d F y | h:i a', $dateuntil)."</a>
+								</div>";
+								} else if(($notif['type'] == 'promo')){
+								echo"<div class='card' id='notification' style='border-left: 4px solid #FFC45D;'>
+									<h6 style='font-weight:600;'>Announcement | ".$notif['type']."</h6>
+									<h7 style='font-size:14px;'>Eid Mubarak Holiday</h7>
+									<a style='color:grey; font-size:13px; color:#212121;'>".$notif['text']."</a>";
+										$datefrom2 = strtotime($notif['date_from']); $dateuntil2 = strtotime($notif['date_until']);
+										echo"<a style='color:grey; font-size:12px; font-style:italic;'> From : ";  
+										echo date('l, d F y | h:i a', $datefrom2)."</a>";
+										echo"<a style='color:grey; font-size:12px; font-style:italic;'> Until : ";  
+										echo date('l, d F y | h:i a', $dateuntil2)."</a>
+								</div>";
+								} if(($notif['type'] == 'message_guide')){
+									//TOUR GUIDE NOTIFICATION NOT FINISHED.
+								echo"<div class='card' id='notification' style='border-left: 4px solid #CB5FCE;'>
+									<h6 style='font-weight:600;'>Message | Richard Kyle</h6>
+									<a style='color:grey; font-size:12px;'><i class='fa-solid fa-car'></i> Toyota Innova 2018 | <i class='fa-solid fa-location-dot'></i> Buah Batu</a>
+									<div class='container-fluid' style='width:100%; border-radius:10px; background:#e3e3e3; padding:5px; margin:2px;'>
+										<p style='font-size:13px; color:#212121;'>Hello do you want me to be ready for tommorow</p>
+										<a style='color:grey; font-size:12px; font-style:italic;'>~ Today at 15:30</a>
+									</div>
+								</div>";
+								}
+							}
+						}
+					?>
+				</div>
+				<hr>
+				<h5><i class="fa-solid fa-lightbulb"></i> Tips</h5>
+				<div class='container-fluid' style='width:100%;'>
+					<div class='card' style='background:#4169E1; border-radius:10px; color:whitesmoke; padding:10px; box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;'>
+
+					</div>
+				</div>
+			</div>
+
+    	</div>
     </div>
 
 
 	<!--Container Main end-->
 	<script type='text/javascript' src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js'></script>
-	<script type='text/javascript' src='#'></script>
-	<script type='text/javascript' src='#'></script>
 	<script type='text/javascript'>document.addEventListener("DOMContentLoaded", function(event) {
    
 		const showNavbar = (toggleId, navId, bodyId, headerId) =>{

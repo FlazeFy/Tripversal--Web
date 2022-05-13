@@ -10,6 +10,7 @@
 			$data = [];
 			$data['carData']= $this->rentACar_M->get_all_car();
 			$data['carRating']= $this->rentACar_M->get_all_car_rating();
+			$data['notification']= $this->rentACar_M->get_all_notification();
 			$this->load->view('RentACarPage', $data);
 		}
 	}
