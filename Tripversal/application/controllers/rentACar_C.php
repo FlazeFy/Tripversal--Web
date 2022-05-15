@@ -12,6 +12,7 @@
 			$data['carRating']= $this->rentACar_M->get_all_car_rating();
 			$data['notification']= $this->rentACar_M->get_all_notification();
 			$data['topUsedCar']= $this->rentACar_M->get_top_used_car();
+			$data['tipsData']= $this->rentACar_M->get_all_tips();
 			$this->load->view('RentACarPage', $data);
 		}
 		//Control sort by not finished.

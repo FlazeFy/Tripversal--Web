@@ -117,18 +117,82 @@
 				padding-top:3px; padding-bottom:3px; padding-right:6px; padding-left:10px;
 				margin-left:-20px; margin-bottom:20px;
 				border-radius:0px; border:none; 
+			}
+			.carousel-item{
+				overflow: hidden;
+				background:white;
+			}
+			.carousel-indicators {
+				bottom: -30px;
+			}
+			.carousel-indicators li, .carousel-indicators li.active {
+				width: 10px;
+				height: 10px;
+				margin: 4px;
+				border-radius: 50%;
+				border: none;
+			}
+			.carousel-indicators li {	
+				background: rgba(0, 0, 0, 0.2);
+			}
+			.carousel-indicators li.active {	
+				background: #212121;
+			}
+
+			/*Autocomplete search*/
+			/*the container must be positioned relative:*/
+			.autocomplete {
+			position: relative;
+			display: inline-block;
+			}
+
+			.autocomplete-items {
+				position: absolute;
+				border-bottom: none;
+				border-top: none;
+				z-index: 99;
+				/*position the autocomplete items to be the same width as the container:*/
+				top: 100%;
+				left: 0;
+				right: 0;
+				border-radius:5px;
+			}
+
+			.autocomplete-items div {
+				padding: 10px;
+				cursor: pointer;
+				background-color: whitesmoke;
+				border-bottom: 1px solid #d4d4d4; 
+				border-radius:5px;
+			}
+
+			/*when hovering an item:*/
+			.autocomplete-items div:hover {
+				background-color: DodgerBlue;
+				color: #ffffff; 
+			}
+
+			/*when navigating through the items using the arrow keys:*/
+			.autocomplete-active {
+				background-color: DodgerBlue !important; 
+				color: #ffffff; 
 			}			
 		</style>
                              
     </head>
     <body className='snippet-body'>
 		<body id="body-pd">
+		<form autocomplete="off" action="" method="POST">
 		<header class="header" id="header">
 			<div class="header_toggle"> <i class='bx bx-menu' id="header-toggle"></i> </div>
-			<input class='form-control' type='search' style='width:20%; border-radius:8px; border: 2.5px solid #4169E1; margin-left:50px; position:fixed;' placeholder='search by car name...'></input>
+			<div class="autocomplete" style='width:20%; border-radius:8px; border: 2.5px solid #4169E1; margin-left:50px; position:fixed;'>
+				<input class='form-control' type='search' id="myInput" name="carName" placeholder='search by car name...'></input>
+			</div>
+			<button class='btn btn-success' style='color:whitesmoke; position:relative; margin-left:-60px;' type='submit'><i class="fa-solid fa-magnifying-glass"></i></button>		
 			<h5 style='color:#4169E1; font-weight:bold;'>Rent A Car</h5>
 			<div class="header_img"> <i class="fa-solid fa-circle-info" style='margin-right:10px;'></i> <i class="fa-solid fa-gear"></i> </div>
 		</header>
+		</form>
 		<div class="l-navbar" id="nav-bar">
 			<nav class="nav">
 				<div> <a href="#" class="nav_logo"> <img src='http://localhost/Tripversal/assets/uploads/user/user_flazefy.jpg' alt='Card image cap' class='rounded-circle img-fluid' 
@@ -367,6 +431,8 @@
 															}
 															if($i >= 1){
 																$total = $total / $i;
+															} else if($i == 0){
+																$total = '-';
 															}
 															echo $total;
 															echo"</a>
@@ -419,6 +485,8 @@
 															}
 															if($i >= 1){
 																$total = $total / $i;
+															} else if($i == 0){
+																$total = '-';
 															}
 															echo $total;
 															echo"</a>
@@ -473,6 +541,8 @@
 															}
 															if($i >= 1){
 																$total = $total / $i;
+															} else if($i == 0){
+																$total = '-';
 															}
 															echo $total;
 															echo"</a>
@@ -525,6 +595,8 @@
 															}
 															if($i >= 1){
 																$total = $total / $i;
+															} else if($i == 0){
+																$total = '-';
 															}
 															echo $total;
 															echo"</a>
@@ -579,6 +651,8 @@
 															}
 															if($i >= 1){
 																$total = $total / $i;
+															} else if($i == 0){
+																$total = '-';
 															}
 															echo $total;
 															echo"</a>
@@ -631,6 +705,8 @@
 															}
 															if($i >= 1){
 																$total = $total / $i;
+															} else if($i == 0){
+																$total = '-';
 															}
 															echo $total;
 															echo"</a>
@@ -751,6 +827,8 @@
 															}
 															if($i >= 1){
 																$total = $total / $i;
+															} else if($i == 0){
+																$total = '-';
 															}
 															echo $total;
 															echo"</a>
@@ -803,6 +881,8 @@
 															}
 															if($i >= 1){
 																$total = $total / $i;
+															} else if($i == 0){
+																$total = '-';
 															}
 															echo $total;
 															echo"</a>
@@ -857,6 +937,8 @@
 															}
 															if($i >= 1){
 																$total = $total / $i;
+															} else if($i == 0){
+																$total = '-';
 															}
 															echo $total;
 															echo"</a>
@@ -909,6 +991,8 @@
 															}
 															if($i >= 1){
 																$total = $total / $i;
+															} else if($i == 0){
+																$total = '-';
 															}
 															echo $total;
 															echo"</a>
@@ -963,6 +1047,8 @@
 															}
 															if($i >= 1){
 																$total = $total / $i;
+															} else if($i == 0){
+																$total = '-';
 															}
 															echo $total;
 															echo"</a>
@@ -1015,6 +1101,8 @@
 															}
 															if($i >= 1){
 																$total = $total / $i;
+															} else if($i == 0){
+																$total = '-';
 															}
 															echo $total;
 															echo"</a>
@@ -1135,6 +1223,8 @@
 															}
 															if($i >= 1){
 																$total = $total / $i;
+															} else if($i == 0){
+																$total = '-';
 															}
 															echo $total;
 															echo"</a>
@@ -1187,6 +1277,8 @@
 															}
 															if($i >= 1){
 																$total = $total / $i;
+															} else if($i == 0){
+																$total = '-';
 															}
 															echo $total;
 															echo"</a>
@@ -1241,6 +1333,8 @@
 															}
 															if($i >= 1){
 																$total = $total / $i;
+															} else if($i == 0){
+																$total = '-';
 															}
 															echo $total;
 															echo"</a>
@@ -1293,6 +1387,8 @@
 															}
 															if($i >= 1){
 																$total = $total / $i;
+															} else if($i == 0){
+																$total = '-';
 															}
 															echo $total;
 															echo"</a>
@@ -1347,6 +1443,8 @@
 															}
 															if($i >= 1){
 																$total = $total / $i;
+															} else if($i == 0){
+																$total = '-';
 															}
 															echo $total;
 															echo"</a>
@@ -1399,6 +1497,8 @@
 															}
 															if($i >= 1){
 																$total = $total / $i;
+															} else if($i == 0){
+																$total = '-';
 															}
 															echo $total;
 															echo"</a>
@@ -1519,6 +1619,8 @@
 															}
 															if($i >= 1){
 																$total = $total / $i;
+															} else if($i == 0){
+																$total = '-';
 															}
 															echo $total;
 															echo"</a>
@@ -1571,6 +1673,8 @@
 															}
 															if($i >= 1){
 																$total = $total / $i;
+															} else if($i == 0){
+																$total = '-';
 															}
 															echo $total;
 															echo"</a>
@@ -1625,6 +1729,8 @@
 															}
 															if($i >= 1){
 																$total = $total / $i;
+															} else if($i == 0){
+																$total = '-';
 															}
 															echo $total;
 															echo"</a>
@@ -1677,6 +1783,8 @@
 															}
 															if($i >= 1){
 																$total = $total / $i;
+															} else if($i == 0){
+																$total = '-';
 															}
 															echo $total;
 															echo"</a>
@@ -1731,6 +1839,8 @@
 															}
 															if($i >= 1){
 																$total = $total / $i;
+															} else if($i == 0){
+																$total = '-';
 															}
 															echo $total;
 															echo"</a>
@@ -1783,6 +1893,8 @@
 															}
 															if($i >= 1){
 																$total = $total / $i;
+															} else if($i == 0){
+																$total = '-';
 															}
 															echo $total;
 															echo"</a>
@@ -1896,15 +2008,133 @@
 				</div>
 				<hr>
 				<h5><i class="fa-solid fa-lightbulb"></i> Tips</h5>
-				<div class='container-fluid' style='width:100%;'>
-					<div class='card' style='background:#4169E1; border-radius:10px; color:whitesmoke; padding:10px; box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;'>
-
+				<div class='container-fluid' style='width:105%; margin-left:-20px;'>
+					<?php
+						$page = 0; $item = 0;
+						echo"<div id='carouselTips' class='carousel slide z-depth-2-half' data-ride='carousel'>
+							<ol class='carousel-indicators'>";
+							foreach ($tipsData as $data){
+								if($item == 0 && $page == 0){
+									echo"<li data-target='#carouselExampleIndicators' data-slide-to='0' class='active'>1</li>";
+									$item++;
+									$page++;
+								} else if ($item % 3 == 0){
+									echo"<li data-target='#carouselExampleIndicators' data-slide-to='".$page."'>"; echo $page+1; echo"</li>";
+									$item++;
+									$page++;
+								} else if ($item % 3 != 0){
+									$item++;
+								}
+							}
+						echo"</ol>
+							<div class='carousel-inner'>";
+							$i = 1; $count = 0; $k = 1;
+							$state = ' active';
+							foreach($tipsData as $tips){
+								if($k % 4 == 0  || $k == 1){
+									echo"<div class='carousel-item".$state."' >
+									<div class='col-md' style='width:100%; padding:10px;'>";
+								}	
+								echo"<div class='card' style='border-radius:10px; color:whitesmoke; padding:10px; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; margin-bottom:10px;'>
+									<div class='row'>
+										<div class='col-md-4'>
+											<img src='http://localhost/Tripversal/assets/icon/tips-".$tips['id_tips'].".png' alt='Tips-1.png'
+												style='width:90px; height:90px;'>
+										</div>
+										<div class='col-md-8'>
+											<a style='color:black; font-size:15px; margin-top:15px; display:block;'>".$tips['text']."</a>
+										</div>
+									</div>
+								</div>";
+								$k++;
+								$state = ' ';
+								if($k % 4 == 0){
+									echo"</div>
+								</div>";
+								}
+								$count = 0; $i++; 
+							}
+						echo"</div>
+						</div>";
+					?>	
 					</div>
 				</div>
 			</div>
 
     	</div>
     </div>
+
+	<script>
+		function autocomplete(inp, arr) {
+			var currentFocus;
+
+			inp.addEventListener("input", function(e) {
+				var a, b, i, val = this.value;
+				closeAllLists();
+				if (!val) { return false;}
+				currentFocus = -1;
+				a = document.createElement("DIV");
+				a.setAttribute("id", this.id + "autocomplete-list");
+				a.setAttribute("class", "autocomplete-items");
+				this.parentNode.appendChild(a);
+				for (i = 0; i < arr.length; i++) {
+					if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+						b = document.createElement("DIV");
+						b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+						b.innerHTML += arr[i].substr(val.length);
+						b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+						b.addEventListener("click", function(e) {
+							inp.value = this.getElementsByTagName("input")[0].value;
+							closeAllLists();
+						});
+						a.appendChild(b);
+					}
+				}
+			});
+			inp.addEventListener("keydown", function(e) {
+				var x = document.getElementById(this.id + "autocomplete-list");
+				if (x) x = x.getElementsByTagName("div");
+				if (e.keyCode == 40) {
+					currentFocus++;
+					addActive(x);
+				} else if (e.keyCode == 38) { 
+					currentFocus--;
+					addActive(x);
+				} else if (e.keyCode == 13) {
+					e.preventDefault();
+					if (currentFocus > -1) {
+						if (x) x[currentFocus].click();
+					}
+				}
+			});
+			function addActive(x) {
+				if (!x) return false;
+				removeActive(x);
+				if (currentFocus >= x.length) currentFocus = 0;
+				if (currentFocus < 0) currentFocus = (x.length - 1);
+				x[currentFocus].classList.add("autocomplete-active");
+			}
+			function removeActive(x) {
+				for (var i = 0; i < x.length; i++) {
+				x[i].classList.remove("autocomplete-active");
+				}
+			}
+			function closeAllLists(elmnt) {
+				var x = document.getElementsByClassName("autocomplete-items");
+				for (var i = 0; i < x.length; i++) {
+				if (elmnt != x[i] && elmnt != inp) {
+					x[i].parentNode.removeChild(x[i]);
+				}
+				}
+			}
+			document.addEventListener("click", function (e) {
+				closeAllLists(e.target);
+			});
+		}
+
+		var carName = [<?php foreach($carData as $car){echo "'"; echo $car['car_name']." / ".$car['year'].", ".$car['city']; echo "',";} ?>];		
+		autocomplete(document.getElementById("myInput"), carName);
+	</script>
 
 	<script>
 		!function(d,s,id){

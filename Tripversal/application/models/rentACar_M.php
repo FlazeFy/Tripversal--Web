@@ -33,5 +33,11 @@
 			$this->db->order_by('total_order','DESC');
 			return $data = $this->db->get()->result_array();
 		}
+		public function get_all_tips()
+		{
+			$this->db->select('*');
+			$this->db->from('tips');
+			return $data = $this->db->get()->result_array();
+		}
 	}
 ?>
