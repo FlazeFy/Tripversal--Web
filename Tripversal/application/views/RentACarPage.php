@@ -58,7 +58,7 @@
 			/*Card item*/
 			.glassBox {
 				width: 100%;
-				height: 270px;
+				height: 280px;
 				max-width: 300px;
 				border-radius: 10px;
 				background: rgba(255, 255, 255, 0.05);
@@ -293,7 +293,10 @@
 												</div>
 												<p style='font-size:16px; color:#068ac2; font-weight:bold; margin-top:5px;'> Rp. "; $price = $top['price'];
 												$newPrice = wordwrap($price , 3 , '.' , true ); echo $newPrice; echo" / Day</p>
-												<button type='button' class='btn btn-success'>Book Now</button>
+												<form action='rentACar_C/bookCar' method='POST'>
+													<input class='form-control' name='id_CarGuide' value='".$top['id_car']."' hidden>
+													<button type='submit' class='btn btn-success'>Book Now</button>
+												</form>
 											</div>
 										</div>
 									</div>";
@@ -452,7 +455,10 @@
 															$newPrice = wordwrap($price , 3 , '.' , true ); echo $newPrice; echo"</a> / Day</h6>
 														</div>
 														<div class='col-md-6'>
-															<button type='button' class='btn btn-success'>Book Now</button>
+															<form action='rentACar_C/bookCar' method='POST'>
+																<input class='form-control' name='id_CarGuide' value='".$car['id_car']."' hidden>
+																<button type='submit' class='btn btn-success'>Book Now</button>
+															</form>
 														</div>
 													</div>
 												</div>
@@ -506,7 +512,10 @@
 															$newPrice = wordwrap($price , 3 , '.' , true ); echo $newPrice; echo"</a> / Day</h6>
 														</div>
 														<div class='col-md-6'>
-															<button type='button' class='btn btn-success'>Book Now</button>
+															<form action='rentACar_C/bookCar' method='POST'>
+																<input class='form-control' name='id_CarGuide' value='".$car['id_car']."' hidden>
+																<button type='submit' class='btn btn-success'>Book Now</button>
+															</form>
 														</div>
 													</div>
 												</div>
@@ -562,7 +571,10 @@
 															$newPrice = wordwrap($price , 3 , '.' , true ); echo $newPrice; echo"</a> / Day</h6>
 														</div>
 														<div class='col-md-6'>
-															<button type='button' class='btn btn-success'>Book Now</button>
+															<form action='rentACar_C/bookCar' method='POST'>
+																<input class='form-control' name='id_CarGuide' value='".$car['id_car']."' hidden>
+																<button type='submit' class='btn btn-success'>Book Now</button>
+															</form>
 														</div>
 													</div>
 												</div>
@@ -616,7 +628,10 @@
 															$newPrice = wordwrap($price , 3 , '.' , true ); echo $newPrice; echo"</a> / Day</h6>
 														</div>
 														<div class='col-md-6'>
-															<button type='button' class='btn btn-success'>Book Now</button>
+															<form action='rentACar_C/bookCar' method='POST'>
+																<input class='form-control' name='id_CarGuide' value='".$car['id_car']."' hidden>
+																<button type='submit' class='btn btn-success'>Book Now</button>
+															</form>
 														</div>
 													</div>
 												</div>
@@ -672,7 +687,10 @@
 															$newPrice = wordwrap($price , 3 , '.' , true ); echo $newPrice; echo"</a> / Day</h6>
 														</div>
 														<div class='col-md-6'>
-															<button type='button' class='btn btn-success'>Book Now</button>
+															<form action='rentACar_C/bookCar' method='POST'>
+																<input class='form-control' name='id_CarGuide' value='".$car['id_car']."' hidden>
+																<button type='submit' class='btn btn-success'>Book Now</button>
+															</form>
 														</div>
 													</div>
 												</div>
@@ -726,7 +744,10 @@
 															$newPrice = wordwrap($price , 3 , '.' , true ); echo $newPrice; echo"</a> / Day</h6>
 														</div>
 														<div class='col-md-6'>
-															<button type='button' class='btn btn-success'>Book Now</button>
+															<form action='rentACar_C/bookCar' method='POST'>
+																<input class='form-control' name='id_CarGuide' value='".$car['id_car']."' hidden>
+																<button type='submit' class='btn btn-success'>Book Now</button>
+															</form>
 														</div>
 													</div>
 												</div>
@@ -848,7 +869,10 @@
 															$newPrice = wordwrap($price , 3 , '.' , true ); echo $newPrice; echo"</a> / Day</h6>
 														</div>
 														<div class='col-md-6'>
-															<button type='button' class='btn btn-success'>Book Now</button>
+															<form action='rentACar_C/bookCar' method='POST'>
+																<input class='form-control' name='id_CarGuide' value='".$car['id_car']."' hidden>
+																<button type='submit' class='btn btn-success'>Book Now</button>
+															</form>
 														</div>
 													</div>
 												</div>
@@ -902,7 +926,10 @@
 															$newPrice = wordwrap($price , 3 , '.' , true ); echo $newPrice; echo"</a> / Day</h6>
 														</div>
 														<div class='col-md-6'>
-															<button type='button' class='btn btn-success'>Book Now</button>
+															<form action='rentACar_C/bookCar' method='POST'>
+																<input class='form-control' name='id_CarGuide' value='".$car['id_car']."' hidden>
+																<button type='submit' class='btn btn-success'>Book Now</button>
+															</form>
 														</div>
 													</div>
 												</div>
@@ -958,7 +985,10 @@
 															$newPrice = wordwrap($price , 3 , '.' , true ); echo $newPrice; echo"</a> / Day</h6>
 														</div>
 														<div class='col-md-6'>
-															<button type='button' class='btn btn-success'>Book Now</button>
+															<form action='rentACar_C/bookCar' method='POST'>
+																<input class='form-control' name='id_CarGuide' value='".$car['id_car']."' hidden>
+																<button type='submit' class='btn btn-success'>Book Now</button>
+															</form>
 														</div>
 													</div>
 												</div>
@@ -1012,7 +1042,10 @@
 															$newPrice = wordwrap($price , 3 , '.' , true ); echo $newPrice; echo"</a> / Day</h6>
 														</div>
 														<div class='col-md-6'>
-															<button type='button' class='btn btn-success'>Book Now</button>
+															<form action='rentACar_C/bookCar' method='POST'>
+																<input class='form-control' name='id_CarGuide' value='".$car['id_car']."' hidden>
+																<button type='submit' class='btn btn-success'>Book Now</button>
+															</form>
 														</div>
 													</div>
 												</div>
@@ -1068,7 +1101,10 @@
 															$newPrice = wordwrap($price , 3 , '.' , true ); echo $newPrice; echo"</a> / Day</h6>
 														</div>
 														<div class='col-md-6'>
-															<button type='button' class='btn btn-success'>Book Now</button>
+															<form action='rentACar_C/bookCar' method='POST'>
+																<input class='form-control' name='id_CarGuide' value='".$car['id_car']."' hidden>
+																<button type='submit' class='btn btn-success'>Book Now</button>
+															</form>
 														</div>
 													</div>
 												</div>
@@ -1122,7 +1158,10 @@
 															$newPrice = wordwrap($price , 3 , '.' , true ); echo $newPrice; echo"</a> / Day</h6>
 														</div>
 														<div class='col-md-6'>
-															<button type='button' class='btn btn-success'>Book Now</button>
+															<form action='rentACar_C/bookCar' method='POST'>
+																<input class='form-control' name='id_CarGuide' value='".$car['id_car']."' hidden>
+																<button type='submit' class='btn btn-success'>Book Now</button>
+															</form>
 														</div>
 													</div>
 												</div>
@@ -1244,7 +1283,10 @@
 															$newPrice = wordwrap($price , 3 , '.' , true ); echo $newPrice; echo"</a> / Day</h6>
 														</div>
 														<div class='col-md-6'>
-															<button type='button' class='btn btn-success'>Book Now</button>
+															<form action='rentACar_C/bookCar' method='POST'>
+																<input class='form-control' name='id_CarGuide' value='".$car['id_car']."' hidden>
+																<button type='submit' class='btn btn-success'>Book Now</button>
+															</form>
 														</div>
 													</div>
 												</div>
@@ -1298,7 +1340,10 @@
 															$newPrice = wordwrap($price , 3 , '.' , true ); echo $newPrice; echo"</a> / Day</h6>
 														</div>
 														<div class='col-md-6'>
-															<button type='button' class='btn btn-success'>Book Now</button>
+															<form action='rentACar_C/bookCar' method='POST'>
+																<input class='form-control' name='id_CarGuide' value='".$car['id_car']."' hidden>
+																<button type='submit' class='btn btn-success'>Book Now</button>
+															</form>
 														</div>
 													</div>
 												</div>
@@ -1354,7 +1399,10 @@
 															$newPrice = wordwrap($price , 3 , '.' , true ); echo $newPrice; echo"</a> / Day</h6>
 														</div>
 														<div class='col-md-6'>
-															<button type='button' class='btn btn-success'>Book Now</button>
+															<form action='rentACar_C/bookCar' method='POST'>
+																<input class='form-control' name='id_CarGuide' value='".$car['id_car']."' hidden>
+																<button type='submit' class='btn btn-success'>Book Now</button>
+															</form>
 														</div>
 													</div>
 												</div>
@@ -1408,7 +1456,10 @@
 															$newPrice = wordwrap($price , 3 , '.' , true ); echo $newPrice; echo"</a> / Day</h6>
 														</div>
 														<div class='col-md-6'>
-															<button type='button' class='btn btn-success'>Book Now</button>
+															<form action='rentACar_C/bookCar' method='POST'>
+																<input class='form-control' name='id_CarGuide' value='".$car['id_car']."' hidden>
+																<button type='submit' class='btn btn-success'>Book Now</button>
+															</form>
 														</div>
 													</div>
 												</div>
@@ -1464,7 +1515,10 @@
 															$newPrice = wordwrap($price , 3 , '.' , true ); echo $newPrice; echo"</a> / Day</h6>
 														</div>
 														<div class='col-md-6'>
-															<button type='button' class='btn btn-success'>Book Now</button>
+															<form action='rentACar_C/bookCar' method='POST'>
+																<input class='form-control' name='id_CarGuide' value='".$car['id_car']."' hidden>
+																<button type='submit' class='btn btn-success'>Book Now</button>
+															</form>
 														</div>
 													</div>
 												</div>
@@ -1518,7 +1572,10 @@
 															$newPrice = wordwrap($price , 3 , '.' , true ); echo $newPrice; echo"</a> / Day</h6>
 														</div>
 														<div class='col-md-6'>
-															<button type='button' class='btn btn-success'>Book Now</button>
+															<form action='rentACar_C/bookCar' method='POST'>
+																<input class='form-control' name='id_CarGuide' value='".$car['id_car']."' hidden>
+																<button type='submit' class='btn btn-success'>Book Now</button>
+															</form>
 														</div>
 													</div>
 												</div>
@@ -1640,7 +1697,10 @@
 															$newPrice = wordwrap($price , 3 , '.' , true ); echo $newPrice; echo"</a> / Day</h6>
 														</div>
 														<div class='col-md-6'>
-															<button type='button' class='btn btn-success'>Book Now</button>
+															<form action='rentACar_C/bookCar' method='POST'>
+																<input class='form-control' name='id_CarGuide' value='".$car['id_car']."' hidden>
+																<button type='submit' class='btn btn-success'>Book Now</button>
+															</form>
 														</div>
 													</div>
 												</div>
@@ -1694,7 +1754,10 @@
 															$newPrice = wordwrap($price , 3 , '.' , true ); echo $newPrice; echo"</a> / Day</h6>
 														</div>
 														<div class='col-md-6'>
-															<button type='button' class='btn btn-success'>Book Now</button>
+															<form action='rentACar_C/bookCar' method='POST'>
+																<input class='form-control' name='id_CarGuide' value='".$car['id_car']."' hidden>
+																<button type='submit' class='btn btn-success'>Book Now</button>
+															</form>
 														</div>
 													</div>
 												</div>
@@ -1750,7 +1813,10 @@
 															$newPrice = wordwrap($price , 3 , '.' , true ); echo $newPrice; echo"</a> / Day</h6>
 														</div>
 														<div class='col-md-6'>
-															<button type='button' class='btn btn-success'>Book Now</button>
+															<form action='rentACar_C/bookCar' method='POST'>
+																<input class='form-control' name='id_CarGuide' value='".$car['id_car']."' hidden>
+																<button type='submit' class='btn btn-success'>Book Now</button>
+															</form>
 														</div>
 													</div>
 												</div>
@@ -1804,7 +1870,10 @@
 															$newPrice = wordwrap($price , 3 , '.' , true ); echo $newPrice; echo"</a> / Day</h6>
 														</div>
 														<div class='col-md-6'>
-															<button type='button' class='btn btn-success'>Book Now</button>
+															<form action='rentACar_C/bookCar' method='POST'>
+																<input class='form-control' name='id_CarGuide' value='".$car['id_car']."' hidden>
+																<button type='submit' class='btn btn-success'>Book Now</button>
+															</form>
 														</div>
 													</div>
 												</div>
@@ -1860,7 +1929,10 @@
 															$newPrice = wordwrap($price , 3 , '.' , true ); echo $newPrice; echo"</a> / Day</h6>
 														</div>
 														<div class='col-md-6'>
-															<button type='button' class='btn btn-success'>Book Now</button>
+															<form action='rentACar_C/bookCar' method='POST'>
+																<input class='form-control' name='id_CarGuide' value='".$car['id_car']."' hidden>
+																<button type='submit' class='btn btn-success'>Book Now</button>
+															</form>
 														</div>
 													</div>
 												</div>
@@ -1914,7 +1986,10 @@
 															$newPrice = wordwrap($price , 3 , '.' , true ); echo $newPrice; echo"</a> / Day</h6>
 														</div>
 														<div class='col-md-6'>
-															<button type='button' class='btn btn-success'>Book Now</button>
+															<form action='rentACar_C/bookCar' method='POST'>
+																<input class='form-control' name='id_CarGuide' value='".$car['id_car']."' hidden>
+																<button type='submit' class='btn btn-success'>Book Now</button>
+															</form>
 														</div>
 													</div>
 												</div>
@@ -1947,29 +2022,27 @@
 						foreach($notification as $notif){
 							if(($notif['id_user'] == '1')||($notif['id_user'] == '0')){
 								if(($notif['type'] == 'message_car')){
-								echo"<div class='card' id='notification' style='border-left: 4px solid #CB5FCE;'>
-									<h6 style='font-weight:600;'>Message | "; 
-										foreach($carData as $car){if($car['id_car'] == $notif['id_car_guide']){ echo $car['owner'];}}
-									echo"</h6>
-									<a style='color:grey; font-size:12px;'><i class='fa-solid fa-car'></i> ";
-										foreach($carData as $car){if($car['id_car'] == $notif['id_car_guide']){ echo $car['car_name']." / ".$car['year'];}}
-									echo" | <i class='fa-solid fa-location-dot'></i> ";
-										foreach($carData as $car){if($car['id_car'] == $notif['id_car_guide']){ echo $car['location'];}}
-									echo"</a>
-									<div class='container-fluid' style='width:100%; border-radius:10px; background:#e3e3e3; padding:5px; margin:2px;'>
-										<p style='font-size:13px; color:#212121;'>".$notif['text']."</p>
-										<a style='color:grey; font-size:12px; font-style:italic;'>~";
-											$cek = strtotime($notif['datetime']);
-											if(date('Y-m-d', $cek) == date("Y-m-d")){
-												$date = strtotime($notif['datetime']);
-												echo " Today | " .date('h:i a', $date);
-											} else {
-												$date = strtotime($notif['datetime']);
-												echo date('l, d F y | h:i a', $date);
-											}
-										echo"</a>
-									</div>
-								</div>";
+									foreach($carData as $car){if($car['id_car'] == $notif['id_car_guide']){
+										echo"<div class='card' id='notification' style='border-left: 4px solid #CB5FCE;'>
+											<h6 style='font-weight:600;'>Message | ".$car['owner']."</h6>
+											<a style='color:grey; font-size:12px;'><i class='fa-solid fa-car'></i> ".$car['car_name']." / ".$car['year']." 
+												| <i class='fa-solid fa-location-dot'></i> ".$car['location']."</a>
+											<div class='container-fluid' style='width:100%; border-radius:10px; background:#e3e3e3; padding:5px; margin:2px;'>
+												<p style='font-size:13px; color:#212121;'>".$notif['text']."</p>
+												<a style='color:grey; font-size:12px; font-style:italic;'>~";
+													$cek = strtotime($notif['datetime']);
+													if(date('Y-m-d', $cek) == date("Y-m-d")){
+														$date = strtotime($notif['datetime']);
+														echo " Today | " .date('h:i a', $date);
+													} else {
+														$date = strtotime($notif['datetime']);
+														echo date('l, d F y | h:i a', $date);
+													}
+												echo"</a>
+											</div>
+										</div>";
+									}
+								}
 								} else if(($notif['type'] == 'maintenance')){
 								echo"<div class='card' id='notification' style='border-left: 4px solid #FF8E77;'>
 									<h6 style='font-weight:600;'>Announcement | ".$notif['type']."</h6>
@@ -1992,15 +2065,28 @@
 										echo date('l, d F y | h:i a', $dateuntil2)."</a>
 								</div>";
 								} if(($notif['type'] == 'message_guide')){
-									//TOUR GUIDE NOTIFICATION NOT FINISHED.
-								echo"<div class='card' id='notification' style='border-left: 4px solid #CB5FCE;'>
-									<h6 style='font-weight:600;'>Message | Richard Kyle</h6>
-									<a style='color:grey; font-size:12px;'><i class='fa-solid fa-car'></i> Toyota Innova 2018 | <i class='fa-solid fa-location-dot'></i> Buah Batu</a>
-									<div class='container-fluid' style='width:100%; border-radius:10px; background:#e3e3e3; padding:5px; margin:2px;'>
-										<p style='font-size:13px; color:#212121;'>Hello do you want me to be ready for tommorow</p>
-										<a style='color:grey; font-size:12px; font-style:italic;'>~ Today at 15:30</a>
-									</div>
-								</div>";
+									foreach($guideData as $guide){
+										if($guide['id_guide'] == $notif['id_car_guide']){
+											echo"<div class='card' id='notification' style='border-left: 4px solid #CB5FCE;'>
+												<h6 style='font-weight:600;'>Message | Tour Guide</h6>
+												<a style='color:grey; font-size:12px;'><i class='fa-solid fa-user'></i> ".$guide['fullname']." 
+													| <i class='fa-solid fa-location-dot'></i> ".$guide['location']."</a>
+												<div class='container-fluid' style='width:100%; border-radius:10px; background:#e3e3e3; padding:5px; margin:2px;'>
+													<p style='font-size:13px; color:#212121;'>".$notif['text']."</p>
+													<a style='color:grey; font-size:12px; font-style:italic;'>~";
+														$cek = strtotime($notif['datetime']);
+														if(date('Y-m-d', $cek) == date("Y-m-d")){
+															$date = strtotime($notif['datetime']);
+															echo " Today | " .date('h:i a', $date);
+														} else {
+															$date = strtotime($notif['datetime']);
+															echo date('l, d F y | h:i a', $date);
+														}
+													echo"</a>
+												</div>
+											</div>";
+										}
+									}
 								}
 							}
 						}
@@ -2015,11 +2101,11 @@
 							<ol class='carousel-indicators'>";
 							foreach ($tipsData as $data){
 								if($item == 0 && $page == 0){
-									echo"<li data-target='#carouselExampleIndicators' data-slide-to='0' class='active'>1</li>";
+									echo"<li data-target='#carouselExampleIndicators' data-slide-to='0' class='active'></li>";
 									$item++;
 									$page++;
 								} else if ($item % 3 == 0){
-									echo"<li data-target='#carouselExampleIndicators' data-slide-to='".$page."'>"; echo $page+1; echo"</li>";
+									echo"<li data-target='#carouselExampleIndicators' data-slide-to='".$page."'></li>";
 									$item++;
 									$page++;
 								} else if ($item % 3 != 0){
