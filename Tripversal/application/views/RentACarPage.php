@@ -2024,7 +2024,7 @@
 								if(($notif['type'] == 'message_car')){
 									foreach($carData as $car){if($car['id_car'] == $notif['id_car_guide']){
 										echo"<div class='card' id='notification' style='border-left: 4px solid #CB5FCE;'>
-											<h6 style='font-weight:600;'>Message | ".$car['owner']."</h6>
+											<h6 style='font-weight:600;'>Message | ".$car['id_garage']."</h6>
 											<a style='color:grey; font-size:12px;'><i class='fa-solid fa-car'></i> ".$car['car_name']." / ".$car['year']." 
 												| <i class='fa-solid fa-location-dot'></i> ".$car['location']."</a>
 											<div class='container-fluid' style='width:100%; border-radius:10px; background:#e3e3e3; padding:5px; margin:2px;'>

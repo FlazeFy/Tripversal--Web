@@ -7,7 +7,16 @@
 		{
 			$this->db->select('*');
 			$this->db->from('car');
+			$this->db->join('garage','car.id_garage = garage.id_garage');
 			$this->db->order_by('price','DESC');
+			return $data = $this->db->get()->result_array();
+		}
+		public function get_all_car2()
+		{
+			$this->db->select('*');
+			$this->db->from('car');
+			$this->db->join('garage','car.id_garage = garage.id_garage');
+			$this->db->group_by('driver'); 
 			return $data = $this->db->get()->result_array();
 		}
 		public function get_all_guide()

@@ -69,7 +69,7 @@
 			.body-pd{padding-left: calc(var(--nav-width) + 1rem)}
 			.active{color: var(--white-color); background:#414141; border-top-right-radius:10px; border-bottom-right-radius:10px;}
 			.height-100{height:100vh}@media screen and (min-width: 768px){body{margin: calc(var(--header-height) + 1rem) 0 0 0;padding-left: calc(var(--nav-width) + 2rem)}.header{height: calc(var(--header-height) + 1rem);padding: 0 2rem 0 calc(var(--nav-width) + 2rem)}
-			.l-navbar{left: 0;padding: 1rem 1rem 0 0}.show{width: calc(var(--nav-width) + 156px)}.body-pd{padding-left: calc(var(--nav-width) + 188px)}}
+			.l-navbar{left: 0;padding: 1rem 1rem 0 0}.show2{width: calc(var(--nav-width) + 156px)}.body-pd{padding-left: calc(var(--nav-width) + 188px)}}
 
 			/*Autocomplete search*/
 			/*the container must be positioned relative:*/
@@ -108,7 +108,25 @@
 			.autocomplete-active {
 				background-color: DodgerBlue !important; 
 				color: #ffffff; 
-			}			
+			}
+			.stats{
+
+background: #f2f5f8 !important;
+color: #000 !important;
+}
+.articles{
+font-size:10px;
+color: #808080;
+}
+.number1{
+font-weight:500;
+}
+.number2{
+font-weight:500;
+}
+.number3{
+font-weight:500;
+}			
 		</style>
                              
     </head>
@@ -179,7 +197,7 @@
 						?></h5>
 						<div class='container-fluid' style='background:#f0f0f0; padding:10px;'>
 							<div class='row' style='width:110%;'>
-								<div class='col-md-9'>
+								<div class='col-md-8'>
 									<a style='color:#808080; font-size:13px;'>Location</a>
 									<h5 style='color:#212121; font-size:15px; font-weight:500;'> 
 									<?php 
@@ -200,7 +218,19 @@
 									</h5>
 								</div>
 								<div class='col-md-3'>
-									<button class='btn btn-primary' style='font-size:13px; margin-top:10px;'>Get Location</button>
+									<?php
+										if($this->session->userdata('set_typeBook') == 'Car Rental'){
+											foreach($carData as $car){
+												if($car['id_car'] == $this->session->userdata('set_idCarGuide')){
+													echo"<button class='btn btn-success' style='font-size:13px; width:130px;' data-toggle='modal' data-target='#loc".$car['id_garage']."'><i class='fa-solid fa-location-dot'></i> See Location</button>
+													<input type='text' value='".$car['garage_coordinate']."' id='myInput".$car['id_garage']."' hidden>
+													<form class='form-inline' action='bookGuideCar_C/copyCoor' method='post'>
+													<button class='btn btn-primary' type='submit' style='font-size:13px; margin-top:5px;' onclick='locationCopy".$car['id_garage']."()'><i class='fa-solid fa-copy'></i> Get Coordinate</button>
+													</form>";
+												}
+											}
+										}
+									?>
 								</div>
 							</div>
 						</div>
@@ -257,12 +287,17 @@
 				</div>
 				<div class='row'>
 					<div class=col-md-5>
+						<h5>Review</h5>
+						<hr>
+					</div>
+					<div class=col-md-7>
 						<h5>Description</h5>
+						<hr>
 						<?php 
 							if($this->session->userdata('set_typeBook') == 'Car Rental'){
 								foreach($carData as $car){
 									if($car['id_car'] == $this->session->userdata('set_idCarGuide')){
-										echo $car['description'];
+										echo "<p>".nl2br($car['description'])."</p>";
 									}
 								}
 							} else if($this->session->userdata('set_typeBook') == 'Tour Guide'){
@@ -274,20 +309,194 @@
 							}
 						?>	
 					</div>
-					<div class=col-md-7>
-						<h5>Review</h5>
-					</div>
 				</div>
 			</div>
 
 			<div class=col-md-3>
-				<h5><i class="fa-solid fa-bell"></i> Notifications</h5>
+				<?php
+					if($this->session->userdata('set_typeBook') == 'Car Rental'){
+						foreach($carData as $car){
+							if($car['id_car'] == $this->session->userdata('set_idCarGuide')){
+								echo"<h5><i class='fa-solid fa-warehouse'></i></i> Garage Profil</h5>
+								<hr>
+								<div class='d-flex align-items-center' >
+									<div class='image' style='margin-right:5px;'>
+									<img src='http://localhost/Tripversal/assets/uploads/garage/garage_".$car['garage_username'].".jpg' class='rounded' width='135' 
+										style='box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;'>
+									</div>
+									<div class='ml-3 w-100'>
+										<h6 class='mb-0 mt-0'>".$car['garage_name']."</h6>
+										<span style='font-size:13px;'>".$car['garage_location']."</span>
+										<div class='p-2 mt-2 bg-primary d-flex justify-content-between rounded text-white stats'>
+											<div class='d-flex flex-column'>
+												<span class='articles'>Vehicle</span>
+												<span class='number1'>"; 
+												$count = 0;
+												foreach($carData as $car2){
+													if($car['id_garage'] == $car2['id_garage']){
+														$count++;
+													}
+												}
+												echo $count;
+												echo"</span>
+											</div>
+											<div class='d-flex flex-column'>
+												<span class='articles'>Driver</span>
+												<span class='number2'>"; 
+												$count2 = 0;
+												foreach($carData2 as $car3){
+													if(($car['id_garage'] == $car3['id_garage'])&&($car3['driver'] != 'none')){
+														$count2++;
+													}
+												}
+												echo $count2;
+												echo"</span>
+											</div>
+											<div class='d-flex flex-column'>
+												<span class='articles'>Trip</span>
+												<span class='number3'>8.9</span>
+											</div>
+										</div>
+										<div class='button d-flex flex-row align-items-center'>
+											<button class='btn btn-sm btn-success w-50 m-1'>Chat</button>
+											<button class='btn btn-sm btn-primary w-50'>Open</button>									
+										</div>
+									</div>
+								</div>
+								<h6>About us</h6>
+								<div class='container-fluid' style='width:105%; max-height: calc(60vh - 160px); overflow-x: auto; margin-left:-20px; margin-bottom:5px;'>
+									<p>".nl2br($car['garage_desc'])."</p>
+								</div>
+								";
+							}
+						}
+					}
+				?>
+
+				<h5><i class="fa-solid fa-umbrella-beach"></i> Best Destination</h5>
+				<hr>
 				
 			</div>
 
     	</div>
     </div>
 
+	<!-- Zoom location modal -->
+	<?php 
+	$i = 1; 
+	foreach($carData as $data){
+	echo"<div class='modal fade' id='loc".$data['id_garage']."' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true'>
+	<div class='modal-dialog modal-xl' role='document'>
+		<div class='modal-content'>
+			<div class='modal-header'>
+				<h4>".$data['garage_name']."</h4>
+				<img type='button' data-dismiss='modal' aria-label='Close' src='http://localhost/MedStory/assets/Error.png'
+					width='35px' height='35px'>
+			</div>
+			<div class='modal-body'>
+				<div id='googleMap".$data['id_garage']."' style='width:100%;height:500px; border-radius:10px;'></div>
+			</div>			
+		</div>
+	</div>
+	</div>";	
+	}?>
+
+	<!-- Success copy modal -->
+	<?php if(isset($success_copy)) { echo"
+		<div class='modal fade' id='succescopy' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true' id='staticBackdrop' data-bs-backdrop='static' data-bs-keyboard='false'>
+		<div class='modal-dialog' role='document'>
+			<div class='modal-content'>
+			<div class='modal-header'>
+				<i class='fa-solid fa-xmark' class='closebtn' type='button' data-dismiss='modal' aria-label='Close' onClick='refreshMessage()'></i>
+			</div>
+			<div class='modal-body'>
+				<img src='http://localhost/Tripversal/assets/icon/success.png' alt='success.png' style='display: block;
+					margin-left: auto; margin-right: auto; width: 120px; height: 120px;'>
+				<p style='text-align:center; font-weight:bold;'>".$success_copy."</p>
+			</div>		
+			</div>
+		</div>
+		</div>";}	
+	?>
+
+
+	<script>
+		function myMap() {
+		<?php
+			foreach($carData as $data){
+				echo"
+				var mapProp".$data['id_garage']."= {
+					center:new google.maps.LatLng(".$data['garage_coordinate']."),
+					zoom:15,
+				};
+				var map".$data['id_garage']." = new google.maps.Map(document.getElementById('googleMap".$data['id_garage']."'),mapProp".$data['id_garage'].");
+				";
+			}
+		?>
+			var markers = [
+		<?php
+			foreach($carData as $data){
+				$coor  = $data['garage_coordinate'];
+				$newCoor = explode(", ", $coor);
+				echo"{
+					coords:{lat:".$newCoor[0].",lng:".$newCoor[1]."},
+					content:'<div><h4>".$data['garage_name']."</h4><p>".$data['garage_phone']."</p></div>'
+				},";
+			}
+		?>
+			];
+
+			
+			<?php
+			foreach($carData as $data){
+				echo"
+				// Loop through markers
+				for(var i = 0;i < markers.length;i++){
+					// Add marker
+					addMarker".$data['id_garage']."(markers[i]);
+				}
+				// Add Marker Function
+				function addMarker".$data['id_garage']."(props){
+					var marker = new google.maps.Marker({
+					position:props.coords,
+					map:map".$data['id_garage'].",
+					//icon:props.iconImage
+					});
+					// Check for customicon
+					if(props.iconImage){
+					// Set icon image
+					marker.setIcon(props.iconImage);
+					}
+					// Check content
+					if(props.content){
+					var infoWindow = new google.maps.InfoWindow({
+						content:props.content
+					});
+					marker.addListener('click', function(){
+						infoWindow.open(map".$data['id_garage'].", marker);
+					});
+					}
+				}";
+			}
+			?>
+		}
+		<?php
+				foreach($carData as $data){
+				echo"
+				function locationCopy".$data['id_garage']."(){
+					/* Get the text field */
+					var copyText = document.getElementById('myInput".$data['id_garage']."');
+					/* Select the text field */
+					copyText.select();
+					copyText.setSelectionRange(0, 99999); /* For mobile devices */
+					/* Copy the text inside the text field */
+					navigator.clipboard.writeText(copyText.value);
+				}";
+			}
+			?>	
+	</script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyADRj0HHweuH7Y8Ont5LLO3l6qLODqo9pg&callback=myMap"></script>
+	
 	<script>
 		function autocomplete(inp, arr) {
 			var currentFocus;
@@ -371,6 +580,9 @@
 			}
 		}
 		(document,'script','weatherwidget-io-js');
+		function refreshMessage() {
+			window.location.href="http://localhost/Tripversal/bookGuideCar_C";  
+		}
 	</script>
 
 	<!--Container Main end-->
@@ -387,7 +599,7 @@
 		if(toggle && nav && bodypd && headerpd){
 		toggle.addEventListener('click', ()=>{
 		// show navbar
-		nav.classList.toggle('show')
+		nav.classList.toggle('show2')
 		// change icon
 		toggle.classList.toggle('bx-x')
 		// add padding to body
@@ -422,6 +634,10 @@
            
 	
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
-
+		<script>
+			$(window).on('load', function() {
+				$('#succescopy').modal('show');
+			});
+        </script>
 	</body>
 </html>

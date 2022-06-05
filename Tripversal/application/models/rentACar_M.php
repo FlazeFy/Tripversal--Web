@@ -7,6 +7,7 @@
 		{
 			$this->db->select('*');
 			$this->db->from('car');
+			$this->db->join('garage','car.id_garage = garage.id_garage');
 			$this->db->order_by('price','DESC');
 			return $data = $this->db->get()->result_array();
 		}
