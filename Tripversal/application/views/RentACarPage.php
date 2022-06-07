@@ -295,6 +295,7 @@
 												$newPrice = wordwrap($price , 3 , '.' , true ); echo $newPrice; echo" / Day</p>
 												<form action='rentACar_C/bookCar' method='POST'>
 													<input class='form-control' name='id_CarGuide' value='".$top['id_car']."' hidden>
+													<input class='form-control' name='city' value='".$top['city']."' hidden>
 													<button type='submit' class='btn btn-success'>Book Now</button>
 												</form>
 											</div>
@@ -437,7 +438,7 @@
 															} else if($i == 0){
 																$total = '-';
 															}
-															echo $total;
+															echo number_format((float)$total, 1, '.', '');
 															echo"</a>
 														</div>
 													</div>
@@ -457,6 +458,7 @@
 														<div class='col-md-6'>
 															<form action='rentACar_C/bookCar' method='POST'>
 																<input class='form-control' name='id_CarGuide' value='".$car['id_car']."' hidden>
+																<input class='form-control' name='city' value='".$car['city']."' hidden>
 																<button type='submit' class='btn btn-success'>Book Now</button>
 															</form>
 														</div>
@@ -494,7 +496,7 @@
 															} else if($i == 0){
 																$total = '-';
 															}
-															echo $total;
+															echo number_format((float)$total, 1, '.', '');
 															echo"</a>
 														</div>
 													</div>
@@ -514,6 +516,7 @@
 														<div class='col-md-6'>
 															<form action='rentACar_C/bookCar' method='POST'>
 																<input class='form-control' name='id_CarGuide' value='".$car['id_car']."' hidden>
+																<input class='form-control' name='city' value='".$car['city']."' hidden>
 																<button type='submit' class='btn btn-success'>Book Now</button>
 															</form>
 														</div>
@@ -553,7 +556,7 @@
 															} else if($i == 0){
 																$total = '-';
 															}
-															echo $total;
+															echo number_format((float)$total, 1, '.', '');
 															echo"</a>
 														</div>
 													</div>
@@ -573,6 +576,7 @@
 														<div class='col-md-6'>
 															<form action='rentACar_C/bookCar' method='POST'>
 																<input class='form-control' name='id_CarGuide' value='".$car['id_car']."' hidden>
+																<input class='form-control' name='city' value='".$car['city']."' hidden>
 																<button type='submit' class='btn btn-success'>Book Now</button>
 															</form>
 														</div>
@@ -610,7 +614,7 @@
 															} else if($i == 0){
 																$total = '-';
 															}
-															echo $total;
+															echo number_format((float)$total, 1, '.', '');
 															echo"</a>
 														</div>
 													</div>
@@ -630,6 +634,7 @@
 														<div class='col-md-6'>
 															<form action='rentACar_C/bookCar' method='POST'>
 																<input class='form-control' name='id_CarGuide' value='".$car['id_car']."' hidden>
+																<input class='form-control' name='city' value='".$car['city']."' hidden>
 																<button type='submit' class='btn btn-success'>Book Now</button>
 															</form>
 														</div>
@@ -669,7 +674,7 @@
 															} else if($i == 0){
 																$total = '-';
 															}
-															echo $total;
+															echo number_format((float)$total, 1, '.', '');
 															echo"</a>
 														</div>
 													</div>
@@ -689,6 +694,7 @@
 														<div class='col-md-6'>
 															<form action='rentACar_C/bookCar' method='POST'>
 																<input class='form-control' name='id_CarGuide' value='".$car['id_car']."' hidden>
+																<input class='form-control' name='city' value='".$car['city']."' hidden>
 																<button type='submit' class='btn btn-success'>Book Now</button>
 															</form>
 														</div>
@@ -726,7 +732,7 @@
 															} else if($i == 0){
 																$total = '-';
 															}
-															echo $total;
+															echo number_format((float)$total, 1, '.', '');
 															echo"</a>
 														</div>
 													</div>
@@ -746,6 +752,7 @@
 														<div class='col-md-6'>
 															<form action='rentACar_C/bookCar' method='POST'>
 																<input class='form-control' name='id_CarGuide' value='".$car['id_car']."' hidden>
+																<input class='form-control' name='city' value='".$car['city']."' hidden>
 																<button type='submit' class='btn btn-success'>Book Now</button>
 															</form>
 														</div>
@@ -851,7 +858,7 @@
 															} else if($i == 0){
 																$total = '-';
 															}
-															echo $total;
+															echo number_format((float)$total, 1, '.', '');
 															echo"</a>
 														</div>
 													</div>
@@ -871,6 +878,7 @@
 														<div class='col-md-6'>
 															<form action='rentACar_C/bookCar' method='POST'>
 																<input class='form-control' name='id_CarGuide' value='".$car['id_car']."' hidden>
+																<input class='form-control' name='city' value='".$car['city']."' hidden>
 																<button type='submit' class='btn btn-success'>Book Now</button>
 															</form>
 														</div>
@@ -908,7 +916,7 @@
 															} else if($i == 0){
 																$total = '-';
 															}
-															echo $total;
+															echo number_format((float)$total, 1, '.', '');
 															echo"</a>
 														</div>
 													</div>
@@ -928,6 +936,7 @@
 														<div class='col-md-6'>
 															<form action='rentACar_C/bookCar' method='POST'>
 																<input class='form-control' name='id_CarGuide' value='".$car['id_car']."' hidden>
+																<input class='form-control' name='city' value='".$car['city']."' hidden>
 																<button type='submit' class='btn btn-success'>Book Now</button>
 															</form>
 														</div>
@@ -967,7 +976,7 @@
 															} else if($i == 0){
 																$total = '-';
 															}
-															echo $total;
+															echo number_format((float)$total, 1, '.', '');
 															echo"</a>
 														</div>
 													</div>
@@ -987,6 +996,7 @@
 														<div class='col-md-6'>
 															<form action='rentACar_C/bookCar' method='POST'>
 																<input class='form-control' name='id_CarGuide' value='".$car['id_car']."' hidden>
+																<input class='form-control' name='city' value='".$car['city']."' hidden>
 																<button type='submit' class='btn btn-success'>Book Now</button>
 															</form>
 														</div>
@@ -1024,7 +1034,7 @@
 															} else if($i == 0){
 																$total = '-';
 															}
-															echo $total;
+															echo number_format((float)$total, 1, '.', '');
 															echo"</a>
 														</div>
 													</div>
@@ -1044,6 +1054,7 @@
 														<div class='col-md-6'>
 															<form action='rentACar_C/bookCar' method='POST'>
 																<input class='form-control' name='id_CarGuide' value='".$car['id_car']."' hidden>
+																<input class='form-control' name='city' value='".$car['city']."' hidden>
 																<button type='submit' class='btn btn-success'>Book Now</button>
 															</form>
 														</div>
@@ -1083,7 +1094,7 @@
 															} else if($i == 0){
 																$total = '-';
 															}
-															echo $total;
+															echo number_format((float)$total, 1, '.', '');
 															echo"</a>
 														</div>
 													</div>
@@ -1103,6 +1114,7 @@
 														<div class='col-md-6'>
 															<form action='rentACar_C/bookCar' method='POST'>
 																<input class='form-control' name='id_CarGuide' value='".$car['id_car']."' hidden>
+																<input class='form-control' name='city' value='".$car['city']."' hidden>
 																<button type='submit' class='btn btn-success'>Book Now</button>
 															</form>
 														</div>
@@ -1140,7 +1152,7 @@
 															} else if($i == 0){
 																$total = '-';
 															}
-															echo $total;
+															echo number_format((float)$total, 1, '.', '');
 															echo"</a>
 														</div>
 													</div>
@@ -1160,6 +1172,7 @@
 														<div class='col-md-6'>
 															<form action='rentACar_C/bookCar' method='POST'>
 																<input class='form-control' name='id_CarGuide' value='".$car['id_car']."' hidden>
+																<input class='form-control' name='city' value='".$car['city']."' hidden>
 																<button type='submit' class='btn btn-success'>Book Now</button>
 															</form>
 														</div>
@@ -1265,7 +1278,7 @@
 															} else if($i == 0){
 																$total = '-';
 															}
-															echo $total;
+															echo number_format((float)$total, 1, '.', '');
 															echo"</a>
 														</div>
 													</div>
@@ -1285,6 +1298,7 @@
 														<div class='col-md-6'>
 															<form action='rentACar_C/bookCar' method='POST'>
 																<input class='form-control' name='id_CarGuide' value='".$car['id_car']."' hidden>
+																<input class='form-control' name='city' value='".$car['city']."' hidden>
 																<button type='submit' class='btn btn-success'>Book Now</button>
 															</form>
 														</div>
@@ -1322,7 +1336,7 @@
 															} else if($i == 0){
 																$total = '-';
 															}
-															echo $total;
+															echo number_format((float)$total, 1, '.', '');
 															echo"</a>
 														</div>
 													</div>
@@ -1342,6 +1356,7 @@
 														<div class='col-md-6'>
 															<form action='rentACar_C/bookCar' method='POST'>
 																<input class='form-control' name='id_CarGuide' value='".$car['id_car']."' hidden>
+																<input class='form-control' name='city' value='".$car['city']."' hidden>
 																<button type='submit' class='btn btn-success'>Book Now</button>
 															</form>
 														</div>
@@ -1381,7 +1396,7 @@
 															} else if($i == 0){
 																$total = '-';
 															}
-															echo $total;
+															echo number_format((float)$total, 1, '.', '');
 															echo"</a>
 														</div>
 													</div>
@@ -1401,6 +1416,7 @@
 														<div class='col-md-6'>
 															<form action='rentACar_C/bookCar' method='POST'>
 																<input class='form-control' name='id_CarGuide' value='".$car['id_car']."' hidden>
+																<input class='form-control' name='city' value='".$car['city']."' hidden>
 																<button type='submit' class='btn btn-success'>Book Now</button>
 															</form>
 														</div>
@@ -1438,7 +1454,7 @@
 															} else if($i == 0){
 																$total = '-';
 															}
-															echo $total;
+															echo number_format((float)$total, 1, '.', '');
 															echo"</a>
 														</div>
 													</div>
@@ -1458,6 +1474,7 @@
 														<div class='col-md-6'>
 															<form action='rentACar_C/bookCar' method='POST'>
 																<input class='form-control' name='id_CarGuide' value='".$car['id_car']."' hidden>
+																<input class='form-control' name='city' value='".$car['city']."' hidden>
 																<button type='submit' class='btn btn-success'>Book Now</button>
 															</form>
 														</div>
@@ -1497,7 +1514,7 @@
 															} else if($i == 0){
 																$total = '-';
 															}
-															echo $total;
+															echo number_format((float)$total, 1, '.', '');
 															echo"</a>
 														</div>
 													</div>
@@ -1517,6 +1534,7 @@
 														<div class='col-md-6'>
 															<form action='rentACar_C/bookCar' method='POST'>
 																<input class='form-control' name='id_CarGuide' value='".$car['id_car']."' hidden>
+																<input class='form-control' name='city' value='".$car['city']."' hidden>
 																<button type='submit' class='btn btn-success'>Book Now</button>
 															</form>
 														</div>
@@ -1554,7 +1572,7 @@
 															} else if($i == 0){
 																$total = '-';
 															}
-															echo $total;
+															echo number_format((float)$total, 1, '.', '');
 															echo"</a>
 														</div>
 													</div>
@@ -1574,6 +1592,7 @@
 														<div class='col-md-6'>
 															<form action='rentACar_C/bookCar' method='POST'>
 																<input class='form-control' name='id_CarGuide' value='".$car['id_car']."' hidden>
+																<input class='form-control' name='city' value='".$car['city']."' hidden>
 																<button type='submit' class='btn btn-success'>Book Now</button>
 															</form>
 														</div>
@@ -1679,7 +1698,7 @@
 															} else if($i == 0){
 																$total = '-';
 															}
-															echo $total;
+															echo number_format((float)$total, 1, '.', '');
 															echo"</a>
 														</div>
 													</div>
@@ -1699,6 +1718,7 @@
 														<div class='col-md-6'>
 															<form action='rentACar_C/bookCar' method='POST'>
 																<input class='form-control' name='id_CarGuide' value='".$car['id_car']."' hidden>
+																<input class='form-control' name='city' value='".$car['city']."' hidden>
 																<button type='submit' class='btn btn-success'>Book Now</button>
 															</form>
 														</div>
@@ -1736,7 +1756,7 @@
 															} else if($i == 0){
 																$total = '-';
 															}
-															echo $total;
+															echo number_format((float)$total, 1, '.', '');
 															echo"</a>
 														</div>
 													</div>
@@ -1756,6 +1776,7 @@
 														<div class='col-md-6'>
 															<form action='rentACar_C/bookCar' method='POST'>
 																<input class='form-control' name='id_CarGuide' value='".$car['id_car']."' hidden>
+																<input class='form-control' name='city' value='".$car['city']."' hidden>
 																<button type='submit' class='btn btn-success'>Book Now</button>
 															</form>
 														</div>
@@ -1795,7 +1816,7 @@
 															} else if($i == 0){
 																$total = '-';
 															}
-															echo $total;
+															echo number_format((float)$total, 1, '.', '');
 															echo"</a>
 														</div>
 													</div>
@@ -1815,6 +1836,7 @@
 														<div class='col-md-6'>
 															<form action='rentACar_C/bookCar' method='POST'>
 																<input class='form-control' name='id_CarGuide' value='".$car['id_car']."' hidden>
+																<input class='form-control' name='city' value='".$car['city']."' hidden>
 																<button type='submit' class='btn btn-success'>Book Now</button>
 															</form>
 														</div>
@@ -1852,7 +1874,7 @@
 															} else if($i == 0){
 																$total = '-';
 															}
-															echo $total;
+															echo number_format((float)$total, 1, '.', '');
 															echo"</a>
 														</div>
 													</div>
@@ -1872,6 +1894,7 @@
 														<div class='col-md-6'>
 															<form action='rentACar_C/bookCar' method='POST'>
 																<input class='form-control' name='id_CarGuide' value='".$car['id_car']."' hidden>
+																<input class='form-control' name='city' value='".$car['city']."' hidden>
 																<button type='submit' class='btn btn-success'>Book Now</button>
 															</form>
 														</div>
@@ -1911,7 +1934,7 @@
 															} else if($i == 0){
 																$total = '-';
 															}
-															echo $total;
+															echo number_format((float)$total, 1, '.', '');
 															echo"</a>
 														</div>
 													</div>
@@ -1931,6 +1954,7 @@
 														<div class='col-md-6'>
 															<form action='rentACar_C/bookCar' method='POST'>
 																<input class='form-control' name='id_CarGuide' value='".$car['id_car']."' hidden>
+																<input class='form-control' name='city' value='".$car['city']."' hidden>
 																<button type='submit' class='btn btn-success'>Book Now</button>
 															</form>
 														</div>
@@ -1968,7 +1992,7 @@
 															} else if($i == 0){
 																$total = '-';
 															}
-															echo $total;
+															echo number_format((float)$total, 1, '.', '');
 															echo"</a>
 														</div>
 													</div>
@@ -1988,6 +2012,7 @@
 														<div class='col-md-6'>
 															<form action='rentACar_C/bookCar' method='POST'>
 																<input class='form-control' name='id_CarGuide' value='".$car['id_car']."' hidden>
+																<input class='form-control' name='city' value='".$car['city']."' hidden>
 																<button type='submit' class='btn btn-success'>Book Now</button>
 															</form>
 														</div>
@@ -2024,7 +2049,7 @@
 								if(($notif['type'] == 'message_car')){
 									foreach($carData as $car){if($car['id_car'] == $notif['id_car_guide']){
 										echo"<div class='card' id='notification' style='border-left: 4px solid #CB5FCE;'>
-											<h6 style='font-weight:600;'>Message | ".$car['id_garage']."</h6>
+											<h6 style='font-weight:600;'>Message | ".$car['garage_name']."</h6>
 											<a style='color:grey; font-size:12px;'><i class='fa-solid fa-car'></i> ".$car['car_name']." / ".$car['year']." 
 												| <i class='fa-solid fa-location-dot'></i> ".$car['location']."</a>
 											<div class='container-fluid' style='width:100%; border-radius:10px; background:#e3e3e3; padding:5px; margin:2px;'>

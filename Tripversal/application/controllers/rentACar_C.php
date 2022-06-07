@@ -32,8 +32,10 @@
 		public function bookCar()
 		{
 			$id = $this->input->post('id_CarGuide');
+			$city = $this->input->post('city');
 
 			$this->session->set_userdata('set_idCarGuide',$id);
+			$this->session->set_userdata('set_city_onbook',$city);
 			$this->session->set_userdata('set_typeBook','Car Rental');
 			redirect('bookGuideCar_C');	
 		}

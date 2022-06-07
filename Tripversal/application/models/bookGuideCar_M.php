@@ -44,5 +44,11 @@
 			$this->db->from('tips');
 			return $data = $this->db->get()->result_array();
 		}
+		public function get_all_travel()
+		{
+			$this->db->select('*');
+			$this->db->from('travel_destination');
+			return $data = $this->db->get()->result_array();
+		}
 	}
 ?>

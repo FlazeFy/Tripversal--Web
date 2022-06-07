@@ -200,9 +200,170 @@ color: #808080;
 				width: 25px;
 				height: 25px;
 				border-radius: 5px;
-				background-color: rgb(40, 207, 54);
+				background-color: #4169E1;
 			}
-		</style>
+
+			/*Travel destination carousel. delete if it affect to other carousel*/
+			ul.thumbnail li.img.active, ul.thumbnail li.active{
+				background:transparent;
+			}
+			.ftco-section {
+  padding: 7em 0;
+margin-top:-100px; }
+
+.ftco-no-pt {
+  padding-top: 0; }
+
+.ftco-no-pb {
+  padding-bottom: 0; }
+
+.heading-section {
+  font-size: 28px; }
+
+.img {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center; }
+
+.slider-hero {
+  position: relative; }
+
+.owl-carousel {
+  position: relative; }
+  .owl-carousel .owl-item {
+    opacity: 1; }
+    .owl-carousel .owl-item.active {
+      opacity: 1; }
+  .owl-carousel .owl-nav {
+    position: absolute;
+    top: 50%;
+    width: 100%; }
+    .owl-carousel .owl-nav .owl-prev,
+    .owl-carousel .owl-nav .owl-next {
+      position: absolute;
+      -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      transform: translateY(-50%);
+      margin-top: 0;
+      color: white !important;
+      -webkit-transition: 0.7s;
+      -o-transition: 0.7s;
+      transition: 0.7s;
+      opacity: 1; }
+      @media (prefers-reduced-motion: reduce) {
+        .owl-carousel .owl-nav .owl-prev,
+        .owl-carousel .owl-nav .owl-next {
+          -webkit-transition: none;
+          -o-transition: none;
+          transition: none; } }
+      .owl-carousel .owl-nav .owl-prev span:before,
+      .owl-carousel .owl-nav .owl-next span:before {
+        font-size: 30px; }
+    .owl-carousel .owl-nav .owl-prev {
+      left: 20px; }
+    .owl-carousel .owl-nav .owl-next {
+      right: 20px; }
+  .owl-carousel .owl-dots {
+    text-align: center;
+    margin-top: 0;
+    position: absolute;
+    bottom: 20px;
+    right: 0;
+    left: 0; }
+    .owl-carousel .owl-dots .owl-dot {
+      width: 10px;
+      height: 10px;
+      margin: 5px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.5);
+      position: relative; }
+      .owl-carousel .owl-dots .owl-dot:hover, .owl-carousel .owl-dots .owl-dot:focus {
+        outline: none !important; }
+      .owl-carousel .owl-dots .owl-dot.active {
+        background: #ff5959; }
+
+.owl-carousel.owl-drag .owl-item {
+  -ms-touch-action: pan-y;
+  touch-action: pan-y; }
+
+.work {
+  width: 100%; height: 500px;}
+  .work .img {
+    width: 100%;
+    height: 500px;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+    overflow: hidden;
+    -webkit-box-shadow: 0px 20px 35px -30px rgba(0, 0, 0, 0.26);
+    -moz-box-shadow: 0px 20px 35px -30px rgba(0, 0, 0, 0.26);
+    box-shadow: 0px 20px 35px -30px rgba(0, 0, 0, 0.26); }
+    .work .img:after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      content: '';
+      z-index: -1;
+      background: #000;
+      opacity: .3; }
+  .work .text h2 {
+    font-size: 60px;
+    font-weight: 200;
+    color: #fff;
+    text-transform: uppercase; }
+    @media (max-width: 991.98px) {
+      .work .text h2 {
+        font-size: 40px; } }
+  .work .text span {
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: rgba(0, 0, 0, 0.3);
+    text-transform: uppercase;
+    font-weight: 500; }
+
+.thumbnail {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  -webkit-transform: translateY(50%) translateX(-50%);
+  -ms-transform: translateY(50%) translateX(-50%);
+  transform: translateY(50%) translateX(-50%);
+  z-index: 99;
+  width: 100%; }
+  .thumbnail li {
+    display: inline-block; }
+    .thumbnail li a {
+      display: block;
+      margin: 4px; }
+      .thumbnail li a img {
+        width: 80px;
+        border-radius: 50%;
+        -webkit-transform: scale(0.8);
+        -ms-transform: scale(0.8);
+        transform: scale(0.8);
+        -webkit-transition: .3s all ease;
+        -o-transition: .3s all ease;
+        transition: .3s all ease;
+        -webkit-box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
+        box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2); }
+    .thumbnail li.active a img {
+      border: 4px solid #4169E1;
+      -webkit-transform: scale(1.1);
+      -ms-transform: scale(1.1);
+      transform: scale(1.1);
+      -webkit-box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.2);
+      box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.2); }
+    @media (max-width: 767.98px) {
+      .thumbnail li a img {
+        width: 50px; } }
+		.owl-theme .owl-dots,.owl-theme .owl-nav{text-align:center;-webkit-tap-highlight-color:transparent}.owl-theme .owl-nav{margin-top:10px}.owl-theme .owl-nav [class*=owl-]{color:#FFF;font-size:14px;margin:5px;padding:4px 7px;background:#D6D6D6;display:inline-block;cursor:pointer;border-radius:3px}.owl-theme .owl-nav [class*=owl-]:hover{background:#869791;color:#FFF;text-decoration:none}.owl-theme .owl-nav .disabled{opacity:.5;cursor:default}.owl-theme .owl-nav.disabled+.owl-dots{margin-top:10px}.owl-theme .owl-dots .owl-dot{display:inline-block;zoom:1}.owl-theme .owl-dots .owl-dot span{width:10px;height:10px;margin:5px 7px;background:#D6D6D6;display:block;-webkit-backface-visibility:visible;transition:opacity .2s ease;border-radius:30px}.owl-theme .owl-dots .owl-dot.active span,.owl-theme .owl-dots .owl-dot:hover span{background:#869791}
+		.owl-carousel,.owl-carousel .owl-item{-webkit-tap-highlight-color:transparent;position:relative}.owl-carousel{display:none;width:100%;z-index:1}.owl-carousel .owl-stage{position:relative;-ms-touch-action:pan-Y;touch-action:manipulation;-moz-backface-visibility:hidden}.owl-carousel .owl-stage:after{content:".";display:block;clear:both;visibility:hidden;line-height:0;height:0}.owl-carousel .owl-stage-outer{position:relative;overflow:hidden;-webkit-transform:translate3d(0,0,0)}.owl-carousel .owl-item,.owl-carousel .owl-wrapper{-webkit-backface-visibility:hidden;-moz-backface-visibility:hidden;-ms-backface-visibility:hidden;-webkit-transform:translate3d(0,0,0);-moz-transform:translate3d(0,0,0);-ms-transform:translate3d(0,0,0)}.owl-carousel .owl-item{min-height:1px;float:left;-webkit-backface-visibility:hidden;-webkit-touch-callout:none}.owl-carousel .owl-item img{display:block;width:100%}.owl-carousel .owl-dots.disabled,.owl-carousel .owl-nav.disabled{display:none}.no-js .owl-carousel,.owl-carousel.owl-loaded{display:block}.owl-carousel .owl-dot,.owl-carousel .owl-nav .owl-next,.owl-carousel .owl-nav .owl-prev{cursor:pointer;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.owl-carousel .owl-nav button.owl-next,.owl-carousel .owl-nav button.owl-prev,.owl-carousel button.owl-dot{background:0 0;color:inherit;border:none;padding:0!important;font:inherit}.owl-carousel.owl-loading{opacity:0;display:block}.owl-carousel.owl-hidden{opacity:0}.owl-carousel.owl-refresh .owl-item{visibility:hidden}.owl-carousel.owl-drag .owl-item{-ms-touch-action:pan-y;touch-action:pan-y;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.owl-carousel.owl-grab{cursor:move;cursor:grab}.owl-carousel.owl-rtl{direction:rtl}.owl-carousel.owl-rtl .owl-item{float:right}.owl-carousel .animated{animation-duration:1s;animation-fill-mode:both}.owl-carousel .owl-animated-in{z-index:0}.owl-carousel .owl-animated-out{z-index:1}.owl-carousel .fadeOut{animation-name:fadeOut}@keyframes fadeOut{0%{opacity:1}100%{opacity:0}}.owl-height{transition:height .5s ease-in-out}.owl-carousel .owl-item .owl-lazy{opacity:0;transition:opacity .4s ease}.owl-carousel .owl-item .owl-lazy:not([src]),.owl-carousel .owl-item .owl-lazy[src^=""]{max-height:0}.owl-carousel .owl-item img.owl-lazy{transform-style:preserve-3d}.owl-carousel .owl-video-wrapper{position:relative;height:100%;background:#000}.owl-carousel .owl-video-play-icon{position:absolute;height:80px;width:80px;left:50%;top:50%;margin-left:-40px;margin-top:-40px;background:url(owl.video.play.png) no-repeat;cursor:pointer;z-index:1;-webkit-backface-visibility:hidden;transition:transform .1s ease}.owl-carousel .owl-video-play-icon:hover{-ms-transform:scale(1.3,1.3);transform:scale(1.3,1.3)}.owl-carousel .owl-video-playing .owl-video-play-icon,.owl-carousel .owl-video-playing .owl-video-tn{display:none}.owl-carousel .owl-video-tn{opacity:0;height:100%;background-position:center center;background-repeat:no-repeat;background-size:contain;transition:opacity .4s ease}.owl-carousel .owl-video-frame{position:relative;z-index:1;height:100%;width:100%}
+	</style>
                              
     </head>
 
@@ -424,7 +585,7 @@ color: #808080;
 														<div class='row' style='max-width:200px; margin-top:-10px;'>";
 															$star = 0;
 															while($star < $car['rating']){
-																echo"<div class='col-md-2'><img src='http://localhost/MedStory/assets/Rating.png' style='width:20px;'></div>";
+																echo"<div class='col-md-2'><img src='http://localhost/Tripversal/assets/icon/Rating.png' style='width:20px;'></div>";
 																$star++;
 															}
 														echo"</div>
@@ -480,8 +641,8 @@ color: #808080;
 									} else if($k == 0){
 										echo"</div>";
 										echo "<div class='container'>
-											<p style='font-style:italic; text-align:center; color:grey;'>Tidak terdapat pertanyaan dengan kategori terkait</p>
-											<img src='http://localhost/MedStory/assets/icon/Empty.gif' alt='Sorry.png' style='display: block;
+											<p style='font-style:italic; text-align:center; color:grey;'>Sorry there's no review for this item</p>
+											<img src='http://localhost/Tripversal/assets/icon/Empty.gif' alt='Sorry.png' style='display: block;
 												margin-left: auto; margin-right: auto; width: 250px; height: 250px;'>
 										</div>";
 									}
@@ -502,7 +663,9 @@ color: #808080;
 							if($this->session->userdata('set_typeBook') == 'Car Rental'){
 								foreach($carData as $car){
 									if($car['id_car'] == $this->session->userdata('set_idCarGuide')){
-										echo "<p>".nl2br($car['description'])."</p>";
+										echo "<div class='container-fluid' style='width:105%; max-height: calc(90vh - 140px); overflow-x: auto; margin-left:-20px;'>
+										<p>".nl2br($car['description'])."</p>
+										</div>";
 									}
 								}
 							} else if($this->session->userdata('set_typeBook') == 'Tour Guide'){
@@ -515,9 +678,57 @@ color: #808080;
 						?>	
 					</div>
 				</div>
-			</div>
+				<h5><i class="fa-solid fa-umbrella-beach"></i> Best Destination</h5>
+				<hr>
+				<section class="ftco-section">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="slider-hero">
+									<div class="featured-carousel owl-carousel">
+										<?php
+											foreach($travelData as $travel){
+												if($this->session->userdata('set_city_onbook') ==  $travel['place_city']){
+													echo"
+													<div class='item'>
+														<div class='work'>
+															<div class='img d-flex align-items-center justify-content-center' style='background-image: url(http://localhost/Tripversal/assets/travelDestination/".str_ireplace(' ', '%20', $travel['place_name']).".jpg);'>
+																<div class='container' style='margin-top:280px;'>
+																	<h2>".$travel['place_name']."</h2>
+																	<div style='overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 10; line-clamp: 2; -webkit-box-orient: vertical;'
+																	><p>".$travel['place_desc']."</p></div>
+																	<p>".$travel['place_day']." - ".$travel['place_time']."</p>
+																	<button class='btn btn-success' style='font-size:13px; width:130px;' data-toggle='modal' data-target=''><i class='fa-solid fa-location-dot'></i> See Location</button>
+																</div>
+															</div>
+														</div>
+													</div>";
+												}
+											}
+										?>
+									</div>
 
-			<div class=col-md-3>
+									<div class="text-center">
+									<ul class="thumbnail">
+										<?php
+											$initial = "active img";
+											foreach($travelData as $travel){
+												if($this->session->userdata('set_city_onbook') ==  $travel['place_city']){
+													echo "<li class='".$initial."'><a href='#'><img src='http://localhost/Tripversal/assets/travelDestination/".str_ireplace(' ', '%20', $travel['place_name'])."-small.jpg' alt='Image' class='img-fluid'></a></li>";
+													$initial = " ";
+												}
+											}
+										?>
+									</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
+							
+			<div class='col-md-3'>
 				<?php
 					if($this->session->userdata('set_typeBook') == 'Car Rental'){
 						foreach($carData as $car){
@@ -569,21 +780,37 @@ color: #808080;
 									</div>
 								</div>
 								<h6 style='font-weight:600;'>About us</h6>
-								<div class='container-fluid' style='width:105%; max-height: calc(60vh - 160px); overflow-x: auto; margin-left:-20px; margin-bottom:5px;'>
-									<p>".nl2br($car['garage_desc'])."</p>
+								<div class='container-fluid' style=' margin-left:-20px; margin-bottom:5px;'>
+									<div style='font-size:15px; color:#212121;  overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 10; line-clamp: 10; -webkit-box-orient: vertical;'
+									><p>".nl2br($car['garage_desc'])."</p></div>
+								</div>
+								<h6 style='font-weight:600;'>Other vehicle</h6>
+								<div class='container-fluid' style='margin-left:-10px; margin-bottom:5px;'>
+									
 								</div>
 								";
 							}
 						}
 					}
 				?>
-
-				<h5><i class="fa-solid fa-umbrella-beach"></i> Best Destination</h5>
-				<hr>
-				
 			</div>
-
+					
     	</div>
+			
+		<?php
+			if($this->session->userdata('set_typeBook') == 'Car Rental'){
+				foreach($carData as $car){
+					if($car['id_car'] == $this->session->userdata('set_idCarGuide')){
+						echo"<h5><i class='fa-solid fa-city'></i> Other Vehicle in ".$car['city']."</h5><hr>";
+					}
+				}				
+			} else if($this->session->userdata('set_typeBook') == 'Tour Guide'){
+				echo"<h5><i class='fa-solid fa-city'></i> Other Tour Guide in ".$guide['city']."</h5>
+				<hr>";
+			}	
+			
+		?>
+		<hr>
     </div>
 
 	<!-- Zoom location modal -->
@@ -595,7 +822,7 @@ color: #808080;
 		<div class='modal-content'>
 			<div class='modal-header'>
 				<h4>".$data['garage_name']."</h4>
-				<img type='button' data-dismiss='modal' aria-label='Close' src='http://localhost/MedStory/assets/Error.png'
+				<img type='button' data-dismiss='modal' aria-label='Close' src='http://localhost/Tripversal/assets/icon/Close.png'
 					width='35px' height='35px'>
 			</div>
 			<div class='modal-body'>
@@ -836,7 +1063,8 @@ color: #808080;
 		myLink.addEventListener('click', function(e) {
 		e.preventDefault();
 		});</script>
-           
+        <script src="http://localhost/Tripversal/assets/js/owl.carousel.min.js"></script>
+    	<script src="http://localhost/Tripversal/assets/js/main.js"></script>
 	
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 		<script>

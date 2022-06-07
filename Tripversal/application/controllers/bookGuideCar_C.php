@@ -14,6 +14,7 @@
 			$data['guideData']= $this->bookGuideCar_M->get_all_guide();
 			$data['carRating']= $this->bookGuideCar_M->get_all_car_rating();
 			$data['tipsData']= $this->bookGuideCar_M->get_all_tips();
+			$data['travelData']= $this->bookGuideCar_M->get_all_travel();
 			$this->load->view('BookGuideCarPage', $data);
 		}
 		public function copyCoor(){
