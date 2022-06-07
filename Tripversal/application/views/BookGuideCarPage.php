@@ -117,16 +117,91 @@ color: #000 !important;
 .articles{
 font-size:10px;
 color: #808080;
-}
-.number1{
-font-weight:500;
-}
-.number2{
-font-weight:500;
-}
-.number3{
-font-weight:500;
-}			
+}		
+			.carousel {
+				margin: 10px auto;
+				padding: 0 30px;
+			}
+			.carousel-item{
+				overflow: hidden;
+				background:white;
+			}
+			.carousel .item h4 {
+				font-size: 18px;
+			}
+			.carousel .item h4, .carousel .item p, .carousel .item ul {
+				margin-bottom: 5px;
+			}
+			.carousel-control-prev, .carousel-control-next {
+				height: 30px;
+				width: 30px;
+				background: #4183D7;	
+				margin: auto 0;
+				border-radius: 4px;
+				opacity: 0.8;
+				margin-bottom:-25px;
+				margin-right:50px;
+				margin-left:50px;
+			}
+			.carousel-control-prev:hover, .carousel-control-next:hover {
+				background: #4183D7;
+				opacity: 1;
+			}
+			.carousel-control-prev i, .carousel-control-next i {
+				font-size: 26px;
+				position: absolute;
+				top: 70%;
+				display: inline-block;
+				margin: -19px 0 0 0;
+				z-index: 5;
+				left: 0;
+				right: 0;
+				color: #fff;
+				text-shadow: none;
+				font-weight: bold;
+			}
+			.carousel-control-prev i {
+				margin-left: -2px;
+			}
+			.carousel-control-next i {
+				margin-right: -4px;
+			}		
+			.carousel-indicators {
+				bottom: -30px;
+			}
+			.carousel-indicators li, .carousel-indicators li.active {
+				width: 10px;
+				height: 10px;
+				margin: 4px;
+				border-radius: 50%;
+				border: none;
+			}
+			.carousel-indicators li {	
+				background: rgba(0, 0, 0, 0.2);
+			}
+			.carousel-indicators li.active {	
+				background: #212121;
+			}
+			.carousel-indicators-numbers li {
+				text-indent: 0;
+				text-align:center;
+				margin: 0 5px;
+				width: 25px;
+				height: 25px;
+				border: none;
+				border-radius: 5px;
+				color: white;
+				background: grey;
+				transition: all 0.25s ease;
+			}
+			.carousel-indicators-numbers li.visited, .carousel-indicators-numbers li:hover, .carousel-indicators-numbers li.active {
+				margin: 0 5px;
+				margin-bottom:5px;
+				width: 25px;
+				height: 25px;
+				border-radius: 5px;
+				background-color: rgb(40, 207, 54);
+			}
 		</style>
                              
     </head>
@@ -286,12 +361,142 @@ font-weight:500;
 					</div>
 				</div>
 				<div class='row'>
-					<div class=col-md-5>
-						<h5>Review</h5>
+					<div class='col-md-5'>
+						<h5 style='font-weight:600;'>Review</h5>
 						<hr>
+						<div id='myCarouselRating' class='carousel slide' data-ride='carousel' data-interval='0' style='width:115%; margin-left:-35px;'>
+							<!-- Carousel indicators -->
+							<ol class='carousel-indicators carousel-indicators-numbers' style='bottom: -50px;'>
+							<?php
+								$page = 0; $item = 0; $show = 3;
+								if($this->session->userdata('set_typeBook') == 'Car Rental'){
+									foreach ($carRating as $car){
+										if($car['id_car'] == $this->session->userdata('set_idCarGuide')){
+											if($item == 0 && $page == 0){
+												echo"<li data-target='#myCarouselRating' data-slide-to='0' class='active'>1</li>";
+												$item++;
+												$page++;
+											} else if ($item % $show == 0){
+												echo"<li data-target='#myCarouselRating' data-slide-to='".$page."'>"; echo $page+1; echo"</li>";
+												$item++;
+												$page++;
+											} else if ($item % $show != 0){
+												$item++;
+											}
+										}
+									}
+								} //else if($this->session->userdata('set_typeBook') == 'Tour Guide'){
+								
+								// } 
+							?>
+							</ol>
+							<!-- Wrapper for carousel items -->
+							<div class='carousel-inner'>
+							<?php 
+								$i = 1; $count = 0; $k = 0;
+								$state = ' active'; $show = 3;
+								if($this->session->userdata('set_typeBook') == 'Car Rental'){
+									foreach($carRating as $car){
+										if($car['id_car'] == $this->session->userdata('set_idCarGuide')){
+											if(($k % $show == 0) || ($k == 0)){
+												echo"<div class='item carousel-item".$state."' style='padding:20px;' >
+												<div class='col-md'>";
+											}	
+											echo"
+											<div class='container-fluid' style='height:auto; box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px; padding:10px; margin-bottom:15px;'>
+												<div class='row'>
+													<div class='col-md-4'>
+														<img src='http://localhost/Tripversal/assets/uploads/user/user_"; 
+															foreach($userData as $user){
+																if($user['id_user'] == $car['id_user']){
+																	echo $user['username'];
+																}
+															}
+															echo".jpg' alt='Driver' class='rounded-circle img-fluid' 
+															style='width:60px; height:60px; type:button; cursor:pointer; margin-left:35px;'>
+														<h5 style='font-size:13px; color:#212121; text-align:center; margin-top:5px;'>by : ";
+															foreach($userData as $user){
+																if($user['id_user'] == $car['id_user']){
+																	echo $user['username'];
+																}
+															}
+														echo"</h5>
+														<div class='row' style='max-width:200px; margin-top:-10px;'>";
+															$star = 0;
+															while($star < $car['rating']){
+																echo"<div class='col-md-2'><img src='http://localhost/MedStory/assets/Rating.png' style='width:20px;'></div>";
+																$star++;
+															}
+														echo"</div>
+													</div>
+													<div class='col-md-8'>
+														<div style='font-size:13px; color:#212121;  overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 4; line-clamp: 4; -webkit-box-orient: vertical;'
+														>".$car['comment']."</div>
+														<div class='row'>
+															<div class='col-md-6'>
+																<h5 style='font-size:11px; color:#808080; margin-top:10px; white-space: nowrap;'>~ "; 
+																	$s = strtotime($car['datetime']);
+
+																	if(date('Y-m-d', $s)== date("Y-m-d")){
+																		echo"today at ".date('H : i', $s);
+																	} else {
+																		echo date('y-m-d', $s)." at ".date('H : i', $s);
+																	}
+																echo"</h5>
+															</div>
+															<div class='col-md-5'>
+																<button class='btn btn-link' style='border: 2px; background:#5cb85c; color:whitesmoke; text-decoration:none; font-size:12px; margin-top:5px;'><i class='fa-solid fa-thumbs-up'></i> Helpful</button>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>";
+											$k++;
+											$state = ' ';
+											if($k % $show == 0){
+												echo"</div>
+											</div>";
+											}										
+											$count = 0; $i++;
+										} 
+									}
+								
+									//Need to be simplify / optimized
+									if($k > $show){ 
+										echo"
+										</div></div></div>
+										<!-- Carousel controls -->
+										<a class='carousel-control-prev' href='#myCarouselRating' data-slide='prev'>
+											<i class='fa fa-angle-left'></i>
+										</a>
+										<a class='carousel-control-next' href='#myCarouselRating' data-slide='next'>
+											<i class='fa fa-angle-right'></i>
+										</a>";
+									} else if($k == $show){ 
+										echo"</div>";
+									// } else if(($k == 2)||($k == 3)||($k == 1)){
+									} else if(($k >= 1)&&($k <= 4)){
+										echo"</div></div></div>";
+									} else if($k == 0){
+										echo"</div>";
+										echo "<div class='container'>
+											<p style='font-style:italic; text-align:center; color:grey;'>Tidak terdapat pertanyaan dengan kategori terkait</p>
+											<img src='http://localhost/MedStory/assets/icon/Empty.gif' alt='Sorry.png' style='display: block;
+												margin-left: auto; margin-right: auto; width: 250px; height: 250px;'>
+										</div>";
+									}
+								}
+								
+
+								// echo $k."=k";
+								//Check this
+							?>
+						</div>
+						<br>
+
 					</div>
 					<div class=col-md-7>
-						<h5>Description</h5>
+						<h5 style='font-weight:600;'>Description</h5>
 						<hr>
 						<?php 
 							if($this->session->userdata('set_typeBook') == 'Car Rental'){
@@ -330,7 +535,7 @@ font-weight:500;
 										<div class='p-2 mt-2 bg-primary d-flex justify-content-between rounded text-white stats'>
 											<div class='d-flex flex-column'>
 												<span class='articles'>Vehicle</span>
-												<span class='number1'>"; 
+												<span>"; 
 												$count = 0;
 												foreach($carData as $car2){
 													if($car['id_garage'] == $car2['id_garage']){
@@ -342,7 +547,7 @@ font-weight:500;
 											</div>
 											<div class='d-flex flex-column'>
 												<span class='articles'>Driver</span>
-												<span class='number2'>"; 
+												<span>"; 
 												$count2 = 0;
 												foreach($carData2 as $car3){
 													if(($car['id_garage'] == $car3['id_garage'])&&($car3['driver'] != 'none')){
@@ -354,7 +559,7 @@ font-weight:500;
 											</div>
 											<div class='d-flex flex-column'>
 												<span class='articles'>Trip</span>
-												<span class='number3'>8.9</span>
+												<span>8.9</span>
 											</div>
 										</div>
 										<div class='button d-flex flex-row align-items-center'>
@@ -363,7 +568,7 @@ font-weight:500;
 										</div>
 									</div>
 								</div>
-								<h6>About us</h6>
+								<h6 style='font-weight:600;'>About us</h6>
 								<div class='container-fluid' style='width:105%; max-height: calc(60vh - 160px); overflow-x: auto; margin-left:-20px; margin-bottom:5px;'>
 									<p>".nl2br($car['garage_desc'])."</p>
 								</div>

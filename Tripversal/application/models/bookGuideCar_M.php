@@ -11,6 +11,12 @@
 			$this->db->order_by('price','DESC');
 			return $data = $this->db->get()->result_array();
 		}
+		public function get_all_user()
+		{
+			$this->db->select('*');
+			$this->db->from('user');
+			return $data = $this->db->get()->result_array();
+		}
 		public function get_all_car2()
 		{
 			$this->db->select('*');

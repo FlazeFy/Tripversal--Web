@@ -9,6 +9,7 @@
 		public function index(){
 			$data = [];
 			$data['carData']= $this->bookGuideCar_M->get_all_car();
+			$data['userData']= $this->bookGuideCar_M->get_all_user();
 			$data['carData2']= $this->bookGuideCar_M->get_all_car2();
 			$data['guideData']= $this->bookGuideCar_M->get_all_guide();
 			$data['carRating']= $this->bookGuideCar_M->get_all_car_rating();
