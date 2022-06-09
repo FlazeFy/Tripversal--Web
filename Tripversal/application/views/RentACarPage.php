@@ -413,7 +413,7 @@
 											<div class='glassBox'>
 												<div class='glassBox__imgBox'>
 													<img src='http://localhost/Tripversal/assets/image/".$car['plate_number'].".png' alt=''>
-													<h3 class='glassBox__title'>".$car['car_name']." / ".$car['year']."</h3>
+													<h3 class='glassBox__title'>".$car['car_name']." / <span style='color:grey; font-size:14px;'>".$car['year']."</span></h3>
 													<hr>
 												</div>
 												<div class='card-body' style='width:120%; margin-top:-25px; display: block; margin-left: auto; margin-right: auto;'>
@@ -471,7 +471,7 @@
 											<div class='glassBox'>
 												<div class='glassBox__imgBox'>
 													<img src='http://localhost/Tripversal/assets/image/".$car['plate_number'].".png' alt=''>
-													<h3 class='glassBox__title'>".$car['car_name']." / ".$car['year']."</h3>
+													<h3 class='glassBox__title'>".$car['car_name']." / <span style='color:grey; font-size:14px;'>".$car['year']."</span></h3>
 													<hr>
 												</div>
 												<div class='card-body' style='width:120%; margin-top:-25px; display: block; margin-left: auto; margin-right: auto;'>
@@ -531,7 +531,7 @@
 											<div class='glassBox'>
 												<div class='glassBox__imgBox'>
 													<img src='http://localhost/Tripversal/assets/image/".$car['plate_number'].".png' alt=''>
-													<h3 class='glassBox__title'>".$car['car_name']." / ".$car['year']."</h3>
+													<h3 class='glassBox__title'>".$car['car_name']." / <span style='color:grey; font-size:14px;'>".$car['year']."</span></h3>
 													<hr>
 												</div>
 												<div class='card-body' style='width:120%; margin-top:-25px; display: block; margin-left: auto; margin-right: auto;'>
@@ -589,7 +589,7 @@
 											<div class='glassBox'>
 												<div class='glassBox__imgBox'>
 													<img src='http://localhost/Tripversal/assets/image/".$car['plate_number'].".png' alt=''>
-													<h3 class='glassBox__title'>".$car['car_name']." / ".$car['year']."</h3>
+													<h3 class='glassBox__title'>".$car['car_name']." / <span style='color:grey; font-size:14px;'>".$car['year']."</span></h3>
 													<hr>
 												</div>
 												<div class='card-body' style='width:120%; margin-top:-25px; display: block; margin-left: auto; margin-right: auto;'>
@@ -649,7 +649,7 @@
 											<div class='glassBox'>
 												<div class='glassBox__imgBox'>
 													<img src='http://localhost/Tripversal/assets/image/".$car['plate_number'].".png' alt=''>
-													<h3 class='glassBox__title'>".$car['car_name']." / ".$car['year']."</h3>
+													<h3 class='glassBox__title'>".$car['car_name']." / <span style='color:grey; font-size:14px;'>".$car['year']."</span></h3>
 													<hr>
 												</div>
 												<div class='card-body' style='width:120%; margin-top:-25px; display: block; margin-left: auto; margin-right: auto;'>
@@ -707,7 +707,7 @@
 											<div class='glassBox'>
 												<div class='glassBox__imgBox'>
 													<img src='http://localhost/Tripversal/assets/image/".$car['plate_number'].".png' alt=''>
-													<h3 class='glassBox__title'>".$car['car_name']." / ".$car['year']."</h3>
+													<h3 class='glassBox__title'>".$car['car_name']." / <span style='color:grey; font-size:14px;'>".$car['year']."</span></h3>
 													<hr>
 												</div>
 												<div class='card-body' style='width:120%; margin-top:-25px; display: block; margin-left: auto; margin-right: auto;'>
@@ -833,7 +833,7 @@
 											<div class='glassBox'>
 												<div class='glassBox__imgBox'>
 													<img src='http://localhost/Tripversal/assets/image/".$car['plate_number'].".png' alt=''>
-													<h3 class='glassBox__title'>".$car['car_name']." / ".$car['year']."</h3>
+													<h3 class='glassBox__title'>".$car['car_name']." / <span style='color:grey; font-size:14px;'>".$car['year']."</span></h3>
 													<hr>
 												</div>
 												<div class='card-body' style='width:120%; margin-top:-25px; display: block; margin-left: auto; margin-right: auto;'>
@@ -891,7 +891,7 @@
 											<div class='glassBox'>
 												<div class='glassBox__imgBox'>
 													<img src='http://localhost/Tripversal/assets/image/".$car['plate_number'].".png' alt=''>
-													<h3 class='glassBox__title'>".$car['car_name']." / ".$car['year']."</h3>
+													<h3 class='glassBox__title'>".$car['car_name']." / <span style='color:grey; font-size:14px;'>".$car['year']."</span></h3>
 													<hr>
 												</div>
 												<div class='card-body' style='width:120%; margin-top:-25px; display: block; margin-left: auto; margin-right: auto;'>
@@ -951,7 +951,7 @@
 											<div class='glassBox'>
 												<div class='glassBox__imgBox'>
 													<img src='http://localhost/Tripversal/assets/image/".$car['plate_number'].".png' alt=''>
-													<h3 class='glassBox__title'>".$car['car_name']." / ".$car['year']."</h3>
+													<h3 class='glassBox__title'>".$car['car_name']." / <span style='color:grey; font-size:14px;'>".$car['year']."</span></h3>
 													<hr>
 												</div>
 												<div class='card-body' style='width:120%; margin-top:-25px; display: block; margin-left: auto; margin-right: auto;'>
@@ -1009,7 +1009,7 @@
 											<div class='glassBox'>
 												<div class='glassBox__imgBox'>
 													<img src='http://localhost/Tripversal/assets/image/".$car['plate_number'].".png' alt=''>
-													<h3 class='glassBox__title'>".$car['car_name']." / ".$car['year']."</h3>
+													<h3 class='glassBox__title'>".$car['car_name']." / <span style='color:grey; font-size:14px;'>".$car['year']."</span></h3>
 													<hr>
 												</div>
 												<div class='card-body' style='width:120%; margin-top:-25px; display: block; margin-left: auto; margin-right: auto;'>
@@ -1069,7 +1069,7 @@
 											<div class='glassBox'>
 												<div class='glassBox__imgBox'>
 													<img src='http://localhost/Tripversal/assets/image/".$car['plate_number'].".png' alt=''>
-													<h3 class='glassBox__title'>".$car['car_name']." / ".$car['year']."</h3>
+													<h3 class='glassBox__title'>".$car['car_name']." / <span style='color:grey; font-size:14px;'>".$car['year']."</span></h3>
 													<hr>
 												</div>
 												<div class='card-body' style='width:120%; margin-top:-25px; display: block; margin-left: auto; margin-right: auto;'>
@@ -1127,7 +1127,7 @@
 											<div class='glassBox'>
 												<div class='glassBox__imgBox'>
 													<img src='http://localhost/Tripversal/assets/image/".$car['plate_number'].".png' alt=''>
-													<h3 class='glassBox__title'>".$car['car_name']." / ".$car['year']."</h3>
+													<h3 class='glassBox__title'>".$car['car_name']." / <span style='color:grey; font-size:14px;'>".$car['year']."</span></h3>
 													<hr>
 												</div>
 												<div class='card-body' style='width:120%; margin-top:-25px; display: block; margin-left: auto; margin-right: auto;'>
@@ -1253,7 +1253,7 @@
 											<div class='glassBox'>
 												<div class='glassBox__imgBox'>
 													<img src='http://localhost/Tripversal/assets/image/".$car['plate_number'].".png' alt=''>
-													<h3 class='glassBox__title'>".$car['car_name']." / ".$car['year']."</h3>
+													<h3 class='glassBox__title'>".$car['car_name']." / <span style='color:grey; font-size:14px;'>".$car['year']."</span></h3>
 													<hr>
 												</div>
 												<div class='card-body' style='width:120%; margin-top:-25px; display: block; margin-left: auto; margin-right: auto;'>
@@ -1311,7 +1311,7 @@
 											<div class='glassBox'>
 												<div class='glassBox__imgBox'>
 													<img src='http://localhost/Tripversal/assets/image/".$car['plate_number'].".png' alt=''>
-													<h3 class='glassBox__title'>".$car['car_name']." / ".$car['year']."</h3>
+													<h3 class='glassBox__title'>".$car['car_name']." / <span style='color:grey; font-size:14px;'>".$car['year']."</span></h3>
 													<hr>
 												</div>
 												<div class='card-body' style='width:120%; margin-top:-25px; display: block; margin-left: auto; margin-right: auto;'>
@@ -1371,7 +1371,7 @@
 											<div class='glassBox'>
 												<div class='glassBox__imgBox'>
 													<img src='http://localhost/Tripversal/assets/image/".$car['plate_number'].".png' alt=''>
-													<h3 class='glassBox__title'>".$car['car_name']." / ".$car['year']."</h3>
+													<h3 class='glassBox__title'>".$car['car_name']." / <span style='color:grey; font-size:14px;'>".$car['year']."</span></h3>
 													<hr>
 												</div>
 												<div class='card-body' style='width:120%; margin-top:-25px; display: block; margin-left: auto; margin-right: auto;'>
@@ -1429,7 +1429,7 @@
 											<div class='glassBox'>
 												<div class='glassBox__imgBox'>
 													<img src='http://localhost/Tripversal/assets/image/".$car['plate_number'].".png' alt=''>
-													<h3 class='glassBox__title'>".$car['car_name']." / ".$car['year']."</h3>
+													<h3 class='glassBox__title'>".$car['car_name']." / <span style='color:grey; font-size:14px;'>".$car['year']."</span></h3>
 													<hr>
 												</div>
 												<div class='card-body' style='width:120%; margin-top:-25px; display: block; margin-left: auto; margin-right: auto;'>
@@ -1489,7 +1489,7 @@
 											<div class='glassBox'>
 												<div class='glassBox__imgBox'>
 													<img src='http://localhost/Tripversal/assets/image/".$car['plate_number'].".png' alt=''>
-													<h3 class='glassBox__title'>".$car['car_name']." / ".$car['year']."</h3>
+													<h3 class='glassBox__title'>".$car['car_name']." / <span style='color:grey; font-size:14px;'>".$car['year']."</span></h3>
 													<hr>
 												</div>
 												<div class='card-body' style='width:120%; margin-top:-25px; display: block; margin-left: auto; margin-right: auto;'>
@@ -1547,7 +1547,7 @@
 											<div class='glassBox'>
 												<div class='glassBox__imgBox'>
 													<img src='http://localhost/Tripversal/assets/image/".$car['plate_number'].".png' alt=''>
-													<h3 class='glassBox__title'>".$car['car_name']." / ".$car['year']."</h3>
+													<h3 class='glassBox__title'>".$car['car_name']." / <span style='color:grey; font-size:14px;'>".$car['year']."</span></h3>
 													<hr>
 												</div>
 												<div class='card-body' style='width:120%; margin-top:-25px; display: block; margin-left: auto; margin-right: auto;'>
@@ -1673,7 +1673,7 @@
 											<div class='glassBox'>
 												<div class='glassBox__imgBox'>
 													<img src='http://localhost/Tripversal/assets/image/".$car['plate_number'].".png' alt=''>
-													<h3 class='glassBox__title'>".$car['car_name']." / ".$car['year']."</h3>
+													<h3 class='glassBox__title'>".$car['car_name']." / <span style='color:grey; font-size:14px;'>".$car['year']."</span></h3>
 													<hr>
 												</div>
 												<div class='card-body' style='width:120%; margin-top:-25px; display: block; margin-left: auto; margin-right: auto;'>
@@ -1731,7 +1731,7 @@
 											<div class='glassBox'>
 												<div class='glassBox__imgBox'>
 													<img src='http://localhost/Tripversal/assets/image/".$car['plate_number'].".png' alt=''>
-													<h3 class='glassBox__title'>".$car['car_name']." / ".$car['year']."</h3>
+													<h3 class='glassBox__title'>".$car['car_name']." / <span style='color:grey; font-size:14px;'>".$car['year']."</span></h3>
 													<hr>
 												</div>
 												<div class='card-body' style='width:120%; margin-top:-25px; display: block; margin-left: auto; margin-right: auto;'>
@@ -1791,7 +1791,7 @@
 											<div class='glassBox'>
 												<div class='glassBox__imgBox'>
 													<img src='http://localhost/Tripversal/assets/image/".$car['plate_number'].".png' alt=''>
-													<h3 class='glassBox__title'>".$car['car_name']." / ".$car['year']."</h3>
+													<h3 class='glassBox__title'>".$car['car_name']." / <span style='color:grey; font-size:14px;'>".$car['year']."</span></h3>
 													<hr>
 												</div>
 												<div class='card-body' style='width:120%; margin-top:-25px; display: block; margin-left: auto; margin-right: auto;'>
@@ -1849,7 +1849,7 @@
 											<div class='glassBox'>
 												<div class='glassBox__imgBox'>
 													<img src='http://localhost/Tripversal/assets/image/".$car['plate_number'].".png' alt=''>
-													<h3 class='glassBox__title'>".$car['car_name']." / ".$car['year']."</h3>
+													<h3 class='glassBox__title'>".$car['car_name']." / <span style='color:grey; font-size:14px;'>".$car['year']."</span></h3>
 													<hr>
 												</div>
 												<div class='card-body' style='width:120%; margin-top:-25px; display: block; margin-left: auto; margin-right: auto;'>
@@ -1909,7 +1909,7 @@
 											<div class='glassBox'>
 												<div class='glassBox__imgBox'>
 													<img src='http://localhost/Tripversal/assets/image/".$car['plate_number'].".png' alt=''>
-													<h3 class='glassBox__title'>".$car['car_name']." / ".$car['year']."</h3>
+													<h3 class='glassBox__title'>".$car['car_name']." / <span style='color:grey; font-size:14px;'>".$car['year']."</span></h3>
 													<hr>
 												</div>
 												<div class='card-body' style='width:120%; margin-top:-25px; display: block; margin-left: auto; margin-right: auto;'>
@@ -1967,7 +1967,7 @@
 											<div class='glassBox'>
 												<div class='glassBox__imgBox'>
 													<img src='http://localhost/Tripversal/assets/image/".$car['plate_number'].".png' alt=''>
-													<h3 class='glassBox__title'>".$car['car_name']." / ".$car['year']."</h3>
+													<h3 class='glassBox__title'>".$car['car_name']." / <span style='color:grey; font-size:14px;'>".$car['year']."</span></h3>
 													<hr>
 												</div>
 												<div class='card-body' style='width:120%; margin-top:-25px; display: block; margin-left: auto; margin-right: auto;'>
