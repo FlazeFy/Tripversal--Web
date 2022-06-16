@@ -363,6 +363,45 @@ margin-top:-100px; }
         width: 50px; } }
 		.owl-theme .owl-dots,.owl-theme .owl-nav{text-align:center;-webkit-tap-highlight-color:transparent}.owl-theme .owl-nav{margin-top:10px}.owl-theme .owl-nav [class*=owl-]{color:#FFF;font-size:14px;margin:5px;padding:4px 7px;background:#D6D6D6;display:inline-block;cursor:pointer;border-radius:3px}.owl-theme .owl-nav [class*=owl-]:hover{background:#869791;color:#FFF;text-decoration:none}.owl-theme .owl-nav .disabled{opacity:.5;cursor:default}.owl-theme .owl-nav.disabled+.owl-dots{margin-top:10px}.owl-theme .owl-dots .owl-dot{display:inline-block;zoom:1}.owl-theme .owl-dots .owl-dot span{width:10px;height:10px;margin:5px 7px;background:#D6D6D6;display:block;-webkit-backface-visibility:visible;transition:opacity .2s ease;border-radius:30px}.owl-theme .owl-dots .owl-dot.active span,.owl-theme .owl-dots .owl-dot:hover span{background:#869791}
 		.owl-carousel,.owl-carousel .owl-item{-webkit-tap-highlight-color:transparent;position:relative}.owl-carousel{display:none;width:100%;z-index:1}.owl-carousel .owl-stage{position:relative;-ms-touch-action:pan-Y;touch-action:manipulation;-moz-backface-visibility:hidden}.owl-carousel .owl-stage:after{content:".";display:block;clear:both;visibility:hidden;line-height:0;height:0}.owl-carousel .owl-stage-outer{position:relative;overflow:hidden;-webkit-transform:translate3d(0,0,0)}.owl-carousel .owl-item,.owl-carousel .owl-wrapper{-webkit-backface-visibility:hidden;-moz-backface-visibility:hidden;-ms-backface-visibility:hidden;-webkit-transform:translate3d(0,0,0);-moz-transform:translate3d(0,0,0);-ms-transform:translate3d(0,0,0)}.owl-carousel .owl-item{min-height:1px;float:left;-webkit-backface-visibility:hidden;-webkit-touch-callout:none}.owl-carousel .owl-item img{display:block;width:100%}.owl-carousel .owl-dots.disabled,.owl-carousel .owl-nav.disabled{display:none}.no-js .owl-carousel,.owl-carousel.owl-loaded{display:block}.owl-carousel .owl-dot,.owl-carousel .owl-nav .owl-next,.owl-carousel .owl-nav .owl-prev{cursor:pointer;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.owl-carousel .owl-nav button.owl-next,.owl-carousel .owl-nav button.owl-prev,.owl-carousel button.owl-dot{background:0 0;color:inherit;border:none;padding:0!important;font:inherit}.owl-carousel.owl-loading{opacity:0;display:block}.owl-carousel.owl-hidden{opacity:0}.owl-carousel.owl-refresh .owl-item{visibility:hidden}.owl-carousel.owl-drag .owl-item{-ms-touch-action:pan-y;touch-action:pan-y;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.owl-carousel.owl-grab{cursor:move;cursor:grab}.owl-carousel.owl-rtl{direction:rtl}.owl-carousel.owl-rtl .owl-item{float:right}.owl-carousel .animated{animation-duration:1s;animation-fill-mode:both}.owl-carousel .owl-animated-in{z-index:0}.owl-carousel .owl-animated-out{z-index:1}.owl-carousel .fadeOut{animation-name:fadeOut}@keyframes fadeOut{0%{opacity:1}100%{opacity:0}}.owl-height{transition:height .5s ease-in-out}.owl-carousel .owl-item .owl-lazy{opacity:0;transition:opacity .4s ease}.owl-carousel .owl-item .owl-lazy:not([src]),.owl-carousel .owl-item .owl-lazy[src^=""]{max-height:0}.owl-carousel .owl-item img.owl-lazy{transform-style:preserve-3d}.owl-carousel .owl-video-wrapper{position:relative;height:100%;background:#000}.owl-carousel .owl-video-play-icon{position:absolute;height:80px;width:80px;left:50%;top:50%;margin-left:-40px;margin-top:-40px;background:url(owl.video.play.png) no-repeat;cursor:pointer;z-index:1;-webkit-backface-visibility:hidden;transition:transform .1s ease}.owl-carousel .owl-video-play-icon:hover{-ms-transform:scale(1.3,1.3);transform:scale(1.3,1.3)}.owl-carousel .owl-video-playing .owl-video-play-icon,.owl-carousel .owl-video-playing .owl-video-tn{display:none}.owl-carousel .owl-video-tn{opacity:0;height:100%;background-position:center center;background-repeat:no-repeat;background-size:contain;transition:opacity .4s ease}.owl-carousel .owl-video-frame{position:relative;z-index:1;height:100%;width:100%}
+
+		/*Other car hover*/
+		.row .card:hover {
+			height : 200px;  
+			color:white;
+		}
+		.row .card {
+			position: relative;
+			height : 160px;  
+			border-radius: 6px; 
+			text-align: left;
+			display : flex;
+			flex-direction : column;
+			box-shadow : 0 5px 20px rgba(0,0,0,0.5);
+			transition : 0.3s ease-in-out;
+			padding:10px;
+			box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+			width:145px;  
+			margin:5px;
+		}
+		.row .card button{
+			font-size:14px;
+		}
+		.row .card #content2 {
+			position : relative;
+			padding : 4px;
+			color : whitesmoke;
+			text-align : center;
+			visibility : hidden;
+			opacity : 0;
+			transition : 0.3s ease-in-out;	
+		}
+		.row .card:hover #content2 {
+			margin-top : 2px;
+			visibility : visible;
+			opacity : 1;
+			transition-delay: 0.2s;
+		}
+		
 	</style>
                              
     </head>
@@ -376,7 +415,7 @@ margin-top:-100px; }
 				<input class='form-control' type='search' id="myInput" name="carName" placeholder='search by car name...'></input>
 			</div>
 			<button class='btn btn-success' style='color:whitesmoke; position:relative; margin-left:-60px;' type='submit'><i class="fa-solid fa-magnifying-glass"></i></button>		
-			<h5 style='color:#4169E1; font-weight:bold;'>Rent A Car</h5>
+			<h5 style='color:#4169E1; font-weight:bold;'>Book <?php echo $this->session->userdata('set_typeBook'); ?></h5>
 			<div class="header_img"> <i class="fa-solid fa-circle-info" style='margin-right:10px;'></i> <i class="fa-solid fa-gear"></i> </div>
 		</header>
 		</form>
@@ -385,8 +424,8 @@ margin-top:-100px; }
 				<div> <a href="#" class="nav_logo"> <img src='http://localhost/Tripversal/assets/uploads/user/user_flazefy.jpg' alt='Card image cap' class='rounded-circle img-fluid' 
 					style='width:50px; height:40px; margin-left:-11px;'>  <span class="nav_logo-name">flazefy</span> </a>
 					<div class="nav_list"> 
-						<a href="#" class="nav_link active"> <i class="fa-solid fa-car"></i> <span class="nav_name">Rent A Car</span> </a> 
-						<a href="#" class="nav_link"> <i class="fa-solid fa-people-group"></i> <span class="nav_name">Tour Guide</span> </a> 
+						<a href="rentACar_C" class="nav_link<?php if($this->session->userdata('set_typeBook') == 'Car Rental'){ echo " active";}?>"> <i class="fa-solid fa-car"></i> <span class="nav_name">Rent A Car</span> </a> 
+						<a href="rentGuide_C" class="nav_link<?php if($this->session->userdata('set_typeBook') == 'Tour Guide'){ echo " active";}?>"> <i class="fa-solid fa-people-group"></i> <span class="nav_name">Tour Guide</span> </a> 
 						<a href="#" class="nav_link"> <i class="fa-solid fa-folder-open"></i> <span class="nav_name">My Reservation</span> </a>
 						<a href="#" class="nav_link"> <i class="fa-solid fa-map-location"></i> <span class="nav_name">Travel Destination</span> </a>  
 						<a href="#" class="nav_link"> <i class="fa-solid fa-message"></i> <span class="nav_name">Messages</span> </a> 
@@ -416,17 +455,18 @@ margin-top:-100px; }
 						</div>
 					</div>
 					<div class=col-md-7>
-						<h5 style='font-weight:600;'> <?php 
+						<h5 style='font-weight:600;'>
+						<?php 
 							if($this->session->userdata('set_typeBook') == 'Car Rental'){
 								foreach($carData as $car){
 									if($car['id_car'] == $this->session->userdata('set_idCarGuide')){
-										echo $car['car_name']." / ".$car['year'] ;
+										echo "<a type='button' style='color:#212121;' href='rentACar_C'>Rent A Car</a>"." >> ".$car['car_name']." / ".$car['year'] ;
 									}
 								}
 							} else if($this->session->userdata('set_typeBook') == 'Tour Guide'){
 								foreach($guideData as $guide){
 									if($guide['id_guide'] == $this->session->userdata('set_idCarGuide')){
-										echo $guide['fullname'];
+										echo "<a type='button' style='color:#212121;' href='rentGuide_C'>Rent A Car</a>"." >> ".$guide['fullname'];
 									}
 								}
 							}
@@ -606,7 +646,7 @@ margin-top:-100px; }
 																echo"</h5>
 															</div>
 															<div class='col-md-5'>
-																<button class='btn btn-link' style='border: 2px; background:#5cb85c; color:whitesmoke; text-decoration:none; font-size:12px; margin-top:5px;'><i class='fa-solid fa-thumbs-up'></i> Helpful</button>
+																<button class='btn btn-success' style='font-size:12px; margin-top:5px;'><i class='fa-solid fa-thumbs-up'></i> Helpful</button>
 															</div>
 														</div>
 													</div>
@@ -854,9 +894,9 @@ margin-top:-100px; }
 															<div class='row' style='margin-left:5px;'>";
 														}	
 														echo"
-														<div class='container-fluid' style='height:160px; width:140px; box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px; padding:10px; margin:5px; cursor:pointer;'>
+														<div class='card'>
 															<img src='http://localhost/Tripversal/assets/image/".$car3['plate_number'].".png' alt='".$car3['plate_number'].".png' 
-															style='display: block; width: 100%; height: auto; margin-top:-5px;'>
+															style='width: 120px; margin-top:-5px;'>
 															<h7 style='color:black; font-size:13px;  white-space: nowrap;'>".$car3['car_name']." / <span style='color:grey; font-size:11px;'>".$car3['year']."</span></h7>
 															<a style='font-size:12px; color:grey;'>".$car3['driver']."</a>
 															<div class='row'>
@@ -883,6 +923,13 @@ margin-top:-100px; }
 																	echo number_format((float)$total, 1, '.', '');
 																	echo"</a>
 																</div>
+															</div>
+															<div id='content2'>
+																<form action='rentACar_C/bookCar' method='POST'>
+																<input class='form-control' name='id_CarGuide' value='".$car3['id_car']."' hidden>
+																<input class='form-control' name='city' value='".$car3['city']."' hidden>
+																<button type='submit' class='btn btn-success'>Book Now</button>
+																</form>
 															</div>
 														</div>";
 														$k++;
@@ -983,9 +1030,9 @@ margin-top:-100px; }
 													<div class='row' style='margin-left:5px;'>";
 												}	
 												echo"
-												<div class='container-fluid' style='height:160px; width:140px; box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px; padding:10px; margin:5px; cursor:pointer;'>
+												<div class='card'>
 													<img src='http://localhost/Tripversal/assets/image/".$car3['plate_number'].".png' alt='".$car3['plate_number'].".png' 
-													style='display: block; width: 100%; height: auto; margin-top:-5px;'>
+													style='width: 120px; margin-top:-5px;'>
 													<h7 style='color:black; font-size:13px;  white-space: nowrap;'>".$car3['car_name']." / <span style='color:grey; font-size:11px;'>".$car3['year']."</span></h7>
 													<a style='font-size:12px; color:grey;'>".$car3['driver']."</a>
 													<div class='row'>
@@ -997,21 +1044,28 @@ margin-top:-100px; }
 														</div>
 														<div class='col-md-5'>
 															<a style='font-size:14px; color:#4183D7;'><img src='http://localhost/Tripversal/assets/icon/Rating.png' style='width:15px; white-space: nowrap;'>"; 
-																$total = 0; $j = 0;
-																foreach($carRating as $rating){
-																	if($car3['id_car'] == $rating['id_car']){
-																		$total += $rating['rating'];
-																		$j++;
-																	}
+															$total = 0; $j = 0;
+															foreach($carRating as $rating){
+																if($car3['id_car'] == $rating['id_car']){
+																	$total += $rating['rating'];
+																	$j++;
 																}
-																if($j >= 1){
-																	$total = $total / $j;
-																} else if($j == 0){
-																	$total = '-';
-																}
-																echo number_format((float)$total, 1, '.', '');
+															}
+															if($j >= 1){
+																$total = $total / $j;
+															} else if($j == 0){
+																$total = '-';
+															}
+															echo number_format((float)$total, 1, '.', '');
 															echo"</a>
 														</div>
+													</div>
+													<div id='content2'>
+														<form action='rentACar_C/bookCar' method='POST'>
+														<input class='form-control' name='id_CarGuide' value='".$car3['id_car']."' hidden>
+														<input class='form-control' name='city' value='".$car3['city']."' hidden>
+														<button type='submit' class='btn btn-success'>Book Now</button>
+														</form>
 													</div>
 												</div>";
 												$k++;

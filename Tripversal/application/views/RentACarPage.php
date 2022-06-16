@@ -3,7 +3,7 @@
 <html>
 
     <head>
-        <title>Tripversal | RentACarPage</title>
+        <title>Tripversal | Rent A Car</title>
         <!--Meta tags-->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -177,6 +177,14 @@
 				background-color: DodgerBlue !important; 
 				color: #ffffff; 
 			}			
+			.col-md-5.border-right a{
+				overflow: hidden;
+				text-overflow: ellipsis;
+				display: -webkit-box;
+				-webkit-line-clamp: 2; /* number of lines to show */
+						line-clamp: 2; 
+				-webkit-box-orient: vertical;
+			}
 		</style>
                              
     </head>
@@ -198,8 +206,8 @@
 				<div> <a href="#" class="nav_logo"> <img src='http://localhost/Tripversal/assets/uploads/user/user_flazefy.jpg' alt='Card image cap' class='rounded-circle img-fluid' 
 					style='width:50px; height:40px; margin-left:-11px;'>  <span class="nav_logo-name">flazefy</span> </a>
 					<div class="nav_list"> 
-						<a href="#" class="nav_link active"> <i class="fa-solid fa-car"></i> <span class="nav_name">Rent A Car</span> </a> 
-						<a href="#" class="nav_link"> <i class="fa-solid fa-people-group"></i> <span class="nav_name">Tour Guide</span> </a> 
+						<a href="rentACar_C" class="nav_link active"> <i class="fa-solid fa-car"></i> <span class="nav_name">Rent A Car</span> </a> 
+						<a href="rentGuide_C" class="nav_link"> <i class="fa-solid fa-people-group"></i> <span class="nav_name">Tour Guide</span> </a> 
 						<a href="#" class="nav_link"> <i class="fa-solid fa-folder-open"></i> <span class="nav_name">My Reservation</span> </a>
 						<a href="#" class="nav_link"> <i class="fa-solid fa-map-location"></i> <span class="nav_name">Travel Destination</span> </a>  
 						<a href="#" class="nav_link"> <i class="fa-solid fa-message"></i> <span class="nav_name">Messages</span> </a> 
@@ -266,7 +274,7 @@
 				</div>
 			</div>
 			<div class='col-md-5'>
-				<div class='container-fluid' style='width:100%; height:100%; padding:10px; background:#414141; border-radius:10px; padding-left:20px; box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;'>
+				<div class='container-fluid' style='width:100%;  padding:10px; background:#414141; border-radius:10px; padding-left:20px; box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;'>
 					<div class='row'>
 						<div class='col-md-3'>
 							<h4 style='margin-top:50px; color:whitesmoke;'>Top Used Car</h4>
