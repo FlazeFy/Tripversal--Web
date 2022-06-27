@@ -414,7 +414,7 @@ margin-top:-100px; }
 			<div class="autocomplete" style='width:20%; border-radius:8px; border: 2.5px solid #4169E1; margin-left:50px; position:fixed;'>
 				<input class='form-control' type='search' id="myInput" name="carName" placeholder='search by car name...'></input>
 			</div>
-			<button class='btn btn-success' style='color:whitesmoke; position:relative; margin-left:-60px;' type='submit'><i class="fa-solid fa-magnifying-glass"></i></button>		
+			<button class='btn btn-success' style='color:whitesmoke; position:relative; margin-left:-50px;' type='submit'><i class="fa-solid fa-magnifying-glass"></i></button>		
 			<h5 style='color:#4169E1; font-weight:bold;'>Book <?php echo $this->session->userdata('set_typeBook'); ?></h5>
 			<div class="header_img"> <i class="fa-solid fa-circle-info" style='margin-right:10px;'></i> <i class="fa-solid fa-gear"></i> </div>
 		</header>
@@ -434,441 +434,661 @@ margin-top:-100px; }
 				<a href="#" class="nav_link" style='background:#D62C49; margin-left:10px; border-radius:5px; color:whitesmoke;'> <i class='bx bx-log-out nav_icon' style='margin-left:-15px;'></i> <span class="nav_name">Sign Out</span> </a>
 			</nav>
 		</div>
-    <!--Container Main start-->
-    <div class="height-100">
-		<br>
-		<div class='row'>
-			<div class=col-md-9>
-				<div class='row'>
-					<div class=col-md-5>
-						<div class='container-fluid' style='background: linear-gradient(to right, #7385ff, #95a3fc); padding:10px; border-radius:10px; width:400px; height:260px; margin-left:-2%;'>
-						<?php
-							if($this->session->userdata('set_typeBook') == 'Car Rental'){
-								foreach($carData as $car){
-									if($car['id_car'] == $this->session->userdata('set_idCarGuide')){
-										echo "<img src='http://localhost/Tripversal/assets/image/".$car['plate_number'].".png' alt='".$car['plate_number'].".png' 
-										style='display: block; width: 100%; height: auto; margin-top:-30px; '>";
+
+		<!--Container Main start-->
+		<div class="height-100">
+			<br>
+			<div class='row'>
+				<div class=col-md-9>
+					<div class='row'>
+						<div class=col-md-5>
+							<?php
+								if($this->session->userdata('set_typeBook') == 'Car Rental'){
+									foreach($carData as $car){
+										if($car['id_car'] == $this->session->userdata('set_idCarGuide')){
+											echo "<img src='http://localhost/Tripversal/assets/image/".$car['plate_number'].".png' alt='".$car['plate_number'].".png' 
+											style='display: block; width: 100%; height: auto; margin-top:-30px; '>";
+										}
+									}
+								} else if($this->session->userdata('set_typeBook') == 'Tour Guide'){
+									foreach($guideData as $guide){
+										if($guide['id_guide'] == $this->session->userdata('set_idCarGuide')){
+											echo "<img src='http://localhost/Tripversal/assets/image/guide/".$guide['fullname']."_".$guide['phone'].".jpg' class='rounded-circle img-fluid'
+											style='display: block; width: 60%; height: auto; margin-left:auto; margin-right:auto;'>";
+										}
 									}
 								}
-							}
-						?>
+							?>
 						</div>
-					</div>
-					<div class=col-md-7>
-						<h5 style='font-weight:600;'>
-						<?php 
-							if($this->session->userdata('set_typeBook') == 'Car Rental'){
-								foreach($carData as $car){
-									if($car['id_car'] == $this->session->userdata('set_idCarGuide')){
-										echo "<a type='button' style='color:#212121;' href='rentACar_C'>Rent A Car</a>"." >> ".$car['car_name']." / ".$car['year'] ;
+						<div class=col-md-7>
+							<h5 style='font-weight:600;'>
+							<?php 
+								if($this->session->userdata('set_typeBook') == 'Car Rental'){
+									foreach($carData as $car){
+										if($car['id_car'] == $this->session->userdata('set_idCarGuide')){
+											echo "<a type='button' style='color:#212121;' href='rentACar_C'>Rent A Car</a>"." >> ".$car['car_name']." / ".$car['year'] ;
+										}
+									}
+								} else if($this->session->userdata('set_typeBook') == 'Tour Guide'){
+									foreach($guideData as $guide){
+										if($guide['id_guide'] == $this->session->userdata('set_idCarGuide')){
+											echo "<a type='button' style='color:#212121;' href='rentGuide_C'>Tour Guide</a>"." >> ".$guide['fullname'];
+										}
 									}
 								}
-							} else if($this->session->userdata('set_typeBook') == 'Tour Guide'){
-								foreach($guideData as $guide){
-									if($guide['id_guide'] == $this->session->userdata('set_idCarGuide')){
-										echo "<a type='button' style='color:#212121;' href='rentGuide_C'>Rent A Car</a>"." >> ".$guide['fullname'];
-									}
-								}
-							}
-						?></h5>
-						<div class='container-fluid' style='background:#f0f0f0; padding:10px;'>
-							<div class='row' style='width:110%;'>
-								<div class='col-md-8'>
-									<a style='color:#808080; font-size:13px;'>Location</a>
-									<h5 style='color:#212121; font-size:15px; font-weight:500;'> 
-									<?php 
-										if($this->session->userdata('set_typeBook') == 'Car Rental'){
-											foreach($carData as $car){
-												if($car['id_car'] == $this->session->userdata('set_idCarGuide')){
-													echo $car['location'];
-												}
-											}
-										} else if($this->session->userdata('set_typeBook') == 'Tour Guide'){
-											foreach($guideData as $guide){
-												if($guide['id_guide'] == $this->session->userdata('set_idCarGuide')){
-													echo $guide['location'];
-												}
-											}
-										}
-									?>	
-									</h5>
-								</div>
-								<div class='col-md-3'>
-									<?php
-										if($this->session->userdata('set_typeBook') == 'Car Rental'){
-											foreach($carData as $car){
-												if($car['id_car'] == $this->session->userdata('set_idCarGuide')){
-													echo"<button class='btn btn-success' style='font-size:13px; width:130px;' data-toggle='modal' data-target='#loc".$car['id_garage']."'><i class='fa-solid fa-location-dot'></i> See Location</button>
-													<input type='text' value='".$car['garage_coordinate']."' id='myInput".$car['id_garage']."' hidden>
-													<form class='form-inline' action='bookGuideCar_C/copyCoor' method='post'>
-													<button class='btn btn-primary' type='submit' style='font-size:13px; margin-top:5px;' onclick='locationCopy".$car['id_garage']."()'><i class='fa-solid fa-copy'></i> Get Coordinate</button>
-													</form>";
-												}
-											}
-										}
-									?>
-								</div>
-							</div>
-						</div>
-						<div class='container-fluid' style='padding:10px;'>
-							<div class='row' style='width:110%;'>
-								<div class='col-md-9'>
-									<h5 style='color:#212121; font-size:15px; font-weight:500;'> 
-									<?php 
-										if($this->session->userdata('set_typeBook') == 'Car Rental'){
-											foreach($carData as $car){
-												if($car['id_car'] == $this->session->userdata('set_idCarGuide')){
-													echo "<a style='color:#808080; font-size:13px;'>Driver : </a>";
-													if($car['driver'] == 'none'){
-														echo"<span style='color:#212121; font-size:15px; font-weight:500;'>None</span>";
-													} else {
-														echo"<img src='http://localhost/Tripversal/assets/uploads/user/user_flazefy.jpg' alt='Driver' class='rounded-circle img-fluid' 
-														style='width:35px; height:35px; type:button; cursor:pointer;'>  <span style='color:#068ac2; text-decoration: underline; type:button; cursor:pointer;'> flazefy</span>";
-													}
-												}
-											}
-										} else if($this->session->userdata('set_typeBook') == 'Tour Guide'){
-											foreach($guideData as $guide){
-												if($guide['id_guide'] == $this->session->userdata('set_idCarGuide')){
-													echo $guide['language'];
-												}
-											}
-										}
-									?>	
-									</h5>
-									<h5 style='font-size:14px;'>
+							?></h5>
+							<div class='container-fluid' style='background:#f0f0f0; padding:10px;'>
+								<div class='row' style='width:110%;'>
+									<div class='col-md-8'>
+										<a style='color:#808080; font-size:13px;'>Location</a>
+										<h5 style='color:#212121; font-size:15px; font-weight:500;'> 
 										<?php 
 											if($this->session->userdata('set_typeBook') == 'Car Rental'){
 												foreach($carData as $car){
 													if($car['id_car'] == $this->session->userdata('set_idCarGuide')){
-														echo "<p style='color:#212121; font-size:15px;'><i class='fa-solid fa-person' style='color:#FF8E77;'></i> Seat : ".$car['seat']."</p>
-														<p style='color:#212121; font-size:15px;'><i class='fa-solid fa-gauge-simple-high' style='color:#FF65A3;'></i> Distance : ".$car['distance']."</p>
-														<p style='color:#212121; font-size:15px;'><i class='fa-solid fa-gas-pump' style='color:#CB5FCE;'></i> Fuel tank : ".$car['tank']." L</p>
-														";
+														echo $car['location'];
 													}
 												}
 											} else if($this->session->userdata('set_typeBook') == 'Tour Guide'){
 												foreach($guideData as $guide){
 													if($guide['id_guide'] == $this->session->userdata('set_idCarGuide')){
-														echo $guide['language'];
+														echo $guide['location'];
 													}
 												}
 											}
 										?>	
-									</h5>
+										</h5>
+									</div>
+									<div class='col-md-3'>
+										<?php
+											if($this->session->userdata('set_typeBook') == 'Car Rental'){
+												foreach($carData as $car){
+													if($car['id_car'] == $this->session->userdata('set_idCarGuide')){
+														echo"<button class='btn btn-success' style='font-size:13px; width:130px;' data-toggle='modal' data-target='#loc".$car['id_garage']."'><i class='fa-solid fa-location-dot'></i> See Location</button>
+														<input type='text' value='".$car['garage_coordinate']."' id='myInput".$car['id_garage']."' hidden>
+														<form class='form-inline' action='bookGuideCar_C/copyCoor' method='post'>
+														<button class='btn btn-primary' type='submit' style='font-size:13px; margin-top:5px;' onclick='locationCopy".$car['id_garage']."()'><i class='fa-solid fa-copy'></i> Get Coordinate</button>
+														</form>";
+													}
+												}
+											}
+											//Car rent only. 
+										?>
+									</div>
+								</div>
+							</div>
+							<div class='container-fluid' style='padding:10px;'>
+								<div class='row' style='width:110%;'>
+									<div class='col-md-9'>
+										<h5 style='color:#212121; font-size:15px; font-weight:500;'> 
+										<?php 
+											if($this->session->userdata('set_typeBook') == 'Car Rental'){
+												foreach($carData as $car){
+													if($car['id_car'] == $this->session->userdata('set_idCarGuide')){
+														echo "<a style='color:#808080; font-size:13px;'>Driver : </a>";
+														if($car['driver'] == 'none'){
+															echo"<span style='color:#212121; font-size:15px; font-weight:500;'>None</span>";
+														} else {
+															echo"<img src='http://localhost/Tripversal/assets/uploads/user/user_flazefy.jpg' alt='Driver' class='rounded-circle img-fluid' 
+															style='width:35px; height:35px; type:button; cursor:pointer;'>  <span style='color:#068ac2; text-decoration: underline; type:button; cursor:pointer;'> flazefy</span>";
+														}
+													}
+												}
+											} else if($this->session->userdata('set_typeBook') == 'Tour Guide'){
+												foreach($guideData as $guide){
+													if($guide['id_guide'] == $this->session->userdata('set_idCarGuide')){
+														echo "<h4 class='text-dark' style='font-size:16px;'>Language</h4>";
+														echo "<h4 class='text-secondary' style='font-size:15px;'><i class='fa-solid fa-language' style='color:#FF8E77;'></i> ".$guide['language']."</h4>";
+													}
+												}
+											}
+										?>	
+										</h5>
+										<h5 style='font-size:14px;'>
+											<?php 
+												if($this->session->userdata('set_typeBook') == 'Car Rental'){
+													foreach($carData as $car){
+														if($car['id_car'] == $this->session->userdata('set_idCarGuide')){
+															echo "<p style='color:#212121; font-size:15px;'><i class='fa-solid fa-person' style='color:#FF8E77;'></i> Seat : ".$car['seat']."</p>
+															<p style='color:#212121; font-size:15px;'><i class='fa-solid fa-gauge-simple-high' style='color:#FF65A3;'></i> Distance : ".$car['distance']."</p>
+															<p style='color:#212121; font-size:15px;'><i class='fa-solid fa-gas-pump' style='color:#CB5FCE;'></i> Fuel tank : ".$car['tank']." L</p>
+															";
+														}
+													}
+												} 
+											?>	
+										</h5>
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-				<div class='row'>
-					<div class='col-md-5'>
-						<h5 style='font-weight:600;'>Review</h5>
-						<hr>
-						<div id='myCarouselRating' class='carousel slide' data-ride='carousel' data-interval='0' style='width:115%; margin-left:-35px;'>
-							<!-- Carousel indicators -->
-							<ol class='carousel-indicators carousel-indicators-numbers' style='bottom: -50px;'>
-							<?php
-								$page = 0; $item = 0; $show = 3;
-								if($this->session->userdata('set_typeBook') == 'Car Rental'){
-									foreach ($carRating as $car){
-										if($car['id_car'] == $this->session->userdata('set_idCarGuide')){
-											if($item == 0 && $page == 0){
-												echo"<li data-target='#myCarouselRating' data-slide-to='0' class='active'>1</li>";
-												$item++;
-												$page++;
-											} else if ($item % $show == 0){
-												echo"<li data-target='#myCarouselRating' data-slide-to='".$page."'>"; echo $page+1; echo"</li>";
-												$item++;
-												$page++;
-											} else if ($item % $show != 0){
-												$item++;
+					<div class='row'>
+						<div class='col-md-5'>
+							<h5 style='font-weight:600;'>Review</h5>
+							<hr>
+							<div id='myCarouselRating' class='carousel slide' data-ride='carousel' data-interval='0' style='width:115%; margin-left:-35px;'>
+								<!-- Carousel indicators -->
+								<ol class='carousel-indicators carousel-indicators-numbers' style='bottom: -50px;'>
+								<?php
+									$page = 0; $item = 0; $show = 3;
+									if($this->session->userdata('set_typeBook') == 'Car Rental'){
+										foreach ($carRating as $car){
+											if($car['id_car'] == $this->session->userdata('set_idCarGuide')){
+												if($item == 0 && $page == 0){
+													echo"<li data-target='#myCarouselRating' data-slide-to='0' class='active'>1</li>";
+													$item++;
+													$page++;
+												} else if ($item % $show == 0){
+													echo"<li data-target='#myCarouselRating' data-slide-to='".$page."'>"; echo $page+1; echo"</li>";
+													$item++;
+													$page++;
+												} else if ($item % $show != 0){
+													$item++;
+												}
 											}
 										}
-									}
-								} //else if($this->session->userdata('set_typeBook') == 'Tour Guide'){
-								
-								// } 
-							?>
-							</ol>
-							<!-- Wrapper for carousel items -->
-							<div class='carousel-inner'>
-							<?php 
-								$i = 1; $count = 0; $k = 0;
-								$state = ' active'; $show = 3;
-								if($this->session->userdata('set_typeBook') == 'Car Rental'){
-									foreach($carRating as $car){
-										if($car['id_car'] == $this->session->userdata('set_idCarGuide')){
-											if(($k % $show == 0) || ($k == 0)){
-												echo"<div class='item carousel-item".$state."' style='padding:20px;' >
-												<div class='col-md'>";
-											}	
-											echo"
-											<div class='container-fluid' style='height:auto; box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px; padding:10px; margin-bottom:15px;'>
-												<div class='row'>
-													<div class='col-md-4'>
-														<img src='http://localhost/Tripversal/assets/uploads/user/user_"; 
-															foreach($userData as $user){
-																if($user['id_user'] == $car['id_user']){
-																	echo $user['username'];
-																}
-															}
-															echo".jpg' alt='Driver' class='rounded-circle img-fluid' 
-															style='width:60px; height:60px; type:button; cursor:pointer; margin-left:35px;'>
-														<h5 style='font-size:13px; color:#212121; text-align:center; margin-top:5px;'>by : ";
-															foreach($userData as $user){
-																if($user['id_user'] == $car['id_user']){
-																	echo $user['username'];
-																}
-															}
-														echo"</h5>
-														<div class='row' style='max-width:200px; margin-top:-10px;'>";
-															$star = 0;
-															while($star < $car['rating']){
-																echo"<div class='col-md-2'><img src='http://localhost/Tripversal/assets/icon/Rating.png' style='width:20px;'></div>";
-																$star++;
-															}
-														echo"</div>
-													</div>
-													<div class='col-md-8'>
-														<div style='font-size:13px; color:#212121;  overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 4; line-clamp: 4; -webkit-box-orient: vertical;'
-														>".$car['comment']."</div>
-														<div class='row'>
-															<div class='col-md-6'>
-																<h5 style='font-size:11px; color:#808080; margin-top:10px; white-space: nowrap;'>~ "; 
-																	$s = strtotime($car['datetime']);
-
-																	if(date('Y-m-d', $s)== date("Y-m-d")){
-																		echo"today at ".date('H : i', $s);
-																	} else {
-																		echo date('y-m-d', $s)." at ".date('H : i', $s);
+									} else if($this->session->userdata('set_typeBook') == 'Tour Guide'){
+										foreach ($guideRating as $guide){
+											if($guide['id_guide'] == $this->session->userdata('set_idCarGuide')){
+												if($item == 0 && $page == 0){
+													echo"<li data-target='#myCarouselRating' data-slide-to='0' class='active'>1</li>";
+													$item++;
+													$page++;
+												} else if ($item % $show == 0){
+													echo"<li data-target='#myCarouselRating' data-slide-to='".$page."'>"; echo $page+1; echo"</li>";
+													$item++;
+													$page++;
+												} else if ($item % $show != 0){
+													$item++;
+												}
+											}
+										}
+									} 
+								?>
+								</ol>
+								<!-- Wrapper for carousel items -->
+								<div class='carousel-inner'>
+								<?php 
+									$i = 1; $count = 0; $k = 0;
+									$state = ' active'; $show = 3;
+									if($this->session->userdata('set_typeBook') == 'Car Rental'){
+										foreach($carRating as $car){
+											if($car['id_car'] == $this->session->userdata('set_idCarGuide')){
+												if(($k % $show == 0) || ($k == 0)){
+													echo"<div class='item carousel-item".$state."' style='padding:20px;' >
+													<div class='col-md'>";
+												}	
+												echo"
+												<div class='container-fluid' style='height:auto; box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px; padding:10px; margin-bottom:15px;'>
+													<div class='row'>
+														<div class='col-md-4'>
+															<img src='http://localhost/Tripversal/assets/uploads/user/user_"; 
+																foreach($userData as $user){
+																	if($user['id_user'] == $car['id_user']){
+																		echo $user['username'];
 																	}
-																echo"</h5>
-															</div>
-															<div class='col-md-5'>
-																<button class='btn btn-success' style='font-size:12px; margin-top:5px;'><i class='fa-solid fa-thumbs-up'></i> Helpful</button>
-															</div>
+																}
+																echo".jpg' alt='Driver' class='rounded-circle img-fluid' 
+																style='width:60px; height:60px; type:button; cursor:pointer; margin-left:35px;'>
+															<h5 style='font-size:13px; color:#212121; text-align:center; margin-top:5px;'>by : ";
+																foreach($userData as $user){
+																	if($user['id_user'] == $car['id_user']){
+																		echo $user['username'];
+																	}
+																}
+															echo"</h5>
+															<div class='row' style='max-width:200px; margin-top:-10px;'>";
+																$star = 0;
+																while($star < $car['rating']){
+																	echo"<div class='col-md-2'><img src='http://localhost/Tripversal/assets/icon/Rating.png' style='width:20px;'></div>";
+																	$star++;
+																}
+															echo"</div>
 														</div>
-													</div>
-												</div>
-											</div>";
-											$k++;
-											$state = ' ';
-											if($k % $show == 0){
-												echo"</div>
-											</div>";
-											}										
-											$count = 0; $i++;
-										} 
-									}
-								
-									//Need to be simplify / optimized
-									if($k > $show){ 
-										echo"
-										</div></div></div>
-										<!-- Carousel controls -->
-										<a class='carousel-control-prev' href='#myCarouselRating' data-slide='prev'>
-											<i class='fa fa-angle-left'></i>
-										</a>
-										<a class='carousel-control-next' href='#myCarouselRating' data-slide='next'>
-											<i class='fa fa-angle-right'></i>
-										</a>";
-									} else if($k == $show){ 
-										echo"</div>";
-									// } else if(($k == 2)||($k == 3)||($k == 1)){
-									} else if(($k >= 1)&&($k <= 4)){
-										echo"</div></div></div>";
-									} else if($k == 0){
-										echo"</div>";
-										echo "<div class='container'>
-											<p style='font-style:italic; text-align:center; color:grey;'>Sorry there's no review for this item</p>
-											<img src='http://localhost/Tripversal/assets/icon/Empty.gif' alt='Sorry.png' style='display: block;
-												margin-left: auto; margin-right: auto; width: 250px; height: 250px;'>
-										</div>";
-									}
-								}
-								
+														<div class='col-md-8'>
+															<div style='font-size:13px; color:#212121;  overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 4; line-clamp: 4; -webkit-box-orient: vertical;'
+															>".$car['comment']."</div>
+															<div class='row'>
+																<div class='col-md-6'>
+																	<h5 style='font-size:11px; color:#808080; margin-top:10px; white-space: nowrap;'>~ "; 
+																		$s = strtotime($car['datetime']);
 
-								// echo $k."=k";
-								//Check this
-							?>
-						</div>
-						<br>
-
-					</div>
-					<div class=col-md-7>
-						<h5 style='font-weight:600;'>Description</h5>
-						<hr>
-						<?php 
-							if($this->session->userdata('set_typeBook') == 'Car Rental'){
-								foreach($carData as $car){
-									if($car['id_car'] == $this->session->userdata('set_idCarGuide')){
-										echo "<div class='container-fluid' style='width:105%; max-height: calc(80vh - 140px); overflow-x: auto; margin-left:-20px;'>
-										<p>".nl2br($car['description'])."</p>
-										</div>
-										<div class='container-fluid' style='background:#F0F0F0; padding:10px; border-radius:6px; margin-top:10px;'>
-											<div class='row'>
-												<div class='col-md-8' style='padding:10px;'>
-													<h6 style='font-weight:bold;'>Rp. "; $price = $car['price'];
-													$newPrice = wordwrap($price , 3 , '.' , true ); echo $newPrice; echo" / Day</h6>
-												</div>
-												<div class='col-md-1'>
-													<button class='btn btn-primary'><i class='fa-solid fa-heart'></i></button>
-												</div>
-												<div class='col-md-3'>
-													<button class='btn btn-success'><i class='fa-solid fa-arrow-right'></i> Order Now</button>
-												</div>
-											</div>
-										</div>
-										";
-									}
-								}
-							} else if($this->session->userdata('set_typeBook') == 'Tour Guide'){
-								foreach($guideData as $guide){
-									if($guide['id_guide'] == $this->session->userdata('set_idCarGuide')){
-										echo $guide['description'];
-									}
-								}
-							}
-						?>	
-					</div>
-				</div>
-				<h5><i class="fa-solid fa-umbrella-beach"></i> Best Destination</h5>
-				<hr>
-				<section class="ftco-section">
-					<div class="container">
-						<div class="row">
-							<div class="col-md-12">
-								<div class="slider-hero">
-									<div class="featured-carousel owl-carousel">
-										<?php
-											foreach($travelData as $travel){
-												if($this->session->userdata('set_city_onbook') ==  $travel['place_city']){
-													echo"
-													<div class='item'>
-														<div class='work'>
-															<div class='img d-flex align-items-center justify-content-center' style='background-image: url(http://localhost/Tripversal/assets/travelDestination/".str_ireplace(' ', '%20', $travel['place_name']).".jpg);'>
-																<div class='container' style='margin-top:280px;'>
-																	<h2>".$travel['place_name']."</h2>
-																	<div style='overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 10; line-clamp: 2; -webkit-box-orient: vertical;'
-																	><p>".$travel['place_desc']."</p></div>
-																	<p>".$travel['place_day']." - ".$travel['place_time']."</p>
-																	<button class='btn btn-success' style='font-size:13px; width:130px;' data-toggle='modal' data-target=''><i class='fa-solid fa-location-dot'></i> See Location</button>
+																		if(date('Y-m-d', $s)== date("Y-m-d")){
+																			echo"today at ".date('H : i', $s);
+																		} else {
+																			echo date('y-m-d', $s)." at ".date('H : i', $s);
+																		}
+																	echo"</h5>
+																</div>
+																<div class='col-md-5'>
+																	<button class='btn btn-success' style='font-size:12px; margin-top:5px;'><i class='fa-solid fa-thumbs-up'></i> Helpful</button>
 																</div>
 															</div>
 														</div>
-													</div>";
-												}
-											}
-										?>
-									</div>
+													</div>
+												</div>";
+												$k++;
+												$state = ' ';
+												if($k % $show == 0){
+													echo"</div>
+												</div>";
+												}										
+												$count = 0; $i++;
+											} 
+										}
+										echo"</div>"; //end of carousel-inner.
+										//Carousel fixes. if there's another bug. check this.
+										if($k % $show != 0){
+											echo"</div></div>";
+										}
+									
+										if($k > $show){ 
+											echo"
+											<!-- Carousel controls -->
+											<a class='carousel-control-prev' href='#myCarouselRating' data-slide='prev'>
+												<i class='fa fa-angle-left'></i>
+											</a>
+											<a class='carousel-control-next' href='#myCarouselRating' data-slide='next'>
+												<i class='fa fa-angle-right'></i>
+											</a>";
+										} else if($k == 0){
+											echo "<div class='container'>
+												<p style='font-style:italic; text-align:center; color:grey;'>Sorry there's no review for this item</p>
+												<img src='http://localhost/Tripversal/assets/icon/Empty.gif' alt='Sorry.png' style='display: block;
+													margin-left: auto; margin-right: auto; width: 250px; height: 250px;'>
+											</div>";
+										}
+									} else if($this->session->userdata('set_typeBook') == 'Tour Guide'){
+										foreach($guideRating as $car){
+											if($guide['id_guide'] == $this->session->userdata('set_idCarGuide')){
+												if(($k % $show == 0) || ($k == 0)){
+													echo"<div class='item carousel-item".$state."' style='padding:20px;' >
+													<div class='col-md'>";
+												}	
+												echo"
+												<div class='container-fluid' style='height:auto; box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px; padding:10px; margin-bottom:15px;'>
+													<div class='row'>
+														<div class='col-md-4'>
+															<img src='http://localhost/Tripversal/assets/uploads/user/user_"; 
+																foreach($userData as $user){
+																	if($user['id_user'] == $guide['id_user']){
+																		echo $user['username'];
+																	}
+																}
+																echo".jpg' alt='Driver' class='rounded-circle img-fluid' 
+																style='width:60px; height:60px; type:button; cursor:pointer; margin-left:35px;'>
+															<h5 style='font-size:13px; color:#212121; text-align:center; margin-top:5px;'>by : ";
+																foreach($userData as $user){
+																	if($user['id_user'] == $guide['id_user']){
+																		echo $user['username'];
+																	}
+																}
+															echo"</h5>
+															<div class='row' style='max-width:200px; margin-top:-10px;'>";
+																$star = 0;
+																while($star < $guide['rating']){
+																	echo"<div class='col-md-2'><img src='http://localhost/Tripversal/assets/icon/Rating.png' style='width:20px;'></div>";
+																	$star++;
+																}
+															echo"</div>
+														</div>
+														<div class='col-md-8'>
+															<div style='font-size:13px; color:#212121;  overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 4; line-clamp: 4; -webkit-box-orient: vertical;'
+															>".$guide['comment']."</div>
+															<div class='row'>
+																<div class='col-md-6'>
+																	<h5 style='font-size:11px; color:#808080; margin-top:10px; white-space: nowrap;'>~ "; 
+																		$s = strtotime($guide['datetime']);
 
-									<div class="text-center">
-									<ul class="thumbnail">
-										<?php
-											$initial = "active img";
-											foreach($travelData as $travel){
-												if($this->session->userdata('set_city_onbook') ==  $travel['place_city']){
-													echo "<li class='".$initial."'><a href='#'><img src='http://localhost/Tripversal/assets/travelDestination/".str_ireplace(' ', '%20', $travel['place_name'])."-small.jpg' alt='Image' class='img-fluid'></a></li>";
-													$initial = " ";
+																		if(date('Y-m-d', $s)== date("Y-m-d")){
+																			echo"today at ".date('H : i', $s);
+																		} else {
+																			echo date('y-m-d', $s)." at ".date('H : i', $s);
+																		}
+																	echo"</h5>
+																</div>
+																<div class='col-md-5'>
+																	<button class='btn btn-success' style='font-size:12px; margin-top:5px;'><i class='fa-solid fa-thumbs-up'></i> Helpful</button>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>";
+												$k++;
+												$state = ' ';
+												if($k % $show == 0){
+													echo"</div>
+												</div>";
+												}										
+												$count = 0; $i++;
+											} 
+										}
+										echo"</div>"; //end of carousel-inner.
+										//Carousel fixes. if there's another bug. check this.
+										if($k % $show != 0){
+											echo"</div></div>";
+										}
+									
+										if($k > $show){ 
+											echo"
+											<!-- Carousel controls -->
+											<a class='carousel-control-prev' href='#myCarouselRating' data-slide='prev'>
+												<i class='fa fa-angle-left'></i>
+											</a>
+											<a class='carousel-control-next' href='#myCarouselRating' data-slide='next'>
+												<i class='fa fa-angle-right'></i>
+											</a>";
+										} else if($k == 0){
+											echo "<div class='container'>
+												<p style='font-style:italic; text-align:center; color:grey;'>Sorry there's no review for this item</p>
+												<img src='http://localhost/Tripversal/assets/icon/Empty.gif' alt='Sorry.png' style='display: block;
+													margin-left: auto; margin-right: auto; width: 250px; height: 250px;'>
+											</div>";
+										}
+									}
+								
+								?>
+							</div>
+							<br>
+						</div>
+
+						<div class=col-md-7>
+							<h5 style='font-weight:600;'>Description</h5>
+							<hr>
+							<?php 
+								if($this->session->userdata('set_typeBook') == 'Car Rental'){
+									foreach($carData as $car){
+										if($car['id_car'] == $this->session->userdata('set_idCarGuide')){
+											echo "<div class='container-fluid' style='width:105%; max-height: calc(80vh - 140px); overflow-x: auto; margin-left:-20px;'>
+											<p>".nl2br($car['description'])."</p>
+											</div>
+											<div class='container-fluid' style='background:#F0F0F0; padding:10px; border-radius:6px; margin-top:10px;'>
+												<div class='row'>
+													<div class='col-md-8' style='padding:10px;'>
+														<h6 style='font-weight:bold;'>Rp. "; $price = $car['price'];
+														$newPrice = wordwrap($price , 3 , '.' , true ); echo $newPrice; echo" / Day</h6>
+													</div>
+													<div class='col-md-1'>
+														<button class='btn btn-primary'><i class='fa-solid fa-heart'></i></button>
+													</div>
+													<div class='col-md-3'>
+														<button class='btn btn-success'><i class='fa-solid fa-arrow-right'></i> Order Now</button>
+													</div>
+												</div>
+											</div>
+											";
+										}
+									}
+								} else if($this->session->userdata('set_typeBook') == 'Tour Guide'){
+									foreach($guideData as $guide){
+										if($guide['id_guide'] == $this->session->userdata('set_idCarGuide')){
+											echo "<div class='container-fluid' style='width:105%; max-height: calc(80vh - 140px); overflow-x: auto; margin-left:-20px;'>
+											<p>".nl2br($guide['description'])."</p>
+											</div>
+											<div class='container-fluid' style='background:#F0F0F0; padding:10px; border-radius:6px; margin-top:10px;'>
+												<div class='row'>
+													<div class='col-md-8' style='padding:10px;'>
+														<h6 style='font-weight:bold;'>Rp. "; $price = $guide['price'];
+														$newPrice = wordwrap($price , 3 , '.' , true ); echo $newPrice; echo" / Day</h6>
+													</div>
+													<div class='col-md-1'>
+														<button class='btn btn-primary'><i class='fa-solid fa-heart'></i></button>
+													</div>
+													<div class='col-md-3'>
+														<button class='btn btn-success'><i class='fa-solid fa-arrow-right'></i> Order Now</button>
+													</div>
+												</div>
+											</div>
+											";
+										}
+									}
+								}
+							?>	
+						</div>
+					</div>
+					<h5><i class="fa-solid fa-umbrella-beach"></i> Best Destination</h5>
+					<hr>
+					<section class="ftco-section">
+						<div class="container">
+							<div class="row">
+								<div class="col-md-12">
+									<div class="slider-hero">
+										<div class="featured-carousel owl-carousel">
+											<?php
+												foreach($travelData as $travel){
+													if($this->session->userdata('set_city_onbook') ==  $travel['place_city']){
+														echo"
+														<div class='item'>
+															<div class='work'>
+																<div class='img d-flex align-items-center justify-content-center' style='background-image: url(http://localhost/Tripversal/assets/travelDestination/".str_ireplace(' ', '%20', $travel['place_name']).".jpg);'>
+																	<div class='container' style='margin-top:280px;'>
+																		<h2>".$travel['place_name']."</h2>
+																		<div style='overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 10; line-clamp: 2; -webkit-box-orient: vertical;'
+																		><p>".$travel['place_desc']."</p></div>
+																		<p>".$travel['place_day']." - ".$travel['place_time']."</p>
+																		<button class='btn btn-success' style='font-size:13px; width:130px;' data-toggle='modal' data-target=''><i class='fa-solid fa-location-dot'></i> See Location</button>
+																	</div>
+																</div>
+															</div>
+														</div>";
+													}
 												}
-											}
-										?>
-									</ul>
+											?>
+										</div>
+
+										<div class="text-center">
+										<ul class="thumbnail">
+											<?php
+												$initial = "active img";
+												foreach($travelData as $travel){
+													if($this->session->userdata('set_city_onbook') ==  $travel['place_city']){
+														echo "<li class='".$initial."'><a href='#'><img src='http://localhost/Tripversal/assets/travelDestination/".str_ireplace(' ', '%20', $travel['place_name'])."-small.jpg' alt='Image' class='img-fluid'></a></li>";
+														$initial = " ";
+													}
+												}
+											?>
+										</ul>
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-				</section>
-			</div>
-							
-			<div class='col-md-3'>
-				<?php
-					if($this->session->userdata('set_typeBook') == 'Car Rental'){
-						foreach($carData as $car){
-							if($car['id_car'] == $this->session->userdata('set_idCarGuide')){
-								echo"<h5><i class='fa-solid fa-warehouse'></i></i> Garage Profil</h5>
-								<hr>
-								<div class='d-flex align-items-center' >
-									<div class='image' style='margin-right:5px;'>
-									<img src='http://localhost/Tripversal/assets/uploads/garage/garage_".$car['garage_username'].".jpg' class='rounded' width='135' 
-										style='box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;'>
-									</div>
-									<div class='ml-3 w-100'>
-										<h6 class='mb-0 mt-0'>".$car['garage_name']."</h6>
-										<span style='font-size:13px;'>".$car['garage_location']."</span>
-										<div class='p-2 mt-2 bg-primary d-flex justify-content-between rounded text-white stats'>
-											<div class='d-flex flex-column'>
-												<span class='articles'>Vehicle</span>
-												<span>"; 
-												$count = 0;
-												foreach($carData as $car2){
-													if($car['id_garage'] == $car2['id_garage']){
-														$count++;
+					</section>
+				</div>
+								
+				<div class='col-md-3'>
+					<?php
+						if($this->session->userdata('set_typeBook') == 'Car Rental'){
+							foreach($carData as $car){
+								if($car['id_car'] == $this->session->userdata('set_idCarGuide')){
+									echo"<h5><i class='fa-solid fa-warehouse'></i></i> Garage Profil</h5>
+									<hr>
+									<div class='d-flex align-items-center' >
+										<div class='image' style='margin-right:5px;'>
+										<img src='http://localhost/Tripversal/assets/uploads/garage/garage_".$car['garage_username'].".jpg' class='rounded' width='135' 
+											style='box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;'>
+										</div>
+										<div class='ml-3 w-100'>
+											<h6 class='mb-0 mt-0'>".$car['garage_name']."</h6>
+											<span style='font-size:13px;'>".$car['garage_location']."</span>
+											<div class='p-2 mt-2 bg-primary d-flex justify-content-between rounded text-white stats'>
+												<div class='d-flex flex-column'>
+													<span class='articles'>Vehicle</span>
+													<span>"; 
+													$count = 0;
+													foreach($carData as $car2){
+														if($car['id_garage'] == $car2['id_garage']){
+															$count++;
+														}
 													}
-												}
-												echo $count;
-												echo"</span>
-											</div>
-											<div class='d-flex flex-column'>
-												<span class='articles'>Driver</span>
-												<span>"; 
-												$count2 = 0;
-												foreach($carData2 as $car3){
-													if(($car['id_garage'] == $car3['id_garage'])&&($car3['driver'] != 'none')){
-														$count2++;
+													echo $count;
+													echo"</span>
+												</div>
+												<div class='d-flex flex-column'>
+													<span class='articles'>Driver</span>
+													<span>"; 
+													$count2 = 0;
+													foreach($carData2 as $car3){
+														if(($car['id_garage'] == $car3['id_garage'])&&($car3['driver'] != 'none')){
+															$count2++;
+														}
 													}
-												}
-												echo $count2;
-												echo"</span>
+													echo $count2;
+													echo"</span>
+												</div>
+												<div class='d-flex flex-column'>
+													<span class='articles'>Trip</span>
+													<span>8.9</span>
+												</div>
 											</div>
-											<div class='d-flex flex-column'>
-												<span class='articles'>Trip</span>
-												<span>8.9</span>
+											<div class='button d-flex flex-row align-items-center'>
+												<button class='btn btn-sm btn-success w-50 m-1'>Chat</button>
+												<button class='btn btn-sm btn-primary w-50'>Open</button>									
 											</div>
 										</div>
-										<div class='button d-flex flex-row align-items-center'>
-											<button class='btn btn-sm btn-success w-50 m-1'>Chat</button>
-											<button class='btn btn-sm btn-primary w-50'>Open</button>									
-										</div>
 									</div>
-								</div>
-								<h6 style='font-weight:600;'>About us</h6>
-								<div class='container-fluid' style=' margin-left:-20px; margin-bottom:5px;'>
-									<div style='font-size:15px; color:#212121;  overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 10; line-clamp: 10; -webkit-box-orient: vertical;'
-									><p>".nl2br($car['garage_desc'])."</p></div>
-								</div>
-								<div class='container' style='background:#068ac2; color:whitesmoke; border-radius:100px; width:30px; height:30px; position:relative; float:left; padding:2px;
-									margin-right:10px; bottom:3px;'><a style='margin-left:9px; top:15px; font-size:13px; text-align:center;'>
-									<a>";
-									$count3 = 0;
-									if($this->session->userdata('set_typeBook') == 'Car Rental'){
-										foreach ($carData as $car2){
-											if(($car2['garage_name'] == $car['garage_name'])&&($car2['status'] == 'available')){
-												$count3++;
-											}
-										}
-									}
-									echo $count3;
-									echo"</a>
-								</div>
-								<h6 style='font-weight:600;'>Other vehicle</h6><hr>
-								<div class='container-fluid' style='margin-left:-10px; margin-bottom:5px;'>
-									<div id='myCarouselVehicle' class='carousel slide' data-ride='carousel' data-interval='0' style='width:115%; margin-left:-35px;'>
-										<!-- Carousel indicators -->
-										<ol class='carousel-indicators carousel-indicators-numbers' style='bottom: -55px;'>";
+									<h6 style='font-weight:600;'>About us</h6>
+									<div class='container-fluid' style=' margin-left:-20px; margin-bottom:5px;'>
+										<div style='font-size:15px; color:#212121;  overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 10; line-clamp: 10; -webkit-box-orient: vertical;'
+										><p>".nl2br($car['garage_desc'])."</p></div>
+									</div>
+									<h6 style='font-weight:600;'>Other vehicle</h6><hr>
+									<div class='container-fluid' style='margin-left:-10px; margin-bottom:5px;'>
+										<div id='myCarouselVehicle' class='carousel slide' data-ride='carousel' data-interval='0' style='width:115%; margin-left:-35px;'>
+											<!-- Carousel indicators -->
+											<ol class='carousel-indicators carousel-indicators-numbers' style='bottom: -55px;'>";
+											
+												$page = 0; $item = 0; $show = 6;
+												if($this->session->userdata('set_typeBook') == 'Car Rental'){
+													foreach ($carData as $car2){
+														if(($car2['garage_name'] == $car['garage_name'])&&($car2['status'] == 'available')&&($car2['id_car'] != $this->session->userdata('set_idCarGuide'))){
+															if($item == 0 && $page == 0){
+																echo"<li data-target='#myCarouselVehicle' data-slide-to='0' class='active'>1</li>";
+																$item++;
+																$page++;
+															} else if ($item % $show == 0){
+																echo"<li data-target='#myCarouselVehicle' data-slide-to='".$page."'>"; echo $page+1; echo"</li>";
+																$item++;
+																$page++;
+															} else if ($item % $show != 0){
+																$item++;
+															}
+														}
+													}
+												} //else if($this->session->userdata('set_typeBook') == 'Tour Guide'){
+												
+												// } 
+											
+											echo"</ol>
+											<!-- Wrapper for carousel items -->
+											<div class='carousel-inner' style='width:115%;'>";
 										
-											$page = 0; $item = 0; $show = 6;
-											if($this->session->userdata('set_typeBook') == 'Car Rental'){
-												foreach ($carData as $car2){
-													if(($car2['garage_name'] == $car['garage_name'])&&($car2['status'] == 'available')){
+												$i = 1; $count = 0; $k = 0;
+												$state = ' active'; $show = 6;
+												if($this->session->userdata('set_typeBook') == 'Car Rental'){
+													foreach($carData as $car3){
+														if(($car3['garage_name'] == $car['garage_name'])&&($car3['status'] == 'available')&&($car3['id_car'] != $this->session->userdata('set_idCarGuide'))){
+															if(($k % $show == 0) || ($k == 0)){
+																echo"<div class='item carousel-item".$state."'>
+																<div class='row' style='margin-left:5px;'>";
+															}	
+															echo"
+															<div class='card'>
+																<img src='http://localhost/Tripversal/assets/image/".$car3['plate_number'].".png' alt='".$car3['plate_number'].".png' 
+																style='width: 120px; margin-top:-5px;'>
+																<h7 style='color:black; font-size:13px;  white-space: nowrap;'>".$car3['car_name']." / <span style='color:grey; font-size:11px;'>".$car3['year']."</span></h7>
+																<a style='font-size:12px; color:grey;'>".$car3['driver']."</a>
+																<div class='row'>
+																	<div class='col-md-7'>
+																		<a style='font-size:13px; font-weight:bold; color:black; white-space: nowrap;'>Rp. "; 
+																		$price = $car3['price'];
+																		$newPrice = wordwrap($price , 3 , '.' , true ); echo $newPrice;
+																		echo"</a>
+																	</div>
+																	<div class='col-md-5'>
+																		<a style='font-size:14px; color:#4183D7;'><img src='http://localhost/Tripversal/assets/icon/Rating.png' style='width:15px; white-space: nowrap;'>"; 
+																		$total = 0; $j = 0;
+																		foreach($carRating as $rating){
+																			if($car3['id_car'] == $rating['id_car']){
+																				$total += $rating['rating'];
+																				$j++;
+																			}
+																		}
+																		if($j >= 1){
+																			$total = $total / $j;
+																		} else if($j == 0){
+																			$total = '-';
+																		}
+																		echo number_format((float)$total, 1, '.', '');
+																		echo"</a>
+																	</div>
+																</div>
+																<div id='content2'>
+																	<form action='rentACar_C/bookCar' method='POST'>
+																	<input class='form-control' name='id_CarGuide' value='".$car3['id_car']."' hidden>
+																	<input class='form-control' name='city' value='".$car3['city']."' hidden>
+																	<button type='submit' class='btn btn-success'>Book Now</button>
+																	</form>
+																</div>
+															</div>";
+															$k++;
+															$state = ' ';
+															if($k % $show == 0){
+																echo"</div>
+															</div>";
+															}										
+															$count = 0; $i++;
+														} 
+													}
+													echo"</div>"; //end of carousel-inner.
+													//Carousel fixes. if there's another bug. check this.
+													if($k % $show != 0){
+														echo"</div></div>";
+													}
+													if($k > $show){ 
+														echo"
+														<!-- Carousel controls -->
+														<a class='carousel-control-prev' href='#myCarouselVehicle' data-slide='prev' style='margin-bottom:-40px;'>
+															<i class='fa fa-angle-left'></i>
+														</a>
+														<a class='carousel-control-next' href='#myCarouselVehicle' data-slide='next' style='margin-bottom:-40px;'>
+															<i class='fa fa-angle-right'></i>
+														</a>";
+													} else if($k == 0){
+														echo"</div>";
+														echo "<div class='container'>
+															<p style='font-style:italic; text-align:center; color:grey;'>Sorry there's no car available</p>
+															<img src='http://localhost/Tripversal/assets/icon/Empty.gif' alt='Sorry.png' style='display: block;
+																margin-left: auto; margin-right: auto; width: 250px; height: 250px;'>
+														</div>";
+													}
+												}
+											echo"
+										</div>
+									</div>
+									";
+								}
+							}
+						} else if($this->session->userdata('set_typeBook') == 'Tour Guide'){
+							foreach($guideData as $guide){
+								if($guide['id_guide'] == $this->session->userdata('set_idCarGuide')){
+									echo"
+									<h6 style='font-weight:600;'>Other Guide in ".$this->session->userdata('set_city_onbook')."</h6><hr>
+									<div class='container-fluid' style='margin-left:-10px; margin-bottom:5px;'>
+										<div id='myCarouselGuideCity' class='carousel slide' data-ride='carousel' data-interval='0' style='width:115%; margin-left:-35px;'>
+											<!-- Carousel indicators -->
+											<ol class='carousel-indicators carousel-indicators-numbers' style='bottom: -55px;'>";
+											
+												$page = 0; $item = 0; $show = 6;
+												foreach ($guideData as $guide2){
+													if(($guide2['city'] == $guide['city'])&&($guide2['id_guide'] != $this->session->userdata('set_idCarGuide'))){
 														if($item == 0 && $page == 0){
-															echo"<li data-target='#myCarouselVehicle' data-slide-to='0' class='active'>1</li>";
+															echo"<li data-target='#myCarouselGuideCity' data-slide-to='0' class='active'>1</li>";
 															$item++;
 															$page++;
 														} else if ($item % $show == 0){
-															echo"<li data-target='#myCarouselVehicle' data-slide-to='".$page."'>"; echo $page+1; echo"</li>";
+															echo"<li data-target='#myCarouselGuideCity' data-slide-to='".$page."'>"; echo $page+1; echo"</li>";
 															$item++;
 															$page++;
 														} else if ($item % $show != 0){
@@ -876,41 +1096,38 @@ margin-top:-100px; }
 														}
 													}
 												}
-											} //else if($this->session->userdata('set_typeBook') == 'Tour Guide'){
 											
-											// } 
+											
+											echo"</ol>
+											<!-- Wrapper for carousel items -->
+											<div class='carousel-inner' style='width:115%;'>";
 										
-										echo"</ol>
-										<!-- Wrapper for carousel items -->
-										<div class='carousel-inner' style='width:115%;'>";
-									
-											$i = 1; $count = 0; $k = 0;
-											$state = ' active'; $show = 6;
-											if($this->session->userdata('set_typeBook') == 'Car Rental'){
-												foreach($carData as $car3){
-													if(($car3['garage_name'] == $car['garage_name'])&&($car3['status'] == 'available')){
+												$i = 1; $count = 0; $k = 0;
+												$state = ' active'; $show = 6;
+												foreach($guideData as $guide2){
+													if(($guide2['status'] == 'available')&&($guide2['id_guide'] != $this->session->userdata('set_idCarGuide'))){
 														if(($k % $show == 0) || ($k == 0)){
 															echo"<div class='item carousel-item".$state."'>
 															<div class='row' style='margin-left:5px;'>";
 														}	
 														echo"
 														<div class='card'>
-															<img src='http://localhost/Tripversal/assets/image/".$car3['plate_number'].".png' alt='".$car3['plate_number'].".png' 
-															style='width: 120px; margin-top:-5px;'>
-															<h7 style='color:black; font-size:13px;  white-space: nowrap;'>".$car3['car_name']." / <span style='color:grey; font-size:11px;'>".$car3['year']."</span></h7>
-															<a style='font-size:12px; color:grey;'>".$car3['driver']."</a>
+															<img src='http://localhost/Tripversal/assets/image/guide/".$guide['fullname']."_".$guide['phone'].".jpg' class='rounded-circle img-fluid'
+																style='width: 80px; margin-left:auto; margin-right:auto; display:block;'>
+															<h7 style='color:black; font-size:13px;  white-space: nowrap;'>".$guide2['fullname']."</span></h7>
+															<a style='font-size:12px; color:grey;'>".$guide2['language']."</a>
 															<div class='row'>
 																<div class='col-md-7'>
 																	<a style='font-size:13px; font-weight:bold; color:black; white-space: nowrap;'>Rp. "; 
-																	$price = $car3['price'];
+																	$price = $guide2['price'];
 																	$newPrice = wordwrap($price , 3 , '.' , true ); echo $newPrice;
 																	echo"</a>
 																</div>
 																<div class='col-md-5'>
 																	<a style='font-size:14px; color:#4183D7;'><img src='http://localhost/Tripversal/assets/icon/Rating.png' style='width:15px; white-space: nowrap;'>"; 
 																	$total = 0; $j = 0;
-																	foreach($carRating as $rating){
-																		if($car3['id_car'] == $rating['id_car']){
+																	foreach($guideRating as $rating){
+																		if($guide2['id_guide'] == $rating['id_guide']){
 																			$total += $rating['rating'];
 																			$j++;
 																		}
@@ -925,9 +1142,9 @@ margin-top:-100px; }
 																</div>
 															</div>
 															<div id='content2'>
-																<form action='rentACar_C/bookCar' method='POST'>
-																<input class='form-control' name='id_CarGuide' value='".$car3['id_car']."' hidden>
-																<input class='form-control' name='city' value='".$car3['city']."' hidden>
+																<form action='rentGuide_C/bookGuide' method='POST'>
+																<input class='form-control' name='id_CarGuide' value='".$guide2['id_guide']."' hidden>
+																<input class='form-control' name='city' value='".$guide2['city']."' hidden>
 																<button type='submit' class='btn btn-success'>Book Now</button>
 																</form>
 															</div>
@@ -941,186 +1158,163 @@ margin-top:-100px; }
 														$count = 0; $i++;
 													} 
 												}
-											
-												//Need to be simplify / optimized
+												echo"</div>"; //end of carousel-inner.
+												//Carousel fixes. if there's another bug. check this.
+												if($k % $show != 0){
+													echo"</div></div>";
+												}
 												if($k > $show){ 
 													echo"
-													</div></div></div>
 													<!-- Carousel controls -->
-													<a class='carousel-control-prev' href='#myCarouselVehicle' data-slide='prev' style='margin-bottom:-40px;'>
+													<a class='carousel-control-prev' href='#myCarouselGuideCity' data-slide='prev' style='margin-bottom:-40px;'>
 														<i class='fa fa-angle-left'></i>
 													</a>
-													<a class='carousel-control-next' href='#myCarouselVehicle' data-slide='next' style='margin-bottom:-40px;'>
+													<a class='carousel-control-next' href='#myCarouselGuideCity' data-slide='next' style='margin-bottom:-40px;'>
 														<i class='fa fa-angle-right'></i>
 													</a>";
-												} else if($k == $show){ 
-													echo"</div>";
-												// } else if(($k == 2)||($k == 3)||($k == 1)){
-												} else if(($k >= 1)&&($k <= 7)){
-													echo"</div></div></div>";
 												} else if($k == 0){
 													echo"</div>";
 													echo "<div class='container'>
-														<p style='font-style:italic; text-align:center; color:grey;'>Sorry there's no car available</p>
+														<p style='font-style:italic; text-align:center; color:grey;'>Sorry there's no guide available</p>
 														<img src='http://localhost/Tripversal/assets/icon/Empty.gif' alt='Sorry.png' style='display: block;
 															margin-left: auto; margin-right: auto; width: 250px; height: 250px;'>
 													</div>";
 												}
-											}
-											
-
-											// echo $k."=k";
-											//Check this
-										
-										echo"
-
+												
+											echo"
+										</div>
 									</div>
-								</div>
-								";
+									";
+								}
 							}
 						}
-					}
-				?>
+					?>
+				</div>
+						
 			</div>
-					
-    	</div>
-			
-		<?php
-			if($this->session->userdata('set_typeBook') == 'Car Rental'){
-				foreach($carData as $car){
-					if($car['id_car'] == $this->session->userdata('set_idCarGuide')){
-						echo"<h5><i class='fa-solid fa-city'></i> Other Vehicle in ".$car['city']."</h5><hr>
-						<div class='container-fluid' style='margin-left:-10px; margin-bottom:5px;'>
-							<div id='myCarouselVehicleCity' class='carousel slide' data-ride='carousel' data-interval='0'>
-								<!-- Carousel indicators -->
-								<ol class='carousel-indicators carousel-indicators-numbers' style='bottom: -55px;'>";
-								
-									$page = 0; $item = 0; $show = 9;
-									if($this->session->userdata('set_typeBook') == 'Car Rental'){
-										foreach ($carData as $car2){
-											if(($car2['status'] == 'available')&&($car2['city'] == $car['city'])){
-												if($item == 0 && $page == 0){
-													echo"<li data-target='#myCarouselVehicleCity' data-slide-to='0' class='active'>1</li>";
-													$item++;
-													$page++;
-												} else if ($item % $show == 0){
-													echo"<li data-target='#myCarouselVehicleCity' data-slide-to='".$page."'>"; echo $page+1; echo"</li>";
-													$item++;
-													$page++;
-												} else if ($item % $show != 0){
-													$item++;
+				
+			<?php
+				if($this->session->userdata('set_typeBook') == 'Car Rental'){
+					foreach($carData as $car){
+						if($car['id_car'] == $this->session->userdata('set_idCarGuide')){
+							echo"<h5><i class='fa-solid fa-city'></i> Other Vehicle in ".$car['city']."</h5><hr>
+							<div class='container-fluid' style='margin-left:-10px;'>
+								<div id='myCarouselVehicleCity' class='carousel slide' data-ride='carousel' data-interval='0'>
+									<!-- Carousel indicators -->
+									<ol class='carousel-indicators carousel-indicators-numbers' style='bottom: -55px;'>";
+									
+										$page = 0; $item = 0; $show = 8;
+										if($this->session->userdata('set_typeBook') == 'Car Rental'){
+											foreach ($carData as $car2){
+												if(($car2['status'] == 'available')&&($car2['city'] == $car['city'])&&($car2['id_car'] != $this->session->userdata('set_idCarGuide'))){
+													if($item == 0 && $page == 0){
+														echo"<li data-target='#myCarouselVehicleCity' data-slide-to='0' class='active'>1</li>";
+														$item++;
+														$page++;
+													} else if ($item % $show == 0){
+														echo"<li data-target='#myCarouselVehicleCity' data-slide-to='".$page."'>"; echo $page+1; echo"</li>";
+														$item++;
+														$page++;
+													} else if ($item % $show != 0){
+														$item++;
+													}
 												}
 											}
-										}
-									} //else if($this->session->userdata('set_typeBook') == 'Tour Guide'){
+										} 
 									
-									// } 
+									echo"</ol>
+									<!-- Wrapper for carousel items -->
+									<div class='carousel-inner'>";
 								
-								echo"</ol>
-								<!-- Wrapper for carousel items -->
-								<div class='carousel-inner'>";
-							
-									$i = 1; $count = 0; $k = 0;
-									$state = ' active'; $show = 9;
-									if($this->session->userdata('set_typeBook') == 'Car Rental'){
-										foreach($carData as $car3){
-											if(($car3['status'] == 'available')&&($car3['city'] == $car['city'])){
-												if(($k % $show == 0) || ($k == 0)){
-													echo"<div class='item carousel-item".$state."'>
-													<div class='row' style='margin-left:5px;'>";
-												}	
-												echo"
-												<div class='card'>
-													<img src='http://localhost/Tripversal/assets/image/".$car3['plate_number'].".png' alt='".$car3['plate_number'].".png' 
-													style='width: 120px; margin-top:-5px;'>
-													<h7 style='color:black; font-size:13px;  white-space: nowrap;'>".$car3['car_name']." / <span style='color:grey; font-size:11px;'>".$car3['year']."</span></h7>
-													<a style='font-size:12px; color:grey;'>".$car3['driver']."</a>
-													<div class='row'>
-														<div class='col-md-7'>
-															<a style='font-size:13px; font-weight:bold; color:black; white-space: nowrap;'>Rp. "; 
-															$price = $car3['price'];
-															$newPrice = wordwrap($price , 3 , '.' , true ); echo $newPrice;
-															echo"</a>
-														</div>
-														<div class='col-md-5'>
-															<a style='font-size:14px; color:#4183D7;'><img src='http://localhost/Tripversal/assets/icon/Rating.png' style='width:15px; white-space: nowrap;'>"; 
-															$total = 0; $j = 0;
-															foreach($carRating as $rating){
-																if($car3['id_car'] == $rating['id_car']){
-																	$total += $rating['rating'];
-																	$j++;
+										$i = 1; $count = 0; $k = 0;
+										$state = ' active'; $show = 8;
+										if($this->session->userdata('set_typeBook') == 'Car Rental'){
+											foreach($carData as $car3){
+												if(($car3['status'] == 'available')&&($car3['city'] == $car['city'])&&($car3['id_car'] != $this->session->userdata('set_idCarGuide'))){
+													if(($k % $show == 0) || ($k == 0)){
+														echo"<div class='item carousel-item".$state."'>
+														<div class='row' style='margin-left:5px;'>";
+													}	
+													echo"
+													<div class='card'>
+														<img src='http://localhost/Tripversal/assets/image/".$car3['plate_number'].".png' alt='".$car3['plate_number'].".png' 
+														style='width: 120px; margin-top:-5px;'>
+														<h7 style='color:black; font-size:13px;  white-space: nowrap;'>".$car3['car_name']." / <span style='color:grey; font-size:11px;'>".$car3['year']."</span></h7>
+														<a style='font-size:12px; color:grey;'>".$car3['driver']."</a>
+														<div class='row'>
+															<div class='col-md-7'>
+																<a style='font-size:13px; font-weight:bold; color:black; white-space: nowrap;'>Rp. "; 
+																$price = $car3['price'];
+																$newPrice = wordwrap($price , 3 , '.' , true ); echo $newPrice;
+																echo"</a>
+															</div>
+															<div class='col-md-5'>
+																<a style='font-size:14px; color:#4183D7;'><img src='http://localhost/Tripversal/assets/icon/Rating.png' style='width:15px; white-space: nowrap;'>"; 
+																$total = 0; $j = 0;
+																foreach($carRating as $rating){
+																	if($car3['id_car'] == $rating['id_car']){
+																		$total += $rating['rating'];
+																		$j++;
+																	}
 																}
-															}
-															if($j >= 1){
-																$total = $total / $j;
-															} else if($j == 0){
-																$total = '-';
-															}
-															echo number_format((float)$total, 1, '.', '');
-															echo"</a>
+																if($j >= 1){
+																	$total = $total / $j;
+																} else if($j == 0){
+																	$total = '-';
+																}
+																echo number_format((float)$total, 1, '.', '');
+																echo"</a>
+															</div>
 														</div>
-													</div>
-													<div id='content2'>
-														<form action='rentACar_C/bookCar' method='POST'>
-														<input class='form-control' name='id_CarGuide' value='".$car3['id_car']."' hidden>
-														<input class='form-control' name='city' value='".$car3['city']."' hidden>
-														<button type='submit' class='btn btn-success'>Book Now</button>
-														</form>
-													</div>
+														<div id='content2'>
+															<form action='rentACar_C/bookCar' method='POST'>
+															<input class='form-control' name='id_CarGuide' value='".$car3['id_car']."' hidden>
+															<input class='form-control' name='city' value='".$car3['city']."' hidden>
+															<button type='submit' class='btn btn-success'>Book Now</button>
+															</form>
+														</div>
+													</div>";
+													$k++;
+													$state = ' ';
+													if($k % $show == 0){
+														echo"</div>
+													</div>";
+													}										
+													$count = 0; $i++;
+												} 
+											}
+											echo"</div>"; //end of carousel-inner.
+											//Carousel fixes. if there's another bug. check this.
+											if($k % $show != 0){
+												echo"</div></div>";
+											}
+										
+											if($k > $show){ 
+												echo"
+												<!-- Carousel controls -->
+												<a class='carousel-control-prev' href='#myCarouselVehicleCity' data-slide='prev' style='margin-bottom:-40px;'>
+													<i class='fa fa-angle-left'></i>
+												</a>
+												<a class='carousel-control-next' href='#myCarouselVehicleCity' data-slide='next' style='margin-bottom:-40px;'>
+													<i class='fa fa-angle-right'></i>
+												</a>";
+											} else if($k == 0){
+												echo"</div>";
+												echo "<div class='container'>
+													<p style='font-style:italic; text-align:center; color:grey;'>Sorry there's no car available</p>
+													<img src='http://localhost/Tripversal/assets/icon/Empty.gif' alt='Sorry.png' style='display: block;
+														margin-left: auto; margin-right: auto; width: 250px; height: 250px;'>
 												</div>";
-												$k++;
-												$state = ' ';
-												if($k % $show == 0){
-													echo"</div>
-												</div>";
-												}										
-												$count = 0; $i++;
-											} 
+											}
 										}
-									
-										//Need to be simplify / optimized
-										if($k > $show){ 
-											echo"
-											</div></div></div>
-											<!-- Carousel controls -->
-											<a class='carousel-control-prev' href='#myCarouselVehicleCity' data-slide='prev' style='margin-bottom:-40px;'>
-												<i class='fa fa-angle-left'></i>
-											</a>
-											<a class='carousel-control-next' href='#myCarouselVehicleCity' data-slide='next' style='margin-bottom:-40px;'>
-												<i class='fa fa-angle-right'></i>
-											</a>";
-										} else if($k == $show){ 
-											echo"</div>";
-										// } else if(($k == 2)||($k == 3)||($k == 1)){
-										} else if(($k >= 1)&&($k <= 10)){
-											echo"</div></div></div>";
-										} else if($k == 0){
-											echo"</div>";
-											echo "<div class='container'>
-												<p style='font-style:italic; text-align:center; color:grey;'>Sorry there's no car available</p>
-												<img src='http://localhost/Tripversal/assets/icon/Empty.gif' alt='Sorry.png' style='display: block;
-													margin-left: auto; margin-right: auto; width: 250px; height: 250px;'>
-											</div>";
-										}
-									}
-									
-
-									// echo $k."=k";
-									//Check this
-								
-								echo"
-
-							</div>
-						</div>";
-					}
-				}				
-			} else if($this->session->userdata('set_typeBook') == 'Tour Guide'){
-				echo"<h5><i class='fa-solid fa-city'></i> Other Tour Guide in ".$guide['city']."</h5>
-				<hr>";
-			}	
-			
-		?>
-    </div>
+									echo"
+								</div>
+							</div>";
+						}
+					}				
+				} 	
+			?>
+		</div>
 
 	<!-- Zoom location modal -->
 	<?php 

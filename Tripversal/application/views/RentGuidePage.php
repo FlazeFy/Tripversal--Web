@@ -283,7 +283,7 @@
 												</div>
 												<p style='font-size:16px; color:#068ac2; font-weight:bold; margin-top:5px;'> Rp. "; $price = $top['price'];
 												$newPrice = wordwrap($price , 3 , '.' , true ); echo $newPrice; echo" / Day</p>
-												<form action='rentACar_C/bookCar' method='POST'>
+												<form action='rentGuide_C/bookGuide' method='POST'>
 													<input class='form-control' name='id_CarGuide' value='".$top['id_guide']."' hidden>
 													<input class='form-control' name='city' value='".$top['city']."' hidden>
 													<button type='submit' class='btn btn-success'>Book Now</button>
