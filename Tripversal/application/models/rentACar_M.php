@@ -49,7 +49,7 @@
 			return $data = $this->db->get()->result_array();
 		}
 		public function get_top_used_guide(){
-			$this->db->select('rent.id_car_guide, rent.city, guide.fullname, guide.id_guide, guide.language, guide.price, guide.phone, guide.location, COUNT(rent.id_car_guide) as total_order');
+			$this->db->select('rent.id_car_guide, rent.city, guide.guide_fullname, guide.id_guide, guide.language, guide.price, guide.phone, guide.location, COUNT(rent.id_car_guide) as total_order');
 			$this->db->from('rent');
 			$this->db->join('guide','guide.id_guide = rent.id_car_guide');
 			$condition = array('rent.type' => 'Tour Guide');

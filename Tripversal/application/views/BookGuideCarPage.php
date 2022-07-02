@@ -14,7 +14,7 @@
 				} else if($this->session->userdata('set_typeBook') == 'Tour Guide'){
 					foreach($guideData as $guide){
 						if($guide['id_guide'] == $this->session->userdata('set_idCarGuide')){
-							echo $guide['fullname'];
+							echo $guide['guide_fullname'];
 						}
 					}
 				}
@@ -453,7 +453,7 @@ margin-top:-100px; }
 								} else if($this->session->userdata('set_typeBook') == 'Tour Guide'){
 									foreach($guideData as $guide){
 										if($guide['id_guide'] == $this->session->userdata('set_idCarGuide')){
-											echo "<img src='http://localhost/Tripversal/assets/image/guide/".$guide['fullname']."_".$guide['phone'].".jpg' class='rounded-circle img-fluid'
+											echo "<img src='http://localhost/Tripversal/assets/image/guide/".$guide['guide_fullname']."_".$guide['phone'].".jpg' class='rounded-circle img-fluid'
 											style='display: block; width: 60%; height: auto; margin-left:auto; margin-right:auto;'>";
 										}
 									}
@@ -472,7 +472,7 @@ margin-top:-100px; }
 								} else if($this->session->userdata('set_typeBook') == 'Tour Guide'){
 									foreach($guideData as $guide){
 										if($guide['id_guide'] == $this->session->userdata('set_idCarGuide')){
-											echo "<a type='button' style='color:#212121;' href='rentGuide_C'>Tour Guide</a>"." >> ".$guide['fullname'];
+											echo "<a type='button' style='color:#212121;' href='rentGuide_C'>Tour Guide</a>"." >> ".$guide['guide_fullname'];
 										}
 									}
 								}
@@ -1112,9 +1112,9 @@ margin-top:-100px; }
 														}	
 														echo"
 														<div class='card'>
-															<img src='http://localhost/Tripversal/assets/image/guide/".$guide['fullname']."_".$guide['phone'].".jpg' class='rounded-circle img-fluid'
+															<img src='http://localhost/Tripversal/assets/image/guide/".$guide['guide_fullname']."_".$guide['phone'].".jpg' class='rounded-circle img-fluid'
 																style='width: 80px; margin-left:auto; margin-right:auto; display:block;'>
-															<h7 style='color:black; font-size:13px;  white-space: nowrap;'>".$guide2['fullname']."</span></h7>
+															<h7 style='color:black; font-size:13px;  white-space: nowrap;'>".$guide2['guide_fullname']."</span></h7>
 															<a style='font-size:12px; color:grey;'>".$guide2['language']."</a>
 															<div class='row'>
 																<div class='col-md-7'>

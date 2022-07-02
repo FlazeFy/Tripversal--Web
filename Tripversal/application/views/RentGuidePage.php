@@ -211,7 +211,7 @@
 						<a href="rentGuide_C" class="nav_link active"> <i class="fa-solid fa-people-group"></i> <span class="nav_name">Tour Guide</span> </a> 
 						<a href="#" class="nav_link"> <i class="fa-solid fa-folder-open"></i> <span class="nav_name">My Reservation</span> </a>
 						<a href="#" class="nav_link"> <i class="fa-solid fa-map-location"></i> <span class="nav_name">Travel Destination</span> </a>  
-						<a href="#" class="nav_link"> <i class="fa-solid fa-message"></i> <span class="nav_name">Messages</span> </a> 
+						<a href="message_C" class="nav_link"> <i class="fa-solid fa-message"></i> <span class="nav_name">Messages</span> </a> 
 					</div> 
 				</div>
 				<a href="#" class="nav_link" style='background:#D62C49; margin-left:10px; border-radius:5px; color:whitesmoke;'> <i class='bx bx-log-out nav_icon' style='margin-left:-15px;'></i> <span class="nav_name">Sign Out</span> </a>
@@ -272,8 +272,8 @@
 									echo"<div class='container' style='width:100%;'>
 										<div class='row'>
 											<div class='col-md'>
-												<img src='http://localhost/Tripversal/assets/image/guide/".$top['fullname']."_".$top['phone'].".jpg' style='height:130px; margin-left:-10px; border-radius:100%;' alt=''>
-												<h6 style='font-size:14px; margin-top:5px; color:whitesmoke;'>".$top['fullname']."</h6>
+												<img src='http://localhost/Tripversal/assets/image/guide/".$top['guide_fullname']."_".$top['phone'].".jpg' style='height:130px; margin-left:-10px; border-radius:100%;' alt=''>
+												<h6 style='font-size:14px; margin-top:5px; color:whitesmoke;'>".$top['guide_fullname']."</h6>
 											</div>
 											<div class='col-md'>
 												<br>
@@ -379,8 +379,8 @@
 									echo"
 									<div class='glassBox'>
 										<div class='glassBox__imgBox'>
-											<img src='http://localhost/Tripversal/assets/image/guide/".$top['fullname']."_".$top['phone'].".jpg' alt=''>
-											<h3 class='glassBox__title'>".$guide['fullname']."</h3>
+											<img src='http://localhost/Tripversal/assets/image/guide/".$top['guide_fullname']."_".$top['phone'].".jpg' alt=''>
+											<h3 class='glassBox__title'>".$guide['guide_fullname']."</h3>
 											<hr>
 										</div>
 										<div class='card-body' style='width:120%; margin-top:-25px; display: block; margin-left: auto; margin-right: auto;'>
@@ -497,7 +497,7 @@
 										if($guide['id_guide'] == $notif['id_car_guide']){
 											echo"<div class='card' id='notification' style='border-left: 4px solid #CB5FCE;'>
 												<h6 style='font-weight:600;'>Message | Tour Guide</h6>
-												<a style='color:grey; font-size:12px;'><i class='fa-solid fa-user'></i> ".$guide['fullname']." 
+												<a style='color:grey; font-size:12px;'><i class='fa-solid fa-user'></i> ".$guide['guide_fullname']." 
 													| <i class='fa-solid fa-location-dot'></i> ".$guide['location']."</a>
 												<div class='container-fluid' style='width:100%; border-radius:10px; background:#e3e3e3; padding:5px; margin:2px;'>
 													<p style='font-size:13px; color:#212121;'>".$notif['text']."</p>
@@ -646,7 +646,7 @@
 			});
 		}
 
-		var guideName = [<?php foreach($guideData as $guide){echo "'"; echo $guide['fullname'].", ".$guide['city']; echo "',";} ?>];		
+		var guideName = [<?php foreach($guideData as $guide){echo "'"; echo $guide['guide_fullname'].", ".$guide['city']; echo "',";} ?>];		
 		autocomplete(document.getElementById("myInput"), guideName);
 	</script>
 
