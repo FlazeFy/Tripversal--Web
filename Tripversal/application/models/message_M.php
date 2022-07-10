@@ -28,5 +28,10 @@
 			$this->db->order_by('datetime','DESC');
 			return $data = $this->db->get()->result_array();
 		}
+		public function insert_message($data)
+		{
+			$this->db->insert('message',$data);	
+			redirect('message_C');
+		}
 	}
 ?>

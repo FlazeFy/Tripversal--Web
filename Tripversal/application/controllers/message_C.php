@@ -23,5 +23,20 @@
 			$this->session->set_userdata('set_id_contact',$id);
 			redirect('message_C');	
 		}
+		public function sendMessage()
+		{
+			$type = "text";
+			$data = array(
+				'id_message' => 'NULL',
+				'id_contact' => $this->session->userdata('set_id_contact'),
+				'body' => $this->input->post('body'),
+				'datetime' => date("Y/m/d h:i:sa"),
+				'type' => $type,
+				'sender' => 'customer',
+			);
+			$this->message_M->insert_message($data, 'message');
+				
+			redirect('message_C');	
+		}
 	}
 ?>

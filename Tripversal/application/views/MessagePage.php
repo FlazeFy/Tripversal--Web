@@ -208,7 +208,7 @@
 
     <!--Container Main start-->
 	<div class="row g-0">
-		<div class="col-12 col-lg-5 col-xl-3 border-right">
+		<div class="col-3">
 			<h5 class="mt-4">Contact</h5>
 			<div class="col w-100" id="contact">
 				<?php
@@ -261,7 +261,7 @@
 			<hr class="d-block d-lg-none mt-1 mb-0">
 			</div>
 		</div>
-		<div class="col-12 col-lg-7 col-xl-9">
+		<div class="col-9">
 			<div class="py-2 px-4 border-bottom d-none d-lg-block">
 				<div class="d-flex align-items-center py-1">
 					<?php
@@ -273,9 +273,13 @@
 										<img src='http://localhost/Tripversal/assets/image/guide/".$contact['guide_fullname']."_".$contact['phone'].".jpg' class='rounded-circle mr-1' alt='Sharon Lessman' width='40' height='40'>
 									</div>
 									<div class='flex-grow-1 pl-3'>
-										<strong>".$contact['guide_fullname']."</strong>
-										<div class='text-muted small'><em>Typing...</em></div>
-									</div>
+										<strong>".$contact['guide_fullname']."</strong><br>";
+										if($contact['guide_active'] == "online")
+											echo"<a class='text-muted small' style='color:green !important;'>".$contact['guide_active']."</a>";
+										else {
+											echo"<a class='text-muted small'>".$contact['guide_active']."</a>";
+										}
+									echo"</div>
 									<div>
 										<button class='btn btn-primary btn-lg mr-1 px-3'><i class='fa-solid fa-phone'></i></button>
 										<button class='btn btn-info btn-lg mr-1 px-3 d-none d-md-inline-block'><i class='fa-solid fa-video text-white'></i></button>
@@ -287,9 +291,13 @@
 										<img src='http://localhost/Tripversal/assets/uploads/garage/garage_".$contact['garage_username'].".jpg' class='rounded-circle mr-1' alt='Sharon Lessman' width='40' height='40'>
 									</div>
 									<div class='flex-grow-1 pl-3'>
-										<strong>".$contact['garage_name']."</strong>
-										<div class='text-muted small'><em>Typing...</em></div>
-									</div>
+										<strong>".$contact['garage_name']."</strong><br>";
+										if($contact['garage_active'] == "online")
+											echo"<a class='text-muted small' style='color:green !important;'>".$contact['garage_active']."</a>";
+										else {
+											echo"<a class='text-muted small'>".$contact['garage_active']."</a>";
+										}
+									echo"</div>
 									<div>
 										<button class='btn btn-primary btn-lg mr-1 px-3'><i class='fa-solid fa-phone'></i></button>
 										<button class='btn btn-info btn-lg mr-1 px-3 d-none d-md-inline-block'><i class='fa-solid fa-video text-white'></i></button>
@@ -302,7 +310,7 @@
 				</div>
 			</div>
 			<div class='position-relative'>
-				<div class='chat-messages p-4'>
+				<div class='chat-messages p-4' id='chat-box'>
 				<?php
 					foreach($messageData as $message){
 						if($message['id_contact'] == $this->session->userdata('set_id_contact')){
@@ -311,11 +319,10 @@
 									if($contact['id_contact'] == $this->session->userdata('set_id_contact')){
 										echo"
 										<div class='chat-message-right pb-4'>
-											<div>
+											<div style='margin:10px !important;'>
 												<img src='http://localhost/Tripversal/assets/uploads/user/user_".$contact['username'].".jpg' class='rounded-circle mr-1' alt='Chris Wood' width='40' height='40'>
 											</div>
 											<div class='flex-shrink-1 bg-light rounded py-2 px-3 mr-3'>
-												<div class='font-weight-bold mb-1'>You</div>
 												".$message['body']."
 												<div class='text-secondary mt-2' style='font-size:11px;'>".$message['datetime']."</div>
 											</div>
@@ -327,7 +334,7 @@
 									if($contact['id_contact'] == $this->session->userdata('set_id_contact')){
 										echo"
 										<div class='chat-message-left pb-4'>
-											<div>";
+											<div style='margin:10px !important;'>";
 												if($contact['type'] == "Guide"){
 													echo "<img src='http://localhost/Tripversal/assets/image/guide/".$contact['guide_fullname']."_".$contact['phone'].".jpg' class='rounded-circle mr-1' alt='Chris Wood' width='40' height='40'>";
 												} else {
@@ -335,7 +342,6 @@
 												}
 											echo"</div>
 											<div class='flex-shrink-1 bg-light rounded py-2 px-3 mr-3'>
-												<div class='font-weight-bold mb-1'>You</div>
 												".$message['body']."
 												<div class='text-secondary mt-2' style='font-size:11px;'>".$message['datetime']."</div>
 											</div>
@@ -350,10 +356,20 @@
 			</div>
 
 			<div class="flex-grow-0 py-3 px-4 border-top">
-				<div class="input-group">
-					<input type="text" class="form-control" placeholder="Type your message">
-					<button class="btn btn-primary">Send</button>
-				</div>
+				<?php
+					foreach($contactData as $contact){
+						if($contact['id_contact'] == $this->session->userdata('set_id_contact')){
+							echo"
+							<form action='message_C/sendMessage' method='post'>
+								<div class='input-group'>
+									<a class='btn btn-primary'><i class='fa-solid fa-paperclip'></i></a>
+									<input type='text' class='form-control' placeholder='Type your message' name='body' required>
+									<button class='btn btn-success' type='submit'><i class='fa-solid fa-paper-plane'></i> Send</button>
+								</div>
+							</form>";
+						}
+					}
+				?>
 			</div>
 
 		</div>
@@ -432,16 +448,8 @@
 	</script>
 
 	<script>
-		!function(d,s,id){
-			var js,fjs=d.getElementsByTagName(s)[0];
-			if(!d.getElementById(id)){
-				js=d.createElement(s);
-				js.id=id;
-				js.src='https://weatherwidget.io/js/widget.min.js';
-				fjs.parentNode.insertBefore(js,fjs);
-			}
-		}
-		(document,'script','weatherwidget-io-js');
+		var myDiv = document.getElementById("chat-box");
+    	myDiv.scrollTop = myDiv.scrollHeight;
 	</script>
 
 	<!--Container Main end-->
@@ -489,7 +497,8 @@
 		<script type='text/javascript'>var myLink = document.querySelector('a[href="#"]');
 		myLink.addEventListener('click', function(e) {
 		e.preventDefault();
-		});</script>
+		});
+	</script>
            
 	
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
