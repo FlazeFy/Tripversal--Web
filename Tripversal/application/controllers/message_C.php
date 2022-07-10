@@ -38,5 +38,15 @@
 				
 			redirect('message_C');	
 		}
+		public function unsend()
+		{
+			$type = "text";
+			$data = array(
+				'id_message' => $this->input->post('id_message'),
+			);
+			$this->message_M->delete_message($data, 'message');
+				
+			redirect('message_C');	
+		}
 	}
 ?>

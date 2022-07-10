@@ -109,14 +109,6 @@
 				-webkit-box-orient: vertical;
 			}
 
-			.chat-online {
-				color: #34ce57
-			}
-
-			.chat-offline {
-				color: #e4606d
-			}
-
 			.chat-messages {
 				display: flex;
 				flex-direction: column;
@@ -174,6 +166,22 @@
 				line-clamp: 1; 
 				-webkit-box-orient: vertical;
 			}
+
+			.chat-message-right #content, .chat-message-left #content {
+				position : relative;
+				padding : 4px;
+				color : whitesmoke;
+				text-align : center;
+				visibility : hidden;
+				opacity : 0;
+				transition : 0.3s ease-in-out;	
+			}
+			.chat-message-right:hover #content, .chat-message-left:hover #content {
+				margin-top : 2px;
+				visibility : visible;
+				opacity : 1;
+				transition-delay: 0.2s;
+			}
 		</style>
                              
     </head>
@@ -218,41 +226,69 @@
 								echo"
 								<form action='message_C/selectContact' method='POST'>
 								<input name='id_contact' value='".$contact['id_contact']."' hidden></input>
-								<button type='submit' class='list-group-item list-group-item-action border-0'>
-									<div class='d-flex align-items-start'>
-										<img src='http://localhost/Tripversal/assets/image/guide/".$contact['guide_fullname']."_".$contact['phone'].".jpg' class='rounded-circle' alt='".$contact['guide_fullname']."' id='contactImage'>
-										<div class='flex-grow-1 ml-3 w-100'>".$contact['guide_fullname']."
-											<div class='text-secondary'>"; 
-												$i = 0;
-												foreach($newMessageData as $message){
-													if(($message['id_contact'] == $contact['id_contact'])&&($i < 1)){
-														echo $message['body'];
-														$i++;
-													}
-												}
-											echo"</div>
-										</div>
-									</div>
+								<button type='submit' class='list-group-item list-group-item-action border-0' style='"; 
+									if($contact['id_contact'] == $this->session->userdata('set_id_contact')){
+										echo "border-left:4px solid #4169E1 !important;";
+									}
+									echo"'>
+									<div class='d-flex align-items-start'>";
+										$i = 0;
+										foreach($newMessageData as $message){
+											if(($message['id_contact'] == $contact['id_contact'])&&($i < 1)){
+												echo"
+												<img src='http://localhost/Tripversal/assets/image/guide/".$contact['guide_fullname']."_".$contact['phone'].".jpg' class='rounded-circle' alt='".$contact['guide_fullname']."' id='contactImage'>
+												<div class='flex-grow-1 ml-3 w-100'>".$contact['guide_fullname']."
+													<div class='text-secondary'>".$message['body']."</div>
+												</div>
+												<a class='fw-bold text-secondary mt-1' style='font-size:11px; white-space:nowrap;'>";
+													//Show last message date.
+													$date = strtotime($message['datetime']);
+													if(date("Y-m-d", $date) == date("Y-m-d")){
+														echo"Today<br><span>".date("H:i", $date)."</span>";
+													} else if(date("Y-m-d", $date) == date('Y-m-d',strtotime("-1 days"))){
+														echo"Yesterday<br><span style='float:right;'>".date("H:i", $date)."</span>";
+													} else {
+														echo date("Y-m-d", $date)."<br><span>".date("H:i", $date)."</span>";
+													}	
+												echo"</a>";
+												$i++;
+											}
+										}
+									echo"</div>
 								</button></form>";
 							} else {
 								echo"
 								<form action='message_C/selectContact' method='POST'>
 								<input name='id_contact' value='".$contact['id_contact']."' hidden></input>
-								<button type='submit' class='list-group-item list-group-item-action border-0'>
-									<div class='d-flex align-items-start'>
-										<img src='http://localhost/Tripversal/assets/uploads/garage/garage_".$contact['garage_username'].".jpg' class='rounded-circle' alt='".$contact['garage_username']."' id='contactImage'>
-										<div class='flex-grow-1 ml-3 w-100'>".$contact['garage_name']."
-											<div class='text-secondary'>"; 
-											$i = 0;
-											foreach($newMessageData as $message){
-												if(($message['id_contact'] == $contact['id_contact'])&&($i < 1)){
-													echo $message['body'];
-													$i++;
-												}
+								<button type='submit' class='list-group-item list-group-item-action border-0' style='";
+									if($contact['id_contact'] == $this->session->userdata('set_id_contact')){
+										echo "border-left:4px solid #4169E1 !important;";
+									}
+									echo"'>
+									<div class='d-flex align-items-start'>";
+										$i = 0;
+										foreach($newMessageData as $message){
+											if(($message['id_contact'] == $contact['id_contact'])&&($i < 1)){
+												echo"
+												<img src='http://localhost/Tripversal/assets/uploads/garage/garage_".$contact['garage_username'].".jpg' class='rounded-circle' alt='".$contact['garage_username']."' id='contactImage'>
+												<div class='flex-grow-1 ml-3 w-100'>".$contact['garage_name']."
+													<div class='text-secondary'>".$message['body']."</div>
+												</div>
+												<a class='fw-bold text-secondary mt-1' style='font-size:11px; white-space:nowrap;'>";
+													//Show last message date.
+													$date = strtotime($message['datetime']);
+													if(date("Y-m-d", $date) == date("Y-m-d")){
+														echo"Today<br><span>".date("H:i", $date)."</span>";
+													} else if(date("Y-m-d", $date) == date('Y-m-d',strtotime("-1 days"))){
+														echo"Yesterday<br><span style='float:right;'>".date("H:i", $date)."</span>";
+													} else {
+														echo date("M d", $date)."<br><span>".date("H:i", $date)."</span>";
+													}	
+												echo"</a>";
+												$i++;
 											}
-											echo"</div>
-										</div>
-									</div>
+										}
+									echo"</div>
 								</button></form>";
 							}
 						}
@@ -272,7 +308,7 @@
 									<div class='position-relative'>
 										<img src='http://localhost/Tripversal/assets/image/guide/".$contact['guide_fullname']."_".$contact['phone'].".jpg' class='rounded-circle mr-1' alt='Sharon Lessman' width='40' height='40'>
 									</div>
-									<div class='flex-grow-1 pl-3'>
+									<div class='flex-grow-1 pl-3' style='margin-left:10px !important;'>
 										<strong>".$contact['guide_fullname']."</strong><br>";
 										if($contact['guide_active'] == "online")
 											echo"<a class='text-muted small' style='color:green !important;'>".$contact['guide_active']."</a>";
@@ -290,7 +326,7 @@
 									<div class='position-relative'>
 										<img src='http://localhost/Tripversal/assets/uploads/garage/garage_".$contact['garage_username'].".jpg' class='rounded-circle mr-1' alt='Sharon Lessman' width='40' height='40'>
 									</div>
-									<div class='flex-grow-1 pl-3'>
+									<div class='flex-grow-1 pl-3' style='margin-left:10px !important;'>
 										<strong>".$contact['garage_name']."</strong><br>";
 										if($contact['garage_active'] == "online")
 											echo"<a class='text-muted small' style='color:green !important;'>".$contact['garage_active']."</a>";
@@ -325,6 +361,20 @@
 											<div class='flex-shrink-1 bg-light rounded py-2 px-3 mr-3'>
 												".$message['body']."
 												<div class='text-secondary mt-2' style='font-size:11px;'>".$message['datetime']."</div>
+												<input type='text' value='".$message['body']."' id='msgBody".$message['id_message']."' hidden>
+											</div>
+											<div id='content'>
+												<a id='chatdropdown' data-bs-toggle='dropdown' type='button'><i class='fa-solid fa-gear fa-lg mx-2 my-4' style='color:#4169e1;'></i></a>
+												<ul class='dropdown-menu' aria-labelledby='chatdropdown'>
+													<li>
+														<form action='message_C/unsend' method='POST'>
+															<input name='id_message' value='".$message['id_message']."' hidden>
+															<button class='dropdown-item' type='submit'><i class='fa-solid fa-trash'></i> Unsend</button>
+														</form>
+													</li>
+													<li><a class='dropdown-item' onclick='messageCopy".$message['id_message']."()'><i class='fa-solid fa-copy'></i> Copy</a></li>
+													<li><a class='dropdown-item' href='#'><i class='fa-solid fa-share'></i> Forward</a></li>
+												</ul>
 											</div>
 										</div>";
 									}
@@ -344,6 +394,14 @@
 											<div class='flex-shrink-1 bg-light rounded py-2 px-3 mr-3'>
 												".$message['body']."
 												<div class='text-secondary mt-2' style='font-size:11px;'>".$message['datetime']."</div>
+												<input type='text' value='".$message['body']."' id='msgBody".$message['id_message']."' hidden>
+											</div>
+											<div id='content'>
+												<a id='chatdropdown' data-bs-toggle='dropdown' type='button'><i class='fa-solid fa-gear fa-lg mx-2 my-4' style='color:#4169e1;'></i></a>
+												<ul class='dropdown-menu' aria-labelledby='chatdropdown'>
+													<li><a class='dropdown-item' onclick='messageCopy".$message['id_message']."()'><i class='fa-solid fa-copy'></i> Copy</a></li>
+													<li><a class='dropdown-item' href='#'><i class='fa-solid fa-share'></i> Forward</a></li>
+												</ul>
 											</div>
 										</div>";
 									}
@@ -376,6 +434,24 @@
 	</div>
 
 	<script>
+		//Chat setting.
+		var myDiv = document.getElementById("chat-box");
+    	myDiv.scrollTop = myDiv.scrollHeight;
+
+		//Copy message.
+		<?php
+			foreach($messageData as $message){
+				echo"
+				function messageCopy".$message['id_message']."(){
+					var copyText = document.getElementById('msgBody".$message['id_message']."');
+					copyText.select();
+					copyText.setSelectionRange(0, 99999); /* For mobile devices */
+					navigator.clipboard.writeText(copyText.value);
+				}";
+			}
+		?>	
+
+		//Autocomplete search.
 		function autocomplete(inp, arr) {
 			var currentFocus;
 
@@ -447,34 +523,30 @@
 		autocomplete(document.getElementById("myInput"), carName);
 	</script>
 
-	<script>
-		var myDiv = document.getElementById("chat-box");
-    	myDiv.scrollTop = myDiv.scrollHeight;
-	</script>
-
 	<!--Container Main end-->
 	<script type='text/javascript' src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js'></script>
-	<script type='text/javascript'>document.addEventListener("DOMContentLoaded", function(event) {
-   
-		const showNavbar = (toggleId, navId, bodyId, headerId) =>{
-		const toggle = document.getElementById(toggleId),
-		nav = document.getElementById(navId),
-		bodypd = document.getElementById(bodyId),
-		headerpd = document.getElementById(headerId)
+	
+	<script type='text/javascript'>
+		document.addEventListener("DOMContentLoaded", function(event) {
+			const showNavbar = (toggleId, navId, bodyId, headerId) =>{
+			const toggle = document.getElementById(toggleId),
+			nav = document.getElementById(navId),
+			bodypd = document.getElementById(bodyId),
+			headerpd = document.getElementById(headerId)
 
-		// Validate that all variables exist
-		if(toggle && nav && bodypd && headerpd){
-		toggle.addEventListener('click', ()=>{
-		// show navbar
-		nav.classList.toggle('show')
-		// change icon
-		toggle.classList.toggle('bx-x')
-		// add padding to body
-		bodypd.classList.toggle('body-pd')
-		// add padding to header
-		headerpd.classList.toggle('body-pd')
-		})
-		}
+			// Validate that all variables exist
+			if(toggle && nav && bodypd && headerpd){
+			toggle.addEventListener('click', ()=>{
+			// show navbar
+			nav.classList.toggle('show')
+			// change icon
+			toggle.classList.toggle('bx-x')
+			// add padding to body
+			bodypd.classList.toggle('body-pd')
+			// add padding to header
+			headerpd.classList.toggle('body-pd')
+			})
+			}
 		}
 
 		showNavbar('header-toggle','nav-bar','body-pd','header')
@@ -494,13 +566,13 @@
 		});
 		</script>
 
-		<script type='text/javascript'>var myLink = document.querySelector('a[href="#"]');
-		myLink.addEventListener('click', function(e) {
-		e.preventDefault();
-		});
-	</script>
-           
-	
+		<script type='text/javascript'>
+			var myLink = document.querySelector('a[href="#"]');
+			myLink.addEventListener('click', function(e) {
+			e.preventDefault();
+			});
+		</script>
+
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 
 	</body>

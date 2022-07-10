@@ -33,5 +33,11 @@
 			$this->db->insert('message',$data);	
 			redirect('message_C');
 		}
+		
+		public function delete_message($data)
+		{
+			$this->db->delete('message',$data);	
+			redirect('message_C');
+		}
 	}
 ?>
