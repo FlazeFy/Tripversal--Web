@@ -25,7 +25,7 @@
 		}
 		public function sendMessage()
 		{
-			$type = "text";
+			$type = "Text";
 			$data = array(
 				'id_message' => 'NULL',
 				'id_contact' => $this->session->userdata('set_id_contact'),
@@ -40,7 +40,6 @@
 		}
 		public function unsend()
 		{
-			$type = "text";
 			$data = array(
 				'id_message' => $this->input->post('id_message'),
 			);

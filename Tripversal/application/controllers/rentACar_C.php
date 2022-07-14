@@ -27,7 +27,7 @@
 			$this->session->set_userdata('set_transmission',$transmission);	
 			$this->session->set_userdata('set_driver',$driver);	
 			$this->session->set_userdata('set_city',$city);
-			redirect('http://localhost/Tripversal/');	
+			redirect('rentACar_C');	
 		}
 		public function bookCar()
 		{

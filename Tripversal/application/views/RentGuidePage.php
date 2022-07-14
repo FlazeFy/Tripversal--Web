@@ -222,7 +222,7 @@
 		<div class='row' style='margin-top:80px;'>
 			<div class=col-md-4>
 				<div class='container' style='background:#4169E1; border-radius:10px; color:whitesmoke; padding:10px; box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;'>
-				<form action='rentACar_C/searchCarByControl' method="POST">
+				<form action='rentGuide_C/searchGuideByControl' method="POST">
 					<h4>Control Section</h4>
 					<div class="row" style='margin-top:5px;'>
 						<div class="col-sm">

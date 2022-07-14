@@ -25,7 +25,7 @@
 	
 			$this->session->set_userdata('set_language',$language);	
 			$this->session->set_userdata('set_city',$city);
-			redirect('http://localhost/Tripversal/rentGuide_C');	
+			redirect('rentGuide_C');		
 		}
 		public function bookGuide()
 		{

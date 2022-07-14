@@ -2102,7 +2102,7 @@
 										if($guide['id_guide'] == $notif['id_car_guide']){
 											echo"<div class='card' id='notification' style='border-left: 4px solid #CB5FCE;'>
 												<h6 style='font-weight:600;'>Message | Tour Guide</h6>
-												<a style='color:grey; font-size:12px;'><i class='fa-solid fa-user'></i> ".$guide['fullname']." 
+												<a style='color:grey; font-size:12px;'><i class='fa-solid fa-user'></i> ".$guide['guide_fullname']." 
 													| <i class='fa-solid fa-location-dot'></i> ".$guide['location']."</a>
 												<div class='container-fluid' style='width:100%; border-radius:10px; background:#e3e3e3; padding:5px; margin:2px;'>
 													<p style='font-size:13px; color:#212121;'>".$notif['text']."</p>
