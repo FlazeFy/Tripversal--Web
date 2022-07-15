@@ -10,7 +10,9 @@
 		public function index(){
 			$data = [];
 			$data['carData']= $this->rentACar_M->get_all_car();
+			$data['userData']= $this->landing_M->get_all_user();
 			$data['guideData']= $this->rentACar_M->get_all_guide();
+			$data['driverData']= $this->landing_M->get_all_driver();
 			$this->load->view('LandingPage', $data);
 		}
 		public function login()

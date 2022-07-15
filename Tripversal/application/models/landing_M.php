@@ -8,5 +8,13 @@
 			$this->db->from('user');
 			return $data = $this->db->get()->result_array();
 		}
+		public function get_all_driver()
+		{
+			$this->db->select('*');
+			$this->db->from('car');
+			$this->db->group_by('driver');
+			$this->db->where('driver !=', 'none');
+			return $data = $this->db->get()->result_array();
+		}
 	}
 ?>

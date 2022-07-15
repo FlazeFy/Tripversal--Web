@@ -159,14 +159,11 @@
 			}
 			#hero .btn-scroll {
 				transition: 0.4s;
-				color: rgba(255, 255, 255, 0.6);
+				color: #4169e1;
 				animation: up-down 1s ease-in-out infinite alternate-reverse both;
 			}
 			#hero .btn-scroll i {
 				font-size: 48px;
-			}
-			#hero .btn-scroll:hover {
-				color: #ffb727;
 			}
 			@media (min-width: 1024px) {
 			#hero {
@@ -346,6 +343,143 @@
 				transition: 0.9s;
 				background-color: #ffb727;
 			}
+			/*Footer*/
+            .deneb_footer .widget_wrapper {
+                background-repeat: no-repeat;
+                background-size: cover;
+                padding-top: 50px;
+                padding-bottom: 50px;
+				border-radius:40px 40px 0px 0px;
+				background:#4169e1;
+            }
+            @media (max-width: 767px) {
+                .deneb_footer .widget_wrapper .widget {
+                    margin-bottom: 40px;
+                }
+            }
+            .deneb_footer .widget_wrapper .widget .widget_title {
+                margin-bottom: 30px;
+				color:white;
+            }
+            .deneb_footer .widget_wrapper .widget .widget_title h4 {
+                font-weight: bold;
+            }
+            .deneb_footer .widget_wrapper .widget .widget_title h4:after {
+                content: "";
+                display: block;
+                max-width: 38px;
+                height: 2px;
+                margin-top: 5px;
+            }
+            .deneb_footer .widget_wrapper .widegt_about p {
+                margin-bottom: 20px;
+            }
+            .deneb_footer .widget_wrapper .widget_link ul li {
+                margin-bottom: 5px;
+            }
+            .deneb_footer .widget_wrapper .widget_link ul li a {
+                text-transform: capitalize;
+                color: white;
+            }
+            .deneb_footer .widget_wrapper .widget_link ul li a:hover,
+            .deneb_footer .widget_wrapper .widget_link ul li a:focus {
+                color: #4169e1;
+            }
+            .deneb_footer .widget_wrapper .widget_contact .contact_info .single_info {
+                max-width: 250px;
+                display: flex;
+                flex-wrap: wrap;
+                margin-bottom: 20px;
+            }
+            .deneb_footer .widget_wrapper .widget_contact .contact_info .single_info .icon {
+                font-size: 12px;
+                color: white;
+                margin-right: 10px;
+            }
+            .deneb_footer .widget_wrapper .widget_contact .contact_info .single_info .info p {
+                color: white;
+            }
+            .deneb_footer .widget_wrapper .widget_contact .contact_info .single_info .info p span {
+                display: block;
+            }
+            .deneb_cta .cta_wrapper {
+                padding: 20px;
+                max-width: 970px;
+                border-radius: 15px;
+                margin: auto;
+                margin-bottom: -185px;
+                position: relative;
+                background:#414141;
+                z-index: 1;
+            }
+            .deneb_cta .cta_wrapper:after {
+                background-position: bottom;
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                z-index: -1;
+            }
+            .deneb_cta .cta_wrapper .cta_content h3 {
+                color: #fff;
+                font-weight: bold;
+            }
+            @media (max-width: 767px) {
+                .deneb_cta .cta_wrapper .cta_content h3 {
+                    font-size: 24px;
+                }
+            }
+            .deneb_cta .cta_wrapper .cta_content p {
+                color: #fff;
+            }
+
+			.services .icon-box {
+				padding: 30px;
+				position: relative;
+				overflow: hidden;
+				background: #fff;
+				border-radius: 30px;
+				box-shadow: 0 10px 29px 0 rgba(68, 88, 144, 0.1);
+				transition: all 0.3s ease-in-out;
+				text-align: center;
+				border: 3px solid #fff;
+			}
+			.services .icon {
+				margin: 0 auto 20px auto;
+				padding-top: 17px;
+				display: inline-block;
+				text-align: center;
+				border-radius: 50%;
+				width: 70px;
+				height: 70px;
+				background:	#c9d3f0;
+			}
+			.services .icon i {
+				font-size: 36px;
+				line-height: 1;
+				color: #4169E1;
+			}
+			.services .title {
+				font-weight: 700;
+				margin-bottom: 15px;
+				font-size: 18px;
+			}
+			.services .title a {
+				color: #111;
+				transition: 0.3s;
+			}
+			.services .description {
+				font-size: 15px;
+				line-height: 28px;
+				margin-bottom: 0;
+			}
+			.services .icon-box:hover {
+				border-color: #4169E1;
+			}
+			.services .icon-box:hover .title a {
+				color: #4169E1;
+			}
 		</style>                 
     </head>
 
@@ -383,13 +517,11 @@
 		
 		<section id="about" class="about">
 			<div class="container">
-
 				<div class="section-title">
-				<span>About Us</span>
-				<h2>Tripversal</h2>
-				<p>Tripversal is an application that will help you travel around Indonesia. With Tripversal you can rent a various of vehicle like citycar, minibus, motorcycle, even a bus. Not only that, you can also rent a tour guide with various spoken language. Our vehicle and guide are trusted and will help you through the day. So dont hesitate and book now to get a trip that will never be forgotten.</p>
+					<span>About Us</span>
+					<h2>Tripversal</h2>
+					<p>Tripversal is an application that will help you travel around Indonesia. With Tripversal you can rent a various of vehicle like citycar, minibus, motorcycle, even a bus. Not only that, you can also rent a tour guide with various spoken language. Our vehicle and guide are trusted and will help you through the day. So dont hesitate and book now to get a trip that will never be forgotten.</p>
 				</div>
-
 				<div class="row">
 					<div class="col-lg-8 d-flex flex-column align-items-stretch">
 						<div class="content ps-lg-4 d-flex flex-column justify-content-center">
@@ -428,7 +560,7 @@
 								<div class="col-md-6 mt-5 d-md-flex align-items-md-stretch">
 								<div class="count-box">
 									<i class="fa-solid fa-user-tie" style="color: #2cbdee;"></i>
-									<span data-purecounter-start="0" data-purecounter-end="18" data-purecounter-duration="1" class="purecounter"></span>
+									<span data-purecounter-start="0" data-purecounter-end="<?php $i = 0; foreach($driverData as $dr){$i++;} echo $i; ?>" data-purecounter-duration="1" class="purecounter"></span>
 									<p><strong>Experienced Driver</strong> aut commodi quaerat modi aliquam nam ducimus aut voluptate non vel</p>
 								</div>
 								</div>
@@ -465,13 +597,276 @@
 			</div>
 		</section><!-- End About Us Section -->
 
+		<!-- Our Services Section -->
+		<section id="services" class="services">
+			<div class="container">
+				<div class="section-title">
+					<span>All Free!</span>
+					<h2>Our Features</h2>
+					<p>Sit sint consectetur velit quisquam cupiditate impedit suscipit alias</p>
+				</div>
+				<div class="row">
+					<div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+						<div class="icon-box">
+							<div class="icon"><i class="fa-solid fa-car"></i></div>
+							<h4 class="title"><a href="">Rent A Car</a></h4>
+							<p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
+						</div>
+					</div>
+					<div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+						<div class="icon-box">
+							<div class="icon"><i class="fa-solid fa-people-group"></i></div>
+							<h4 class="title"><a href="">Rent Tour Guide</a></h4>
+							<p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+						</div>
+					</div>
+					<div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+						<div class="icon-box">
+							<div class="icon"><i class="fa-solid fa-map-location"></i></div>
+							<h4 class="title"><a href="">Travel Destination</a></h4>
+							<p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+						</div>
+					</div>
+					<div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+						<div class="icon-box">
+							<div class="icon"><i class="bx bx-world"></i></div>
+							<h4 class="title"><a href="">Stay Connected With Us</a></h4>
+							<p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section><!-- End of our Services Section -->
+
+		<!-- FAQ -->
+		<section id="faq" class="faq">
+			<div class="container">
+				<div class="section-title">
+					<span>You must know</span>
+					<h2>F.A.Q</h2>
+					<p>Sit sint consectetur velit quisquam cupiditate impedit suscipit alias</p>
+				</div>
+				<div class="row">
+					<div class="col-lg-6">
+						<div id="accordionFAQ">
+							<div class="card bg-transparent border-0">
+								<div class="card-header bg-transparent" id="headingOne" style='border:none;'>
+									<a data-bs-toggle="collapse" href="#collapseA1" role="button" aria-expanded="false" aria-controls="collapseExample">
+										<h6 class="text-title"><i class="fa-solid fa-angle-down float-right"></i> Why use Tripversal?</h6>
+									</a>
+								</div>
+								<div id="collapseA1" class="collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionFAQ">
+									<div class="card-body text-title">
+										Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+									</div>
+								</div>
+							</div>
+							<div class="card bg-transparent border-0">
+								<div class="card-header bg-transparent" id="headingTwo" style='border:none;'>
+									<a data-bs-toggle="collapse" href="#collapseA2" role="button" aria-expanded="false" aria-controls="collapseExample">
+										<h6 class="text-title"><i class="fa-solid fa-angle-down float-right"></i> Are Tripversal ensure security of user data?</h6>
+									</a>
+								</div>
+								<div id="collapseA2" class="collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionFAQ">
+									<div class="card-body text-title">
+										Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+									</div>
+								</div>
+							</div>
+							<div class="card bg-transparent border-0">
+								<div class="card-header bg-transparent" id="headingThree" style='border:none;'>
+									<a data-bs-toggle="collapse" href="#collapseA3" role="button" aria-expanded="false" aria-controls="collapseExample">
+										<h6 class="text-title"><i class="fa-solid fa-angle-down float-right"></i> Are all driver and tour guide in Tripversal competent?</h6>
+									</a>
+								</div>
+								<div id="collapseA3" class="collapse" aria-labelledby="headingThree" data-bs-parent="#accordionFAQ">
+									<div class="card-body text-title">
+										Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-6">
+						<div id="accordion2">
+							<div class="card bg-transparent border-0">
+								<div class="card-header bg-transparent" id="headingOne" style='border:none;'>
+									<a data-bs-toggle="collapse" href="#collapseB1" role="button" aria-expanded="false" aria-controls="collapseExample">
+										<h6 class="text-title"><i class="fa-solid fa-angle-down float-right"></i> The difference between Tripversal and others similiar Apps?</h6>
+									</a>
+								</div>
+								<div id="collapseB1" class="collapse show" aria-labelledby="headingOne" data-bs-parent="#accordion2">
+									<div class="card-body text-title">
+										Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+									</div>
+								</div>
+							</div>
+							<div class="card bg-transparent border-0">
+								<div class="card-header bg-transparent" id="headingTwo" style='border:none;'>
+									<a data-bs-toggle="collapse" href="#collapseB2" role="button" aria-expanded="false" aria-controls="collapseExample">
+										<h6 class="text-title"><i class="fa-solid fa-angle-down float-right"></i> Can Tripversal be used for free?</h6>
+									</a>
+								</div>
+								<div id="collapseB2" class="collapse" aria-labelledby="headingTwo" data-bs-parent="#accordion2">
+									<div class="card-body text-title">
+										Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+									</div>
+								</div>
+							</div>
+							<div class="card bg-transparent border-0">
+								<div class="card-header bg-transparent" id="headingThree" style='border:none;'>
+									<a data-bs-toggle="collapse" href="#collapseB3" role="button" aria-expanded="false" aria-controls="collapseExample">
+										<h6 class="text-title"><i class="fa-solid fa-angle-down float-right"></i> When we use Tripversal?</h6>
+									</a>
+								</div>
+								<div id="collapseB3" class="collapse" aria-labelledby="headingThree" data-bs-parent="#accordion2">
+									<div class="card-body text-title">
+										Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section><!-- End FAQ Section -->
+
+		<!-- Feedback -->
+		<section id="faq" class="faq">
+			<div class="container">
+				<div class="section-title">
+					<span>What they think about Us?</span>
+					<h2>Feeback</h2>
+					<p>Sit sint consectetur velit quisquam cupiditate impedit suscipit alias</p>
+				</div>
+				<div class="row">
+					<div class="card border-0 bg-transparent m-5 p-3 w-25">
+						<img class="rounded-circle img-fluid rounded shadow w-50 mx-auto d-block" src="http://localhost/Tripversal/assets/uploads/user/user_flazefy.jpg" alt='user.jpg'>
+						<h4 class="text-center fw-bold">@flazefy</h4>
+						<a class="text-center">"Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid"</a>
+						<a class="text-center fst-italic fw-bold mt-2">joined since Dec 2021</a>
+					</div>
+					<div class="card border-0 bg-transparent m-5 p-3 w-25">
+						<img class="rounded-circle img-fluid rounded shadow w-50 mx-auto d-block" src="http://localhost/Tripversal/assets/uploads/user/user_flazefy.jpg" alt='user.jpg'>
+						<h4 class="text-center fw-bold">@richardkyle</h4>
+						<a class="text-center">"Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid"</a>
+						<a class="text-center fst-italic fw-bold mt-2">joined since Jan 2022</a>
+					</div>
+					<div class="card border-0 bg-transparent m-5 p-3 w-25">
+						<img class="rounded-circle img-fluid rounded shadow w-50 mx-auto d-block" src="http://localhost/Tripversal/assets/uploads/user/user_flazefy.jpg" alt='user.jpg'>
+						<h4 class="text-center fw-bold">@teresevy</h4>
+						<a class="text-center">"Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid"</a>
+						<a class="text-center fst-italic fw-bold mt-2">joined since Apr 2022</a>
+					</div>
+				</div>
+			</div>
+		</section><!-- End Feedback Section -->
+
+		<!-- Others Platform -->
+		<section id="faq" class="faq">
+			<div class="container">
+				<div class="section-title">
+					<span>Get Tripversal In</span>
+					<h2>Mobile Apps</h2>
+					<p>Sit sint consectetur velit quisquam cupiditate impedit suscipit alias</p>
+				</div>
+				<div class="row">
+				
+				</div>
+			</div>
+		</section><!-- End Other platform Section -->
+
+		<section class="deneb_cta mt-5">
+        <div class="container">
+            <div class="cta_wrapper">
+                <div class="cta_content">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <img src="http://localhost/Tripversal/assets/icon/JoinUs.png" alt='logo'
+                                style='width:100%; margin-top:-100px;'>
+                        </div>
+                        <div class="col-md-8">
+                            <h3>Want to be a part of our driver or guide?</h3>
+                            <p>Curabitur libero eros, efficitur sit amet sodales tincidunt, aliquet et leo sed ut nibh feugiat, auctor enim quis.</p>
+                            <a href="#" class="btn btn-primary">Join Us</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </section>
+
+		<footer class="deneb_footer">
+            <div class="widget_wrapper" style="">
+                <div class="container">
+                    <div class="row mt-5">
+                        <div class="col-lg-4 col-md-6 col-12">
+                            <div class="widget widegt_about">
+                                <div class="widget_title">
+                                    <h2>Tripversal</h2>
+                                </div>
+                                <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                            <div class="widget widget_link">
+                                <div class="widget_title">
+                                    <h4>Links</h4>
+                                </div>
+                                <ul>
+                                    <li><a href="#">About Us</a></li>
+                                    <li><a href="#">Services</a></li>
+                                    <li><a href="#">Portfolio</a></li>
+                                    <li><a href="#">Blog</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                            <div class="widget widget_contact">
+                                <div class="widget_title">
+                                    <h4>Contact Us</h4>
+                                </div>
+                                <div class="contact_info">
+                                    <div class="single_info">
+                                        <div class="icon">
+                                            <i class="fas fa-phone-alt text-white"></i>
+                                        </div>
+                                        <div class="info">
+                                            <p>0811 4882 001</p>
+                                        </div>
+                                    </div>
+                                    <div class="single_info">
+                                        <div class="icon">
+                                            <i class="fas fa-envelope text-white"></i>
+                                        </div>
+                                        <div class="info">
+                                            <p>flazen.edu@gmail.com</p>
+                                        </div>
+                                    </div>
+                                    <div class="single_info">
+                                        <div class="icon">
+                                            <i class="fas fa-map-marker-alt text-white"></i>
+                                        </div>
+                                        <div class="info">
+                                            <p>Bandung</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-center text-white">Copyright &copy; 2022 All rights reserved.</p>
+            </div>
+        </footer>
+
 		<?php 
 			if(isset($errorLogin)) { 
 				echo"<div class='modal fade' id='errorLogin' data-bs-backdrop='static' data-bs-keyboard='false' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true'>
 				<div class='modal-dialog' role='document'>
 					<div class='modal-content'>
 					<div class='modal-header'>
-						<h5 class='modal-title'>Informasi</h5>
+						<h5 class='modal-title'>Error</h5>
 						<i class='fa-solid fa-xmark' class='closebtn' type='button' data-dismiss='modal' aria-label='Close' onClick='refreshMessage()'></i>
 					</div>
 					<div class='modal-body'>
