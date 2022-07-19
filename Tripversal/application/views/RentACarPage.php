@@ -148,6 +148,14 @@
 						line-clamp: 2; 
 				-webkit-box-orient: vertical;
 			}
+
+			/*Fixed for sidebar*/
+			.fade.show{
+				width:100% !important;
+			}
+			.collapse.show{
+				width:100% !important;
+			}
 		</style>
                              
     </head>

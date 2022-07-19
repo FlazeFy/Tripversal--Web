@@ -443,6 +443,15 @@
 			.services .icon-box:hover .title a {
 				color: #4169E1;
 			}
+
+			/*Fixed for sidebar*/
+			.fade.show{
+				width:100% !important;
+			}
+			.collapse.show{
+				width:100% !important;
+			}
+			
 		</style>                 
     </head>
 
@@ -937,7 +946,7 @@
 				if(toggle && nav && bodypd && headerpd){
 				toggle.addEventListener('click', ()=>{
 				// show navbar
-				nav.classList.toggle('showSide')
+				nav.classList.toggle('show')
 				// change icon
 				toggle.classList.toggle('bx-x')
 				// add padding to body
