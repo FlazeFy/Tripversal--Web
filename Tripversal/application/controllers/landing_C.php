@@ -38,7 +38,60 @@
 		}
 		public function createAcc()
 		{
-				
+			//Get input data.
+			$username = $this->input->post('username');
+			$fullname = $this->input->post('fullname');
+			$address = $this->input->post('address');
+			$nik = $this->input->post('nik');
+			$email = $this->input->post('email');
+			$password = $this->input->post('password');
+			$phone = $this->input->post('phone');
+
+			//Check user data.
+			$this->db->select('*');
+			$this->db->from('user');
+			$condition = array('username' => $username);
+			$this->db->where($condition);
+			$userCheck = $this->db->get()->result();
+			
+			if(count($userCheck) != 1){
+				//Profile image setting.
+				$new = substr(md5(uniqid(mt_rand(), true)), 0, 30);
+				$initialize = $this->upload->initialize(array(
+					"upload_path" => './assets/uploads/user/',
+					"allowed_types" => 'jpg|png',
+					"max_size" => 5000,
+					"remove_spaces" => TRUE,
+					"file_name" => 'user_'.$new
+				));
+				//Check image upload
+				if (!$this->upload->do_upload('uploadImage')) {
+					$data['errorLogin'] = "Your image is to big or not jpg / png!"; 
+					$this->index();
+					$this->load->view('LandingPage', $data);
+				} else {
+					//Data for insert.
+					$user = array(
+						"fullname" => $fullname,
+						"username" => strtolower($username),
+						"address" => $address,
+						"nik" => $nik,
+						"email" => $email,
+						"password" => $password,
+						"phone" => $phone,
+						"imageURL" => 'user_'.$new
+					);
+
+					$this->landing_M->insert_user($user, 'user');
+					$this->session->set_userdata('userTrack',$username);	
+					redirect('rentACar_C');
+				}
+			} else {
+				$data['errorLogin'] = "Username already been taken!"; 
+				$this->index();
+				$this->load->view('LandingPage', $data);
+			}
+		
 		}
 	}
 ?>

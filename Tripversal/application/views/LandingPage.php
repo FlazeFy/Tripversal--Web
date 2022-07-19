@@ -522,75 +522,140 @@
 					<h2>Tripversal</h2>
 					<p>Tripversal is an application that will help you travel around Indonesia. With Tripversal you can rent a various of vehicle like citycar, minibus, motorcycle, even a bus. Not only that, you can also rent a tour guide with various spoken language. Our vehicle and guide are trusted and will help you through the day. So dont hesitate and book now to get a trip that will never be forgotten.</p>
 				</div>
-				<div class="row">
-					<div class="col-lg-8 d-flex flex-column align-items-stretch">
-						<div class="content ps-lg-4 d-flex flex-column justify-content-center">
-							<div class="row mt-n4">
-								<div class="col-md-6 mt-5 d-md-flex align-items-md-stretch">
-								<div class="count-box">
-									<i class="fa-solid fa-car" style="color: #20b38e;"></i>
-									<span data-purecounter-start="0" data-purecounter-end="
-										<?php 
-											$i = 0;
-											foreach($carData as $car){
-												$i++;
-											}
-											echo $i;
-										?>
-									" data-purecounter-duration="1" class="purecounter"></span>
-									<p><strong>Car</strong> consequuntur voluptas nostrum aliquid ipsam architecto ut.</p>
-								</div>
-								</div>
+				<div class="accordion" id="accordionLanding">
+					<div class="collapse show" id="loginAcc" data-bs-parent="#accordionLanding">
+						<div class="row">
+							<div class="col-lg-8 d-flex flex-column align-items-stretch">
+								<div class="content ps-lg-4 d-flex flex-column justify-content-center">
+									<div class="row mt-n4">
+										<div class="col-md-6 mt-5 d-md-flex align-items-md-stretch">
+										<div class="count-box">
+											<i class="fa-solid fa-car" style="color: #20b38e;"></i>
+											<span data-purecounter-start="0" data-purecounter-end="
+												<?php 
+													$i = 0;
+													foreach($carData as $car){
+														$i++;
+													}
+													echo $i;
+												?>
+											" data-purecounter-duration="1" class="purecounter"></span>
+											<p><strong>Car</strong> consequuntur voluptas nostrum aliquid ipsam architecto ut.</p>
+										</div>
+										</div>
 
-								<div class="col-md-6 mt-5 d-md-flex align-items-md-stretch">
-								<div class="count-box">
-									<i class="fa-solid fa-people-group" style="color: #8a1ac2;"></i>
-									<span data-purecounter-start="0" data-purecounter-end="
-										<?php 
-											$i = 0;
-											foreach($guideData as $guide){
-												$i++;
-											}
-											echo $i;
-										?>" data-purecounter-duration="1" class="purecounter"></span>
-									<p><strong>Tour Guide</strong> adipisci atque cum quia aspernatur totam laudantium et quia dere tan</p>
-								</div>
-								</div>
+										<div class="col-md-6 mt-5 d-md-flex align-items-md-stretch">
+										<div class="count-box">
+											<i class="fa-solid fa-people-group" style="color: #8a1ac2;"></i>
+											<span data-purecounter-start="0" data-purecounter-end="
+												<?php 
+													$i = 0;
+													foreach($guideData as $guide){
+														$i++;
+													}
+													echo $i;
+												?>" data-purecounter-duration="1" class="purecounter"></span>
+											<p><strong>Tour Guide</strong> adipisci atque cum quia aspernatur totam laudantium et quia dere tan</p>
+										</div>
+										</div>
 
-								<div class="col-md-6 mt-5 d-md-flex align-items-md-stretch">
-								<div class="count-box">
-									<i class="fa-solid fa-user-tie" style="color: #2cbdee;"></i>
-									<span data-purecounter-start="0" data-purecounter-end="<?php $i = 0; foreach($driverData as $dr){$i++;} echo $i; ?>" data-purecounter-duration="1" class="purecounter"></span>
-									<p><strong>Experienced Driver</strong> aut commodi quaerat modi aliquam nam ducimus aut voluptate non vel</p>
-								</div>
-								</div>
+										<div class="col-md-6 mt-5 d-md-flex align-items-md-stretch">
+										<div class="count-box">
+											<i class="fa-solid fa-user-tie" style="color: #2cbdee;"></i>
+											<span data-purecounter-start="0" data-purecounter-end="<?php $i = 0; foreach($driverData as $dr){$i++;} echo $i; ?>" data-purecounter-duration="1" class="purecounter"></span>
+											<p><strong>Experienced Driver</strong> aut commodi quaerat modi aliquam nam ducimus aut voluptate non vel</p>
+										</div>
+										</div>
 
-								<div class="col-md-6 mt-5 d-md-flex align-items-md-stretch">
-								<div class="count-box">
-									<i class="fa-solid fa-suitcase" style="color: #ffb459;"></i>
-									<span data-purecounter-start="0" data-purecounter-end="16" data-purecounter-duration="1" class="purecounter"></span>
-									<p><strong>Trips</strong> rerum asperiores dolor alias quo reprehenderit eum et nemo pad der</p>
-								</div>
-								</div>
+										<div class="col-md-6 mt-5 d-md-flex align-items-md-stretch">
+										<div class="count-box">
+											<i class="fa-solid fa-suitcase" style="color: #ffb459;"></i>
+											<span data-purecounter-start="0" data-purecounter-end="16" data-purecounter-duration="1" class="purecounter"></span>
+											<p><strong>Trips</strong> rerum asperiores dolor alias quo reprehenderit eum et nemo pad der</p>
+										</div>
+										</div>
+									</div>
+								</div><!-- End .content-->
+									
 							</div>
-						</div><!-- End .content-->
-							
+							<div class="col-lg-4 d-flex flex-column align-items-stretch text-center">
+								<form action="landing_C/login"  method="POST">
+									<h5 class="fw-bold">Create Account</h5>
+									<div class="form-floating w-75 mx-auto my-2">
+										<input type="username" name="username" class="form-control">
+										<label for="floatingInput">Username</label>
+									</div>
+									<div class="form-floating w-75 mx-auto my-2">
+										<input type="password" name="password" class="form-control">
+										<label for="floatingInput">Password</label>
+									</div>
+									<div class="form-floating w-75 mx-auto my-2">
+										<button class="btn btn-success w-100 mx-auto my-2" type="submit">Log In</button>
+										<a class="text-secondary text-center">Don't have an account?</a>
+										<a class="btn btn-primary mx-auto my-2" data-bs-toggle="collapse" href="#createAcc" role="button"
+										><i class="fa-solid fa-arrow-right-to-bracket"></i> Sign Up</a>
+									</div>
+								</form>
+							</div>
+						</div><!--End of row login section-->
 					</div>
-					<div class="col-lg-4 d-flex flex-column align-items-stretch">
-						<form action="landing_C/login"  method="POST">
-							<div class="form-floating w-75 mx-auto my-2">
-								<input type="username" name="username" class="form-control" id="floatingInput" required>
-								<label for="floatingInput">Username</label>
+
+					<div class="collapse" id="createAcc" data-bs-parent="#accordionLanding">
+						<div class="container p-3 text-center">
+							<h5 class="fw-bold">Create Account</h5>
+							<form action="landing_C/createAcc" method="POST" enctype="multipart/form-data">
+							<div class="row px-4">
+								<div class="col-md">
+									<div class="d-flex flex-column align-items-center text-center p-3">
+										<img src="http://localhost/Tripversal/assets/icon/profile.png" alt="Admin" class="rounded-circle img-fluid" width="200px" id="frame">
+									</div>
+									<div class="input-group mb-3">
+										<input type="file" class="form-control" id="uploadImage" onchange="preview()" name="uploadImage" accept='image/*'>
+										<label class="input-group-text" for="inputGroupFile02">Upload</label>
+									</div>
+									<a onclick="clearImage()" type="button" class="btn btn-danger float-end">Reset</a>
+								</div>
+								<div class="col-md">
+									<div class="form-floating w-75 mx-auto my-2">
+										<input type="text" name="fullname" class="form-control">
+										<label for="floatingInput">Fullname</label>
+									</div>
+									<div class="form-floating w-75 mx-auto my-2">
+										<input type="text" name="username" class="form-control">
+										<label for="floatingInput">Username</label>
+									</div>
+									<div class="form-floating w-75 mx-auto my-2">
+										<input type="text" name="address" class="form-control">
+										<label for="floatingInput">Address</label>
+									</div>
+									<div class="form-floating w-75 mx-auto my-2">
+										<input type="text" name="nik" class="form-control">
+										<label for="floatingInput">ID Card Number / Passport</label>
+									</div>
+								</div>
+								<div class="col-md">
+									<div class="form-floating w-75 mx-auto my-2">
+										<input type="text" name="email" class="form-control">
+										<label for="floatingInput">Email</label>
+									</div>
+									<div class="form-floating w-75 mx-auto my-2">
+										<input type="password" name="password" class="form-control">
+										<label for="floatingInput">Password</label>
+									</div>
+									<div class="form-floating w-75 mx-auto my-2">
+										<input type="text" name="phone" class="form-control">
+										<label for="floatingInput">Phone</label>
+									</div>
+									<div class="form-floating w-75 mx-auto my-2">
+										<button class="btn btn-success w-100 mx-auto my-2" type="submit">Submit</button>
+									</div>				
+								</div>
 							</div>
-							<div class="form-floating w-75 mx-auto my-2">
-								<input type="password" name="password" class="form-control" id="floatingInput" required>
-								<label for="floatingInput">Password</label>
-							</div>
-							<div class="form-floating w-75 mx-auto my-2">
-								<button class="btn btn-success w-100 mx-auto my-2" type="submit">Log In</button>
-								<a class="btn btn-primary w-100 mx-auto my-2" ><i class="fa-solid fa-arrow-right-to-bracket"></i> Sign Up</a>
-							</div>
-						</form>
+							<a class="text-secondary text-center mt-2">Already have an account? 
+							<span class="btn btn-primary mx-auto my-2" data-bs-toggle="collapse" href="#loginAcc" role="button"
+							>Sign In</span></a>
+							</form>
+						</div>
 					</div>
 				</div>
 
@@ -888,6 +953,16 @@
 				window.location.href="http://localhost/Tripversal";  
 			}
 
+			//Preview upload image.
+			function preview() {
+				frame.src = URL.createObjectURL(event.target.files[0]);
+			}
+			function clearImage() {
+				document.getElementById('uploadImage').value = null;
+				frame.src = "http://localhost/Tripversal/assets/icon/profile.png";
+			}
+
+			//Sidebar.
 			document.addEventListener("DOMContentLoaded", function(event) {
 				const showNavbar = (toggleId, navId, bodyId, headerId) =>{
 				const toggle = document.getElementById(toggleId),

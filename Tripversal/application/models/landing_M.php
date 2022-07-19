@@ -16,5 +16,9 @@
 			$this->db->where('driver !=', 'none');
 			return $data = $this->db->get()->result_array();
 		}
+		function insert_user($data)
+		{
+			$this->db->insert('user',$data);
+		}
 	}
 ?>
