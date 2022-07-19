@@ -20,5 +20,13 @@
 		{
 			$this->db->insert('user',$data);
 		}
+		public function get_login_user()
+		{
+			$this->db->select('*');
+			$this->db->from('user');
+			$condition = array('username' => $this->session->userdata("userTrack"));
+			$this->db->where($condition);
+			return $data = $this->db->get()->result_array();
+		}
 	}
 ?>

@@ -5,11 +5,13 @@
 		function __construct(){
 			parent::__construct();
 			$this->load->model('rentACar_M');
+			$this->load->model('landing_M');
 		}
 		public function index(){
 			$data = [];
 			$data['carData']= $this->rentACar_M->get_all_car();
 			$data['guideData']= $this->rentACar_M->get_all_guide();
+			$data['loginData']= $this->landing_M->get_login_user();
 			$data['carRating']= $this->rentACar_M->get_all_car_rating();
 			$data['notification']= $this->rentACar_M->get_all_notification();
 			$data['topUsedCar']= $this->rentACar_M->get_top_used_car();

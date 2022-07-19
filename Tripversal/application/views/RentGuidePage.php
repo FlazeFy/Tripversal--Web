@@ -14,47 +14,10 @@
 		<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
 		<script src="https://kit.fontawesome.com/12801238e9.js" crossorigin="anonymous"></script>
 		
-        <!--Source file.-->
+      	<!--Source file.-->
+		<link href='http://localhost/Tripversal/assets/css/sidebar.css' rel='stylesheet'>
         
 		<style>
-			::-webkit-scrollbar {
-				width: 8px;
-			}
-			/* Track */
-			::-webkit-scrollbar-track {
-				background: #f1f1f1; 
-			}
-				
-			/* Handle */
-			::-webkit-scrollbar-thumb {
-				background: #888; 
-			}
-			
-			/* Handle on hover */
-			::-webkit-scrollbar-thumb:hover {
-				background: #555; 
-			} @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap");
-			:root{--header-height: 3rem;--nav-width: 68px;--first-color: #4169E1;--first-color-light: whitesmoke; --white-color: #F7F6FB;--body-font: 'Nunito', sans-serif;--normal-font-size: 1rem;--z-fixed: 100}*,::before,::after{box-sizing: border-box}
-			body{position: relative;margin: var(--header-height) 0 0 0;padding: 0 1rem;font-family: var(--body-font);font-size: var(--normal-font-size);transition: .5s}
-			a{text-decoration: none;}
-			.header{box-shadow: rgba(0, 0, 0, 0.35) 0px 4px 12px; width: 100%;height: var(--header-height);position: fixed;top: 0;left: 0;display: flex;align-items: center;justify-content: space-between;padding: 0 1rem;background-color: var(--white-color);z-index: var(--z-fixed);transition: .5s}
-			.header_toggle{color: var(--first-color);font-size: 1.5rem;cursor: pointer}
-			.header_img{width: 60px;height: 60px;display: flex;justify-content: center;overflow: hidden; margin-top:35px;}
-			.l-navbar{position: fixed;top: 0;left: -30%;width: var(--nav-width);height: 100vh;background-color: var(--first-color);padding: .5rem 1rem 0 0;transition: .5s;z-index: var(--z-fixed)}
-			.nav{height: 100%;display: flex;flex-direction: column;justify-content: space-between;overflow: hidden}
-			.nav_logo, .nav_link{display: grid;grid-template-columns: max-content max-content;align-items: center;column-gap: 1rem;padding: .5rem 0 .5rem 1.5rem}
-			.nav_logo{margin-bottom: 2rem}
-			.nav_logo-icon{font-size: 1.25rem;color: var(--white-color)}
-			.nav_logo-name{color: var(--white-color);font-weight: 700}
-			.nav_link{position: relative;color: var(--first-color-light);margin-bottom: 1.5rem;transition: .3s}
-			.nav_link:hover{color: var(--white-color)}
-			.nav_icon{font-size: 1.25rem}
-			.show{left: 0}
-			.body-pd{padding-left: calc(var(--nav-width) + 1rem)}
-			.active{color: var(--white-color); background:#414141; border-top-right-radius:10px; border-bottom-right-radius:10px;}
-			.height-100{height:100vh}@media screen and (min-width: 768px){body{margin: calc(var(--header-height) + 1rem) 0 0 0;padding-left: calc(var(--nav-width) + 2rem)}.header{height: calc(var(--header-height) + 1rem);padding: 0 2rem 0 calc(var(--nav-width) + 2rem)}
-			.l-navbar{left: 0;padding: 1rem 1rem 0 0}.show{width: calc(var(--nav-width) + 156px)}.body-pd{padding-left: calc(var(--nav-width) + 188px)}}
-
 			/*Card item*/
 			.glassBox {
 				width: 100%;
@@ -204,8 +167,22 @@
 		</form>
 		<div class="l-navbar" id="nav-bar">
 			<nav class="nav">
-				<div> <a href="#" class="nav_logo"> <img src='http://localhost/Tripversal/assets/uploads/user/user_flazefy.jpg' alt='Card image cap' class='rounded-circle img-fluid' 
-					style='width:50px; height:40px; margin-left:-11px;'>  <span class="nav_logo-name">flazefy</span> </a>
+				<div>
+					<a href="profile_C" class="nav_logo"> <img src='http://localhost/Tripversal/assets/uploads/user/
+					<?php 
+						foreach($loginData as $u){
+							if($u['username'] == $this->session->userdata("userTrack")){
+								echo $u['imageURL'];
+							}
+						}
+					?>.jpg' alt='Card image cap' class='rounded-circle img-fluid' 
+					style='width:50px; height:40px; margin-left:-11px;'>  
+						<span class="nav_logo-name">
+						<?php 
+							echo $this->session->userdata("userTrack");
+						?>
+						</span> 
+					</a>
 					<div class="nav_list"> 
 						<a href="rentACar_C" class="nav_link"> <i class="fa-solid fa-car"></i> <span class="nav_name">Rent A Car</span> </a> 
 						<a href="rentGuide_C" class="nav_link active"> <i class="fa-solid fa-people-group"></i> <span class="nav_name">Tour Guide</span> </a> 
@@ -214,7 +191,9 @@
 						<a href="message_C" class="nav_link"> <i class="fa-solid fa-message"></i> <span class="nav_name">Messages</span> </a> 
 					</div> 
 				</div>
-				<a href="#" class="nav_link" style='background:#D62C49; margin-left:10px; border-radius:5px; color:whitesmoke;'> <i class='bx bx-log-out nav_icon' style='margin-left:-15px;'></i> <span class="nav_name">Sign Out</span> </a>
+				<form action='landing_C/logout' method='post'>
+					<button type="submit" class="nav_link border-0 w-100 rounded" style='background:#D62C49; margin-left:10px; border-radius:5px; color:whitesmoke;'> <i class='bx bx-log-out nav_icon' style='margin-left:-15px;'></i> <span class="nav_name">Sign Out</span> </button>
+				</form>			
 			</nav>
 		</div>
     <!--Container Main start-->
@@ -448,57 +427,14 @@
 					<?php
 						$i = 0;
 						foreach($notification as $notif){
-							if(($notif['id_user'] == '1')||($notif['id_user'] == '0')){
-								if(($notif['type'] == 'message_car')){
-									foreach($carData as $car){if($car['id_car'] == $notif['id_car_guide']){
-										echo"<div class='card' id='notification' style='border-left: 4px solid #CB5FCE;'>
-											<h6 style='font-weight:600;'>Message | ".$car['garage_name']."</h6>
-											<a style='color:grey; font-size:12px;'><i class='fa-solid fa-car'></i> ".$car['car_name']." / ".$car['year']." 
-												| <i class='fa-solid fa-location-dot'></i> ".$car['location']."</a>
-											<div class='container-fluid' style='width:100%; border-radius:10px; background:#e3e3e3; padding:5px; margin:2px;'>
-												<p style='font-size:13px; color:#212121;'>".$notif['text']."</p>
-												<a style='color:grey; font-size:12px; font-style:italic;'>~";
-													$cek = strtotime($notif['datetime']);
-													if(date('Y-m-d', $cek) == date("Y-m-d")){
-														$date = strtotime($notif['datetime']);
-														echo " Today | " .date('h:i a', $date);
-													} else {
-														$date = strtotime($notif['datetime']);
-														echo date('l, d F y | h:i a', $date);
-													}
-												echo"</a>
-											</div>
-										</div>";
-									}
-								}
-								} else if(($notif['type'] == 'maintenance')){
-								echo"<div class='card' id='notification' style='border-left: 4px solid #FF8E77;'>
-									<h6 style='font-weight:600;'>Announcement | ".$notif['type']."</h6>
-									<a style='color:grey; font-size:13px; color:#212121;'>".$notif['text']."</a>"; 
-										$datefrom = strtotime($notif['date_from']); $dateuntil = strtotime($notif['date_until']);
-										echo"<a style='color:grey; font-size:12px; font-style:italic;'> From : ";  
-										echo date('l, d F y | h:i a', $datefrom)."</a>";
-										echo"<a style='color:grey; font-size:12px; font-style:italic;'> Until : ";  
-										echo date('l, d F y | h:i a', $dateuntil)."</a>
-								</div>";
-								} else if(($notif['type'] == 'promo')){
-								echo"<div class='card' id='notification' style='border-left: 4px solid #FFC45D;'>
-									<h6 style='font-weight:600;'>Announcement | ".$notif['type']."</h6>
-									<h7 style='font-size:14px;'>Eid Mubarak Holiday</h7>
-									<a style='color:grey; font-size:13px; color:#212121;'>".$notif['text']."</a>";
-										$datefrom2 = strtotime($notif['date_from']); $dateuntil2 = strtotime($notif['date_until']);
-										echo"<a style='color:grey; font-size:12px; font-style:italic;'> From : ";  
-										echo date('l, d F y | h:i a', $datefrom2)."</a>";
-										echo"<a style='color:grey; font-size:12px; font-style:italic;'> Until : ";  
-										echo date('l, d F y | h:i a', $dateuntil2)."</a>
-								</div>";
-								} if(($notif['type'] == 'message_guide')){
-									foreach($guideData as $guide){
-										if($guide['id_guide'] == $notif['id_car_guide']){
+							foreach($loginData as $u){
+								if(($notif['id_user'] == $u['id_user'])||($notif['id_user'] == '0')){
+									if(($notif['type'] == 'message_car')){
+										foreach($carData as $car){if($car['id_car'] == $notif['id_car_guide']){
 											echo"<div class='card' id='notification' style='border-left: 4px solid #CB5FCE;'>
-												<h6 style='font-weight:600;'>Message | Tour Guide</h6>
-												<a style='color:grey; font-size:12px;'><i class='fa-solid fa-user'></i> ".$guide['guide_fullname']." 
-													| <i class='fa-solid fa-location-dot'></i> ".$guide['location']."</a>
+												<h6 style='font-weight:600;'>Message | ".$car['garage_name']."</h6>
+												<a style='color:grey; font-size:12px;'><i class='fa-solid fa-car'></i> ".$car['car_name']." / ".$car['year']." 
+													| <i class='fa-solid fa-location-dot'></i> ".$car['location']."</a>
 												<div class='container-fluid' style='width:100%; border-radius:10px; background:#e3e3e3; padding:5px; margin:2px;'>
 													<p style='font-size:13px; color:#212121;'>".$notif['text']."</p>
 													<a style='color:grey; font-size:12px; font-style:italic;'>~";
@@ -513,6 +449,51 @@
 													echo"</a>
 												</div>
 											</div>";
+										}
+									}
+									} else if(($notif['type'] == 'maintenance')){
+									echo"<div class='card' id='notification' style='border-left: 4px solid #FF8E77;'>
+										<h6 style='font-weight:600;'>Announcement | ".$notif['type']."</h6>
+										<a style='color:grey; font-size:13px; color:#212121;'>".$notif['text']."</a>"; 
+											$datefrom = strtotime($notif['date_from']); $dateuntil = strtotime($notif['date_until']);
+											echo"<a style='color:grey; font-size:12px; font-style:italic;'> From : ";  
+											echo date('l, d F y | h:i a', $datefrom)."</a>";
+											echo"<a style='color:grey; font-size:12px; font-style:italic;'> Until : ";  
+											echo date('l, d F y | h:i a', $dateuntil)."</a>
+									</div>";
+									} else if(($notif['type'] == 'promo')){
+									echo"<div class='card' id='notification' style='border-left: 4px solid #FFC45D;'>
+										<h6 style='font-weight:600;'>Announcement | ".$notif['type']."</h6>
+										<h7 style='font-size:14px;'>Eid Mubarak Holiday</h7>
+										<a style='color:grey; font-size:13px; color:#212121;'>".$notif['text']."</a>";
+											$datefrom2 = strtotime($notif['date_from']); $dateuntil2 = strtotime($notif['date_until']);
+											echo"<a style='color:grey; font-size:12px; font-style:italic;'> From : ";  
+											echo date('l, d F y | h:i a', $datefrom2)."</a>";
+											echo"<a style='color:grey; font-size:12px; font-style:italic;'> Until : ";  
+											echo date('l, d F y | h:i a', $dateuntil2)."</a>
+									</div>";
+									} if(($notif['type'] == 'message_guide')){
+										foreach($guideData as $guide){
+											if($guide['id_guide'] == $notif['id_car_guide']){
+												echo"<div class='card' id='notification' style='border-left: 4px solid #CB5FCE;'>
+													<h6 style='font-weight:600;'>Message | Tour Guide</h6>
+													<a style='color:grey; font-size:12px;'><i class='fa-solid fa-user'></i> ".$guide['guide_fullname']." 
+														| <i class='fa-solid fa-location-dot'></i> ".$guide['location']."</a>
+													<div class='container-fluid' style='width:100%; border-radius:10px; background:#e3e3e3; padding:5px; margin:2px;'>
+														<p style='font-size:13px; color:#212121;'>".$notif['text']."</p>
+														<a style='color:grey; font-size:12px; font-style:italic;'>~";
+															$cek = strtotime($notif['datetime']);
+															if(date('Y-m-d', $cek) == date("Y-m-d")){
+																$date = strtotime($notif['datetime']);
+																echo " Today | " .date('h:i a', $date);
+															} else {
+																$date = strtotime($notif['datetime']);
+																echo date('l, d F y | h:i a', $date);
+															}
+														echo"</a>
+													</div>
+												</div>";
+											}
 										}
 									}
 								}

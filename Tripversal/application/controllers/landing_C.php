@@ -15,8 +15,7 @@
 			$data['driverData']= $this->landing_M->get_all_driver();
 			$this->load->view('LandingPage', $data);
 		}
-		public function login()
-		{
+		public function login(){
 			//Get input data.
 			$username = $this->input->post('username');
 			$password = $this->input->post('password');
@@ -36,8 +35,7 @@
 				$this->load->view('LandingPage', $data);
 			}
 		}
-		public function createAcc()
-		{
+		public function createAcc(){
 			//Get input data.
 			$username = $this->input->post('username');
 			$fullname = $this->input->post('fullname');
@@ -59,14 +57,14 @@
 				$new = substr(md5(uniqid(mt_rand(), true)), 0, 30);
 				$initialize = $this->upload->initialize(array(
 					"upload_path" => './assets/uploads/user/',
-					"allowed_types" => 'jpg|png',
+					"allowed_types" => 'jpg',
 					"max_size" => 5000,
 					"remove_spaces" => TRUE,
 					"file_name" => 'user_'.$new
 				));
 				//Check image upload
 				if (!$this->upload->do_upload('uploadImage')) {
-					$data['errorLogin'] = "Your image is to big or not jpg / png!"; 
+					$data['errorLogin'] = "Your image is to big or not jpg!"; 
 					$this->index();
 					$this->load->view('LandingPage', $data);
 				} else {
@@ -91,7 +89,10 @@
 				$this->index();
 				$this->load->view('LandingPage', $data);
 			}
-		
+		}
+		public function logout(){
+			$this->session->sess_destroy();
+			redirect('http://localhost/Tripversal');
 		}
 	}
 ?>
