@@ -7,14 +7,16 @@
 			$this->load->model('landing_M');
 			$this->load->model('rentACar_M');
 		}
+
 		public function index(){
 			$data = [];
 			$data['carData']= $this->rentACar_M->get_all_car();
 			$data['userData']= $this->landing_M->get_all_user();
 			$data['guideData']= $this->rentACar_M->get_all_guide();
 			$data['driverData']= $this->landing_M->get_all_driver();
-			$this->load->view('LandingPage', $data);
+			$this->load->view('landing/index', $data);
 		}
+
 		public function login(){
 			//Get input data.
 			$username = $this->input->post('username');
@@ -30,11 +32,12 @@
 				$this->session->set_userdata('userTrack',$username);	
 				redirect('rentACar_C');
 			}else{
-				$data['errorLogin'] = "Wrong Username or Password!"; 
+				$data['failed'] = "Wrong Username or Password!"; 
 				$this->index();
-				$this->load->view('LandingPage', $data);
+				$this->load->view('landing/index', $data);
 			}
 		}
+
 		public function createAcc(){
 			//Get input data.
 			$username = $this->input->post('username');
@@ -66,7 +69,7 @@
 				if (!$this->upload->do_upload('uploadImage')) {
 					$data['errorLogin'] = "Your image is to big or not jpg!"; 
 					$this->index();
-					$this->load->view('LandingPage', $data);
+					$this->load->view('landing/index', $data);
 				} else {
 					//Data for insert.
 					$user = array(
@@ -85,11 +88,12 @@
 					redirect('rentACar_C');
 				}
 			} else {
-				$data['errorLogin'] = "Username already been taken!"; 
+				$data['failed'] = "Username already been taken!"; 
 				$this->index();
-				$this->load->view('LandingPage', $data);
+				$this->load->view('landing/index', $data);
 			}
 		}
+		
 		public function logout(){
 			$this->session->sess_destroy();
 			redirect('http://localhost/Tripversal');

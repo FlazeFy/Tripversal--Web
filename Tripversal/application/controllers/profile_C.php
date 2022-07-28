@@ -10,7 +10,7 @@
 		public function index(){
 			$data = [];
 			$data['loginData']= $this->landing_M->get_login_user();
-			$this->load->view('ProfilePage', $data);
+			$this->load->view('profile/index', $data);
 		}
 
 		//Change user data.
@@ -23,9 +23,9 @@
 				"phone" => $this->input->post('phone')
 			];
 			$this->profile_M->updateProfile($data, 'user');
-			$data['successEdit'] = "Profile has been updated"; 
+			$data['success'] = "Profile has been updated"; 
 			$this->index();
-			$this->load->view('ProfilePage', $data);
+			$this->load->view('profile/index', $data);
 		}
 
 		//Upload user profile image.
@@ -54,17 +54,17 @@
 				"file_name" => 'user_'.$new 
 			));
 			if (!$this->upload->do_upload('uploadImage')) {
-				$data['failedEdit'] = "Your image is to big or not jpg!"; 
+				$data['failed'] = "Your image is to big or not jpg!"; 
 				$this->index();
-				$this->load->view('ProfilePage', $data);
+				$this->load->view('profile/index', $data);
 			} else {
 				$data = [
 					"imageURL" => 'user_'.$new 
 				];
 				$this->profile_M->updateProfile($data, 'user');
-				$data['successEdit'] = "Profile has been updated"; 
+				$data['success'] = "Profile has been updated"; 
 				$this->index();
-				$this->load->view('ProfilePage', $data);
+				$this->load->view('profile/index', $data);
 			}
 		}
 	}
