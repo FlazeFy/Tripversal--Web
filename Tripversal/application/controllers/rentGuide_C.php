@@ -16,7 +16,7 @@
 			$data['notification']= $this->rentACar_M->get_all_notification();
 			$data['topUsedGuide']= $this->rentACar_M->get_top_used_guide();
 			$data['tipsData']= $this->rentACar_M->get_all_tips();
-			$this->load->view('RentGuidePage', $data);
+			$this->load->view('rentaguide/index', $data);
 		}
 		
 		//Control sort by not finished.
