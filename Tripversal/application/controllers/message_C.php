@@ -16,7 +16,7 @@
 			$data['contactData']= $this->message_M->get_all_contact();
 			$data['messageData']= $this->message_M->get_all_message();
 			$data['newMessageData']= $this->message_M->get_last_message();
-			$this->load->view('MessagePage', $data);
+			$this->load->view('message/index', $data);
 		}
 		public function selectContact()
 		{
