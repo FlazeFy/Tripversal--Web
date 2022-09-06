@@ -28,7 +28,7 @@
         setTimeout(function() {
             update();
             clear();
-        }, 1500); //Every 1500 milliseconds
+        }, 1000); //Every 1500 milliseconds
     }
     
     function update() {
@@ -49,7 +49,7 @@
                         return "-";
                     } else {
                         const result = new Date(datetime);
-                        return result.getFullYear() + "-" + (result.getMonth() + 1) + "-" + result.getDate();
+						return result.getHours() + "<b>:</b>" + result.getMinutes();
                     }
                 }
 
@@ -59,6 +59,15 @@
 						return "right";
 					} else {
 						return "left";
+					}
+				}
+
+				//Get bubble chat bg color.
+				function colorSender(sender){
+					if(sender == "customer"){
+						return "#C4DDFF";
+					} else {
+						return "#E8F9FD";
 					}
 				}
 
@@ -74,8 +83,19 @@
 						}
 					}
 				}
+
+				//Date diff or chip
+				function datechip(datetime){
+					const result = new Date(datetime);
+					const month = result.toLocaleString('default', { month: 'long' });
+					
+					return 	"<div class='container d-block mx-auto text-center rounded p-1 m-2' style='background:#e3e3e3; width:120px;'>" +
+								"<a>" + result.getDate() + " " + month.slice(0, 3) + " " + result.getFullYear() + "</a>" +
+							"</div>";
+				}
                 
                 if(len > 0){
+					var before = "";
                     for(var i=0; i<len; i++){
                         //Attribute
                         var body = response[i].body;
@@ -88,12 +108,24 @@
 						var phone = response[i].phone;
 						var garage_username = response[i].garage_username;
 						var imageURL = response[i].imageURL;
+						var chip = "";
+
+						const result = new Date(datetime);
+						var check = result.getDate() + result.getMonth() + result.getFullYear();
+
+						if(before != check){
+							before = check;
+							chip = datechip(datetime);
+						} else {
+							chip = "";
+						}
 
 						var tr_str = 
+							chip +
 							"<div class='chat-message-" + convertSender(sender) + " pb-4'>" +
 								"<div style='margin:10px !important;'>" + getImageProfile(type, sender, imageURL, guide_fullname, phone, garage_username) + "</div>" +
-								"<div class='flex-shrink-1 bg-light rounded py-2 px-3 mr-3'>" + body + 
-									"<div class='text-secondary mt-2' style='font-size:11px;'>" + datetime + "</div>" +
+								"<div class='flex-shrink-1 rounded py-2 px-3 mr-3' style='background:" + colorSender(sender) + ";'>" + body + 
+									"<div class='text-secondary mt-2' style='font-size:11px;'>" + convertDate(datetime) + "</div>" +
 									"<input type='text' value='" + body + "' id='msgBody" + id_message + "' hidden>" +
 								"</div>" +
 								"<div id='content'>" +

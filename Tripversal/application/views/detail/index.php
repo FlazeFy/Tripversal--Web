@@ -210,15 +210,15 @@
 		<div class="height-100">
 			<br>
 			<div class='row'>
-				<div class=col-md-9>
+				<div class='col-lg-9 col-md-12 col-sm-12'>
 					<div class='row'>
-						<div class=col-md-5>
+						<div class='col-md-5'>
 							<?php
 								//Detail image.
 								$this->load->view('detail/image');
 							?>
 						</div>
-						<div class=col-md-7>
+						<div class='col-md-7'>
 							<?php
 								//Detail profile.
 								$this->load->view('detail/profile');
@@ -248,7 +248,7 @@
 					?>
 				</div>
 								
-				<div class='col-md-3'>
+				<div class='col-lg-3 col-md-12 col-sm-12'>
 					<?php
 						if($this->session->userdata('set_typeBook') == 'Car Rental'){
 							//Garage detail.
