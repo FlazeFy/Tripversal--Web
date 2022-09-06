@@ -16,11 +16,11 @@
 													<div style='overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 10; line-clamp: 2; -webkit-box-orient: vertical;'
 													><p>".$travel['place_desc']."</p></div>
 													<p>".$travel['place_day']." - ".$travel['place_time']."</p>
-													<button class='btn btn-success' style='font-size:13px; width:130px;' data-toggle='modal' data-target=''><i class='fa-solid fa-location-dot'></i> See Location</button>
+													<button class='btn btn-success' style='font-size:13px; width:130px;' data-toggle='modal' data-target='#trv".$travel['id_place']."'><i class='fa-solid fa-location-dot'></i> See Location</button>
 												</div>
 											</div>
 										</div>
-									</div>";
+									</div>";	
 								}
 							}
 						?>
@@ -44,3 +44,5 @@
 		</div>
 	</div>
 </section>
+
+

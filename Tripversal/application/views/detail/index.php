@@ -272,6 +272,11 @@
 			$this->load->view('detail/zoom');
 		?>
 
+		<!-- See travel destination location modal -->
+		<?php 
+			$this->load->view('detail/destination_modal');
+		?>
+
 		<!--Success Modal-->
 		<?php
 			$this->load->view('popup/success');

@@ -112,9 +112,11 @@
     </head>
 
 	<body id="body-pd">
-		<?php
-			$this->load->view('navbar');
-		?>
+		<div class="l-navbar" id="nav-bar">
+			<?php
+				$this->load->view('sidebar');
+			?>
+		</div>
 		<!--Container Main start-->
 		<div class="container w-75">
 			<h3 class="mb-2">Profile</h3>
