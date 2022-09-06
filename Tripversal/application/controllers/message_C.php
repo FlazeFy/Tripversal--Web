@@ -18,6 +18,23 @@
 			$data['newMessageData']= $this->message_M->get_last_message();
 			$this->load->view('message/index', $data);
 		}
+
+		public function getMsg(){
+			$this->db->select('message.body, message.id_contact, user.imageURL, message.id_message, message.datetime, message.sender, contact.type, garage.garage_username, guide.guide_fullname, guide.phone, garage.id_garage, guide.id_guide');
+			$this->db->from('message');
+			$this->db->join('contact','contact.id_contact = message.id_contact');
+			$this->db->join('user','user.id_user = contact.id_user');
+			$this->db->join('garage','contact.id_garage_guide = garage.id_garage');
+			$this->db->join('guide','contact.id_garage_guide = guide.id_guide');
+			$condition = array('message.id_contact' => $this->session->userdata('set_id_contact'));
+			$this->db->where($condition);
+			$this->db->order_by('message.datetime','ASC');
+			$data = $this->db->get()->result_array();
+
+			echo json_encode($data);
+			exit;	
+		}
+
 		public function selectContact()
 		{
 			$id = $this->input->post('id_contact');
