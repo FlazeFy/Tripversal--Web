@@ -1,4 +1,4 @@
-<div class='container' style='background:#4169E1; border-radius:10px; color:whitesmoke; padding:10px; box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;'>
+<div class='container-fluid my-2' style='background:#4169E1; border-radius:10px; color:whitesmoke; padding:10px; box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;'>
 	<form action='rentACar_C/searchCarByControl' method="POST">
 		<h4>Control Section</h4>
 		<div class="row" style='margin-top:5px;'>

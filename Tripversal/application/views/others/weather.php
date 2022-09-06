@@ -1,4 +1,4 @@
-<div class='container-fluid' style='width:100%; height:100%; padding:10px;border-radius:10px;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;'>
+<div class='container-fluid m-1' style='padding:10px;border-radius:10px;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;'>
 	<?php
 		$city = $this->session->userdata('set_city');
 		echo"<a class='weatherwidget-io' href='"; 

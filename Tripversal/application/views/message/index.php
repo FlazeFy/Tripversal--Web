@@ -134,14 +134,14 @@
 
 		<!--Content-->
 		<div class="row g-0">
-			<div class="col-3">
+			<div class="col-lg-3 col-md-5 col-sm-12">
 				<h5 class="mt-4">Contact</h5>
 				<?php
 					//Contact list.
 					$this->load->view('message/contact');
 				?>
 			</div>
-			<div class="col-9">
+			<div class="col-lg-9 col-md-7 col-sm-12">
 				<div class="py-2 px-4 border-bottom d-none d-lg-block">
 					<?php
 						//Contanct mini profile.

@@ -1,4 +1,4 @@
-<div class='chat-messages p-4' id='chat-box'>
+<div class='chat-messages p-2' id='chat-box'>
 	<?php
 		foreach($messageData as $message){
 			if($message['id_contact'] == $this->session->userdata('set_id_contact')){
@@ -8,7 +8,7 @@
 							echo"
 							<div class='chat-message-right pb-4'>
 								<div style='margin:10px !important;'>
-									<img src='http://localhost/Tripversal/assets/uploads/user/user_".$contact['username'].".jpg' class='rounded-circle mr-1' alt='Chris Wood' width='40' height='40'>
+									<img src='http://localhost/Tripversal/assets/uploads/user/".$contact['imageURL'].".jpg' class='rounded-circle mr-1' alt='Chris Wood' width='40' height='40'>
 								</div>
 								<div class='flex-shrink-1 bg-light rounded py-2 px-3 mr-3'>
 									".$message['body']."

@@ -140,19 +140,19 @@
 		
 		<!--Content-->
 		<div class='row' style='margin-top:80px;'>
-			<div class='col-md-4'>
+			<div class='col-lg-4 col-md-6 col-sm-12'>
 				<?php
 					//Control section.
 					$this->load->view('rentacar/control');
 				?>
 			</div>
-			<div class='col-md-5'>
+			<div class='col-lg-5 col-md-6 col-sm-12'>
 				<?php
 					//Top used car.
 					$this->load->view('rentacar/topused');
 				?>
 			</div>
-			<div class='col-md-3'>
+			<div class='col-lg-3 col-md-12 col-sm-12'>
 				<?php
 					//Weather forecast.
 					$this->load->view('others/weather');
