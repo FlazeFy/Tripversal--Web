@@ -1,4 +1,4 @@
-<div class='container-fluid' style='width:100%;  padding:10px; background:#414141; border-radius:10px; padding-left:20px; box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;'>
+<div class='container-fluid my-2 p-3' style='background:#414141; border-radius:10px; padding-left:20px; box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;'>
 	<div class='row'>
 		<div class='col-md-3'>
 			<h4 style='margin-top:50px; color:whitesmoke;'>Top Used Car</h4>

@@ -7,6 +7,7 @@
 			$this->load->model('bookGuideCar_M');
 			$this->load->model('rentACar_M');
 			$this->load->model('landing_M');
+			$this->load->model('Ongoing_M');
 		}
 		public function index(){
 			$data = [];
@@ -19,6 +20,7 @@
 			$data['carRating']= $this->bookGuideCar_M->get_all_car_rating();
 			$data['tipsData']= $this->bookGuideCar_M->get_all_tips();
 			$data['travelData']= $this->bookGuideCar_M->get_all_travel();
+			$data['ongoingData']= $this->Ongoing_M->get_all_ongoing();
 			$this->load->view('detail/index', $data);
 		}
 		public function copyCoor(){

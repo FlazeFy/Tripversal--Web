@@ -68,6 +68,9 @@
 						line-clamp: 2; 
 				-webkit-box-orient: vertical;
 			}
+			header{
+				box-shadow:none !important;
+			}
 			#hero {
 				width: 100%;
 				height: 80vh;

@@ -1,4 +1,4 @@
-<h5 style='font-weight:600;'>Review</h5>
+<h5 style='font-weight:600;'><i class="fa-regular fa-comment"></i> Review</h5>
 <hr>
 <div id='myCarouselRating' class='carousel slide' data-ride='carousel' data-interval='0' style='width:115%; margin-left:-35px;'>
 	<!-- Carousel indicators -->

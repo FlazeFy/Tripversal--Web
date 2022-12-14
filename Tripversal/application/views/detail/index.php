@@ -227,6 +227,10 @@
 					</div>
 					<div class='row'>
 						<div class='col-md-5'>
+							<?php 
+								//Available date.
+								$this->load->view('detail/calendar');
+							?>
 							<?php
 								//Detail review.
 								$this->load->view('detail/review');

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 02 Jul 2022 pada 18.45
--- Versi server: 10.4.19-MariaDB
--- Versi PHP: 8.0.7
+-- Waktu pembuatan: 14 Des 2022 pada 17.41
+-- Versi server: 10.4.24-MariaDB
+-- Versi PHP: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -115,15 +115,16 @@ CREATE TABLE `garage` (
   `garage_desc` longtext NOT NULL,
   `garage_phone` varchar(14) NOT NULL,
   `garage_mail` varchar(35) NOT NULL,
-  `garage_coordinate` varchar(80) NOT NULL
+  `garage_coordinate` varchar(80) NOT NULL,
+  `garage_active` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `garage`
 --
 
-INSERT INTO `garage` (`id_garage`, `garage_name`, `garage_username`, `garage_location`, `garage_desc`, `garage_phone`, `garage_mail`, `garage_coordinate`) VALUES
-(1, 'Maju Jaya Rent', 'majujaya', 'Jl. Telekomunikasi No.1', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sit amet porttitor eget dolor morbi non. At auctor urna nunc id cursus metus. Odio aenean sed adipiscing diam donec. Lacus laoreet non curabitur gravida arcu ac tortor. Interdum velit laoreet id donec ultrices. Posuere urna nec tincidunt praesent semper feugiat.\r\n\r\nNulla posuere sollicitudin aliquam ultrices sagittis orci a. Phasellus faucibus scelerisque eleifend donec pretium vulputate sapien. Non consectetur a erat nam. Venenatis cras sed felis eget. Commodo ullamcorper a lacus vestibulum sed arcu non odio. Id semper risus in hendrerit gravida rutrum quisque non. Morbi tristique senectus et netus.\r\n\r\nPellentesque elit eget gravida cum sociis natoque penatibus. Porta lorem mollis aliquam ut porttitor leo a. Aliquet nibh praesent tristique magna sit amet purus. Molestie a iaculis at erat. Sem integer vitae justo eget magna. Sociis natoque penatibus et magnis dis parturient. Quisque id diam vel quam. Rhoncus est pellentesque elit ullamcorper.', '08114882002', 'majujaya@gmail.com', '-6.972483, 107.634146');
+INSERT INTO `garage` (`id_garage`, `garage_name`, `garage_username`, `garage_location`, `garage_desc`, `garage_phone`, `garage_mail`, `garage_coordinate`, `garage_active`) VALUES
+(1, 'Maju Jaya Rent', 'majujaya', 'Jl. Telekomunikasi No.1', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sit amet porttitor eget dolor morbi non. At auctor urna nunc id cursus metus. Odio aenean sed adipiscing diam donec. Lacus laoreet non curabitur gravida arcu ac tortor. Interdum velit laoreet id donec ultrices. Posuere urna nec tincidunt praesent semper feugiat.\r\n\r\nNulla posuere sollicitudin aliquam ultrices sagittis orci a. Phasellus faucibus scelerisque eleifend donec pretium vulputate sapien. Non consectetur a erat nam. Venenatis cras sed felis eget. Commodo ullamcorper a lacus vestibulum sed arcu non odio. Id semper risus in hendrerit gravida rutrum quisque non. Morbi tristique senectus et netus.\r\n\r\nPellentesque elit eget gravida cum sociis natoque penatibus. Porta lorem mollis aliquam ut porttitor leo a. Aliquet nibh praesent tristique magna sit amet purus. Molestie a iaculis at erat. Sem integer vitae justo eget magna. Sociis natoque penatibus et magnis dis parturient. Quisque id diam vel quam. Rhoncus est pellentesque elit ullamcorper.', '08114882002', 'majujaya@gmail.com', '-6.972483, 107.634146', 'offline');
 
 -- --------------------------------------------------------
 
@@ -141,15 +142,16 @@ CREATE TABLE `guide` (
   `city` varchar(20) NOT NULL,
   `location` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `status` varchar(15) NOT NULL
+  `status` varchar(15) NOT NULL,
+  `guide_active` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `guide`
 --
 
-INSERT INTO `guide` (`id_guide`, `guide_fullname`, `language`, `price`, `description`, `phone`, `city`, `location`, `email`, `status`) VALUES
-(1, 'Raymond Tex', 'ID, EN, ES', 430000, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', '08114888790', 'Bandung', 'Jl. Terusan Buah Batu', 'reymon.ex@gmail.com', 'available');
+INSERT INTO `guide` (`id_guide`, `guide_fullname`, `language`, `price`, `description`, `phone`, `city`, `location`, `email`, `status`, `guide_active`) VALUES
+(1, 'Raymond Tex', 'ID, EN, ES', 430000, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', '08114888790', 'Bandung', 'Jl. Terusan Buah Batu', 'reymon.ex@gmail.com', 'available', 'online');
 
 -- --------------------------------------------------------
 
@@ -193,10 +195,14 @@ CREATE TABLE `message` (
 --
 
 INSERT INTO `message` (`id_message`, `id_contact`, `body`, `datetime`, `type`, `sender`) VALUES
-(1, 1, 'Hallo apakah untuk besok masih ada stok rental brio MT?', '2022-07-02 16:15:27', 'Text', 'customer'),
+(1, 1, 'Hallo apakah untuk besok masih ada stok rental brio MT?', '2021-12-08 16:15:27', 'Text', 'customer'),
 (2, 2, 'Hallo nama saya Raymond, saya akan menjadi pemandu wisata Anda selama di Bandung untuk 2 hari kedepan', '2022-07-02 16:15:27', 'Text', 'seller'),
 (3, 2, 'Untuk besok meet dimana ya?', '2022-07-02 17:30:56', 'Text', 'seller'),
-(4, 1, 'yg tanpa sopir', '2022-07-02 18:32:36', 'Text', 'customer');
+(4, 1, 'yg tanpa sopir', '2022-07-02 18:32:36', 'Text', 'customer'),
+(5, 2, 'di borma boleh', '2022-07-09 07:07:01', 'Text', 'customer'),
+(41, 1, 'p!!!', '2022-09-06 12:35:02', 'Text', 'customer'),
+(45, 2, 'atau ga di transmart bubat', '2022-09-06 06:13:36', 'Text', 'customer'),
+(46, 2, 'blokkk', '2022-12-14 03:55:49', 'Text', 'customer');
 
 -- --------------------------------------------------------
 
@@ -223,6 +229,32 @@ INSERT INTO `notification` (`id_notification`, `id_user`, `type`, `id_car_guide`
 (1, 1, 'message_car', 3, 'Hello do you want me to be ready for tommorow?', '2022-05-12 02:44:04', '2022-05-12 02:44:04', '2022-05-12 02:44:04'),
 (2, 0, 'maintenance', 0, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', '2022-05-13 22:00:00', '2022-05-13 22:00:00', '2022-05-13 23:59:00'),
 (3, 1, 'message_guide', 1, 'Hello. my name is Raymond, and I will be your tour guide for the next 24 hr', '2022-05-30 08:16:51', '2022-05-30 08:16:51', '2022-05-30 08:16:51');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `ongoing`
+--
+
+CREATE TABLE `ongoing` (
+  `id` int(10) NOT NULL,
+  `id_context` int(10) NOT NULL,
+  `id_user` int(10) NOT NULL,
+  `type_context` varchar(10) NOT NULL,
+  `date_start` datetime NOT NULL,
+  `date_end` datetime NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `ongoing`
+--
+
+INSERT INTO `ongoing` (`id`, `id_context`, `id_user`, `type_context`, `date_start`, `date_end`, `created_at`, `updated_at`) VALUES
+(1, 1, 1, 'Car Rental', '2022-12-07 22:40:48', '2022-12-09 22:40:48', '2022-12-14 16:40:48', '2022-12-14 16:40:48'),
+(2, 1, 2, 'Car Rental', '2022-12-15 22:40:48', '2022-12-16 22:40:48', '2022-12-14 16:40:48', '2022-12-14 16:40:48'),
+(3, 1, 1, 'Tour Guide', '2022-12-23 16:40:48', '2022-12-16 22:42:14', '2022-12-14 16:40:48', '2022-12-14 16:40:48');
 
 -- --------------------------------------------------------
 
@@ -305,20 +337,22 @@ CREATE TABLE `user` (
   `id_user` int(10) NOT NULL,
   `fullname` varchar(30) NOT NULL,
   `username` varchar(20) NOT NULL,
-  `address` varchar(30) NOT NULL,
+  `address` varchar(80) NOT NULL,
   `nik` varchar(16) NOT NULL,
   `email` varchar(30) NOT NULL,
   `password` varchar(20) NOT NULL,
-  `phone` varchar(14) NOT NULL
+  `phone` varchar(14) NOT NULL,
+  `imageURL` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `user`
 --
 
-INSERT INTO `user` (`id_user`, `fullname`, `username`, `address`, `nik`, `email`, `password`, `phone`) VALUES
-(1, 'Leonardho R Sitanggang', 'flazefy', 'Jl. Telekomunikasi No.1', '1234567891234561', 'flazen.edu@gmail.com', 'nopass123', '08114809123'),
-(2, 'RIchard Kyle', 'richardkyle', 'Jl. Terusan Buah Batu No.24', '1862347919412375', 'richardkylee@gmail.com', 'tester123', '081248857133');
+INSERT INTO `user` (`id_user`, `fullname`, `username`, `address`, `nik`, `email`, `password`, `phone`, `imageURL`) VALUES
+(1, 'Leonardho Rante Sitanggang', 'flazefy', 'Jl. Telekomunikasi No.10', '1234567891234222', 'flazen.edu@gmail.com', 'nopass123', '08114809222', 'user_76bcbfa82a2aef658da91f4030e9a6'),
+(2, 'RIchard Kyle', 'richardkyle', 'Jl. Terusan Buah Batu No.24', '1862347919412375', 'richardkylee@gmail.com', 'tester123', '081248857133', 'user_fGQvhM66n2nAbAiggDxGRVXwNkMVhU'),
+(3, 'Rosemonde March', 'rosemonde', 'Jl. Telekomunikasi Jl. Terusan Buah Batu', '1231231231231231', 'tes@gmail.com', 'tester123', '08123456789', 'user_870ce3912d7c0d6f8759b84ccea45c');
 
 --
 -- Indexes for dumped tables
@@ -371,6 +405,12 @@ ALTER TABLE `message`
 --
 ALTER TABLE `notification`
   ADD PRIMARY KEY (`id_notification`);
+
+--
+-- Indeks untuk tabel `ongoing`
+--
+ALTER TABLE `ongoing`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indeks untuk tabel `rent`
@@ -440,13 +480,19 @@ ALTER TABLE `guide_rating`
 -- AUTO_INCREMENT untuk tabel `message`
 --
 ALTER TABLE `message`
-  MODIFY `id_message` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_message` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT untuk tabel `notification`
 --
 ALTER TABLE `notification`
   MODIFY `id_notification` int(14) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT untuk tabel `ongoing`
+--
+ALTER TABLE `ongoing`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `rent`
@@ -470,7 +516,7 @@ ALTER TABLE `travel_destination`
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_user` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
